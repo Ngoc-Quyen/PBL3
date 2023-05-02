@@ -34,5 +34,10 @@ namespace PBL3.View
             f.ShowDialog();
             this.Show();
         }
+
+        private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

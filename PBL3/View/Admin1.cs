@@ -282,7 +282,7 @@ namespace PBL3.View
 
         #endregion
         #region EventAccount
-        void LoadAccount()
+        public void LoadAccount()
         {
             _enableAccount();
             dtgvAccount.DataSource = QLDangNhap.Instance.GetAllAccounts();
@@ -334,7 +334,9 @@ namespace PBL3.View
 
         private void btDelAccount_Click(object sender, EventArgs e)
         {
-
+            string id = txtAccountName.Text;
+            QLTaiKhoan.Instance.Delete(id);
+            LoadAccount();
         }
 
         private void btShowAccount_Click(object sender, EventArgs e)
