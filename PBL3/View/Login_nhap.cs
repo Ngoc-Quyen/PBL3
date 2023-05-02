@@ -52,7 +52,8 @@ namespace PBL3.View
             
             if (CheckLogin(userName, passWord))
             {
-                QuanLy f = new QuanLy();
+                Account loginAccount = QLTaiKhoan.Instance.GetAccountBy(userName);
+                QuanLy f = new QuanLy(loginAccount);
                 this.Hide();
                 f.ShowDialog();
                 this.Show();

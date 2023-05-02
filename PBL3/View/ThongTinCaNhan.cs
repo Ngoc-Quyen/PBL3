@@ -13,18 +13,37 @@ namespace PBL3.View
 {
     public partial class ThongTinCaNhan : Form
     {
+        private Account loginAccount;
+
+        public Account LoginAccount
+        {
+            get => loginAccount;
+            set
+            {
+                loginAccount = value;
+                ChangeAccount(loginAccount);
+            }
+        }
         Admin1 admin = new Admin1();
-        public ThongTinCaNhan()
+        public ThongTinCaNhan(Account acc)
         {
             InitializeComponent();
-            cbAccountType_Show();
+            //cbAccountType_Show();
+            LoginAccount = acc;
         }
-        public void cbAccountType_Show()
+
+        void ChangeAccount(Account acc)
         {
-            cbAccountType.DataSource = QLTaiKhoan.Instance.GetAllType();
-            cbAccountType.DisplayMember = "NameType";
-            cbAccountType.ValueMember = "IdType";
+            txtUserName.Text = loginAccount.UserName;
+            txtDisplayName.Text = loginAccount.DisplayName;
+
         }
+        //public void cbAccountType_Show()
+        //{
+        //    cbAccountType.DataSource = QLTaiKhoan.Instance.GetAllType();
+        //    cbAccountType.DisplayMember = "NameType";
+        //    cbAccountType.ValueMember = "IdType";
+        //}
 
         private void btSaveTT_Click(object sender, EventArgs e)
         {
@@ -32,7 +51,7 @@ namespace PBL3.View
             ac.UserName = txtUserName.Text;
             ac.DisplayName = txtDisplayName.Text;
             ac.PassWord = txtPassWordNew.Text;
-            ac.Type = cbAccountType.SelectedIndex;
+            //ac.Type = cbAccountType.SelectedIndex;
             QLTaiKhoan.Instance.Edit(ac);
             admin.LoadAccount();
             MessageBox.Show("Bạn đã cập nhật thành công!");

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PBL3.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace PBL3.BLL
 {
     class QLTaiKhoan
     {
-        TestPbl3Entities1 db = new TestPbl3Entities1();
+        TestPbl3Entities db = new TestPbl3Entities();
         private static QLTaiKhoan instance;
 
         public static QLTaiKhoan Instance 
@@ -28,11 +29,15 @@ namespace PBL3.BLL
             var list = db.Accounts.Select(p => p);
             return list.ToList();
         }
-        public Account GetAccountBy(string id)
+        public Account GetAccountByPrime(string id)  //lấy account theo khóa chính
         {
             Account account = new Account();
             account = db.Accounts.Find(id);
             return account;
+        }
+        public Account GetAccountBy(string userName)    //lấy account theo thuộc tính, nếu ko tìm thấy trả về giá trị mặc định là null
+        {
+            return db.Accounts.FirstOrDefault(p => p.UserName == userName);
         }
         public bool Check(string id)
         {
@@ -108,21 +113,22 @@ namespace PBL3.BLL
         }
         public List<Account> GetAccountBySearch(string txt)
         {
-            var l = db.Accounts.Where(p => p.UserName == txt).ToList();
+            var l = db.Accounts.Where(p => p.UserName.Contains(txt)).ToList();
             return l;
         }
-        
-        //public List<string> GetColum(string txt)
-        //{
-        //    var columns = db.Set<txt>().EntityType.GetProperties().Select(p => p.Name).ToList();
-        //    return columns;
-        //}
 
         public List<TypeAccount> GetAllType()
         {
             var l = db.TypeAccounts.Select(p => p);
             return l.ToList();
         }
+
+        void ChangeLogin(int type)
+        {
+            
+                
+        }    
+
 
     }
 }

@@ -15,7 +15,7 @@ namespace PBL3.View
 {
     public partial class Admin1 : Form
     {
-        TestPbl3Entities1 db = new TestPbl3Entities1();
+        TestPbl3Entities db = new TestPbl3Entities();
         bool _them;
         public Admin1()
         {
@@ -308,7 +308,7 @@ namespace PBL3.View
             btShowAccount.Visible = true;
             btAddAccount.Visible = true;
             btDelAccount.Visible = true;
-            panelVaitro.Visible = true;
+            //panelVaitro.Visible = true;
             panelSearchAccount.Visible = true;
             btResetPassWord.Visible = true;
 
@@ -319,7 +319,7 @@ namespace PBL3.View
             btShowAccount.Visible = false;
             btAddAccount.Visible = false;
             btDelAccount.Visible = false;
-            panelVaitro.Visible = false;
+            //panelVaitro.Visible = false;
             panelSearchAccount.Visible = false;
             btResetPassWord.Visible = false;
         }
@@ -341,7 +341,8 @@ namespace PBL3.View
 
         private void btShowAccount_Click(object sender, EventArgs e)
         {
-
+            LoadAccount();
+            ResetAccount();
         }
 
         private void btSaveAccount_Click(object sender, EventArgs e)
@@ -366,24 +367,8 @@ namespace PBL3.View
             _enableAccount();
             ResetAccount();
         }
-
-        #endregion
-
-        private void cbSearchAccount_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         public void cbSearchAccount_Show()
         {
-            //var columns = db.Set<Account>().GetType().GetProperties().Select(p => p.Name).ToList();
-            //foreach (var column in columns)
-            //{
-            //    cbSearchAccount.Items.Add(column);
-            //}
-            //if (cbSearchAccount.Items.Count > 0)
-            //{
-            //    cbSearchAccount.SelectedIndex = 0;
-            //}
             cbSearchAccount.DataSource = QLTaiKhoan.Instance.GetAllAccount();
             cbSearchAccount.DisplayMember = "DisplayName";
             cbSearchAccount.ValueMember = "UserName";
@@ -402,5 +387,11 @@ namespace PBL3.View
             }
 
         }
+        private void btSearchAccount_Click(object sender, EventArgs e)
+        {
+            string IdAccount = cbSearchAccount.SelectedValue.ToString();
+            dtgvAccount.DataSource = QLTaiKhoan.Instance.GetAccountBySearch(IdAccount);
+        }
+        #endregion
     }
 }

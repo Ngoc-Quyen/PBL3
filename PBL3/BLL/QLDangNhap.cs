@@ -9,7 +9,7 @@ namespace PBL3.BLL
 {
     internal class QLDangNhap
     {
-        TestPbl3Entities1 db = new TestPbl3Entities1();
+        TestPbl3Entities db = new TestPbl3Entities();
         private static QLDangNhap instance;
 
         public static QLDangNhap Instance 

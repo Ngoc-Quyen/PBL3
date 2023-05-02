@@ -10,7 +10,7 @@ namespace PBL3.BLL
 {
     public class QLXe1
     {
-        TestPbl3Entities1 db = new TestPbl3Entities1();
+        TestPbl3Entities db = new TestPbl3Entities();
         private static QLXe1 instance;
 
         public static QLXe1 Instance

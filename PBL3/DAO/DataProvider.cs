@@ -10,7 +10,7 @@ namespace PBL3.DAO
     class DataProvider
     {
         private static DataProvider instance;
-        private TestPbl3Entities1 db = new TestPbl3Entities1();
+        private TestPbl3Entities db = new TestPbl3Entities();
 
         public static DataProvider Instance 
         {

@@ -12,11 +12,37 @@ namespace PBL3.View
 {
     public partial class QuanLy : Form
     {
-        public QuanLy()
-        {
-            InitializeComponent();
+        private  Account loginAccount;
+
+        public  Account LoginAccount
+        { 
+            get => loginAccount; 
+            set 
+            {
+                loginAccount = value;
+                ChangeAccount(Convert.ToInt32(loginAccount.Type.ToString()));
+            }
         }
 
+        public QuanLy(Account acc)
+        {
+            InitializeComponent();
+            this.LoginAccount = acc;
+        }
+
+        void ChangeAccount(int type)
+        {
+            if (type != 1)
+            {
+                adminToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                adminToolStripMenuItem.Enabled = true;
+            }
+            thôngTinTàiKhoảnToolStripMenuItem.Text += " (" + LoginAccount.DisplayName + ")";
+            
+        }
         private void lbDiembatdau_Click(object sender, EventArgs e)
         {
 
@@ -37,7 +63,10 @@ namespace PBL3.View
 
         private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ThongTinCaNhan f = new ThongTinCaNhan(LoginAccount);
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
         }
     }
 }

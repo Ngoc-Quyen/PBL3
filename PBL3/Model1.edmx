@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TestPbl3Model1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="TestPbl3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="UserName" />
@@ -60,6 +60,18 @@
           <Property Name="IdType" Type="int" Nullable="false" />
           <Property Name="NameType" Type="nvarchar" MaxLength="100" />
         </EntityType>
+        <Association Name="FK_Account_TypeAccount">
+          <End Role="TypeAccount" Type="Self.TypeAccount" Multiplicity="0..1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeAccount">
+              <PropertyRef Name="IdType" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Schedule_Car">
           <End Role="Car" Type="Self.Car" Multiplicity="0..1" />
           <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
@@ -84,13 +96,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TestPbl3Model1StoreContainer">
+        <EntityContainer Name="TestPbl3ModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Car" EntityType="Self.Car" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeAccount" EntityType="Self.TypeAccount" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Account_TypeAccount" Association="Self.FK_Account_TypeAccount">
+            <End Role="TypeAccount" EntitySet="TypeAccount" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
           <AssociationSet Name="FK_Schedule_Car" Association="Self.FK_Schedule_Car">
             <End Role="Car" EntitySet="Car" />
             <End Role="Schedule" EntitySet="Schedule" />
@@ -104,7 +120,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="TestPbl3Model1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="TestPbl3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="UserName" />
@@ -113,6 +129,7 @@
           <Property Name="DisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="PassWord" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Type" Type="Int32" />
+          <NavigationProperty Name="TypeAccount" Relationship="Self.FK_Account_TypeAccount" FromRole="Account" ToRole="TypeAccount" />
         </EntityType>
         <EntityType Name="Car">
           <Key>
@@ -163,7 +180,20 @@
           </Key>
           <Property Name="IdType" Type="Int32" Nullable="false" />
           <Property Name="NameType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK_Account_TypeAccount" FromRole="TypeAccount" ToRole="Account" />
         </EntityType>
+        <Association Name="FK_Account_TypeAccount">
+          <End Role="TypeAccount" Type="Self.TypeAccount" Multiplicity="0..1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeAccount">
+              <PropertyRef Name="IdType" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Schedule_Car">
           <End Role="Car" Type="Self.Car" Multiplicity="0..1" />
           <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
@@ -188,13 +218,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TestPbl3Entities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="TestPbl3Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Accounts" EntityType="Self.Account" />
           <EntitySet Name="Cars" EntityType="Self.Car" />
           <EntitySet Name="Schedules" EntityType="Self.Schedule" />
           <EntitySet Name="Staffs" EntityType="Self.Staff" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TypeAccounts" EntityType="Self.TypeAccount" />
+          <AssociationSet Name="FK_Account_TypeAccount" Association="Self.FK_Account_TypeAccount">
+            <End Role="TypeAccount" EntitySet="TypeAccounts" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
           <AssociationSet Name="FK_Schedule_Car" Association="Self.FK_Schedule_Car">
             <End Role="Car" EntitySet="Cars" />
             <End Role="Schedule" EntitySet="Schedules" />
@@ -209,9 +243,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TestPbl3Model1StoreContainer" CdmEntityContainer="TestPbl3Entities1">
+        <EntityContainerMapping StorageEntityContainer="TestPbl3ModelStoreContainer" CdmEntityContainer="TestPbl3Entities">
           <EntitySetMapping Name="Accounts">
-            <EntityTypeMapping TypeName="TestPbl3Model1.Account">
+            <EntityTypeMapping TypeName="TestPbl3Model.Account">
               <MappingFragment StoreEntitySet="Account">
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
@@ -221,7 +255,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cars">
-            <EntityTypeMapping TypeName="TestPbl3Model1.Car">
+            <EntityTypeMapping TypeName="TestPbl3Model.Car">
               <MappingFragment StoreEntitySet="Car">
                 <ScalarProperty Name="IdCar" ColumnName="IdCar" />
                 <ScalarProperty Name="NameCar" ColumnName="NameCar" />
@@ -231,7 +265,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Schedules">
-            <EntityTypeMapping TypeName="TestPbl3Model1.Schedule">
+            <EntityTypeMapping TypeName="TestPbl3Model.Schedule">
               <MappingFragment StoreEntitySet="Schedule">
                 <ScalarProperty Name="IdSchedule" ColumnName="IdSchedule" />
                 <ScalarProperty Name="IdCar" ColumnName="IdCar" />
@@ -243,7 +277,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Staffs">
-            <EntityTypeMapping TypeName="TestPbl3Model1.Staff">
+            <EntityTypeMapping TypeName="TestPbl3Model.Staff">
               <MappingFragment StoreEntitySet="Staff">
                 <ScalarProperty Name="IdStaff" ColumnName="IdStaff" />
                 <ScalarProperty Name="NameStaff" ColumnName="NameStaff" />
@@ -253,7 +287,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="TestPbl3Model1.sysdiagram">
+            <EntityTypeMapping TypeName="TestPbl3Model.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -264,7 +298,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TypeAccounts">
-            <EntityTypeMapping TypeName="TestPbl3Model1.TypeAccount">
+            <EntityTypeMapping TypeName="TestPbl3Model.TypeAccount">
               <MappingFragment StoreEntitySet="TypeAccount">
                 <ScalarProperty Name="IdType" ColumnName="IdType" />
                 <ScalarProperty Name="NameType" ColumnName="NameType" />

@@ -9,7 +9,7 @@ namespace PBL3.BLL
 {
     public class QLTaiXe
     {
-        TestPbl3Entities1 db = new TestPbl3Entities1();
+        TestPbl3Entities db = new TestPbl3Entities();
         private static QLTaiXe instance;
         public static QLTaiXe Instance 
         {

@@ -9,7 +9,7 @@ namespace PBL3.DAL
 {
     public class Xe
     {
-        TestPbl3Entities1 db = new TestPbl3Entities1();
+        TestPbl3Entities db = new TestPbl3Entities();
         private static Xe instance;
 
         public static Xe Instance 

@@ -45,16 +45,12 @@
             this.txtPassWordNew = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbAccountType = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel23.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // btSaveTT
@@ -225,47 +221,17 @@
             // 
             this.panel5.Controls.Add(this.btExitTT);
             this.panel5.Controls.Add(this.btSaveTT);
-            this.panel5.Location = new System.Drawing.Point(247, 513);
+            this.panel5.Location = new System.Drawing.Point(247, 439);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(338, 56);
             this.panel5.TabIndex = 6;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.cbAccountType);
-            this.panel6.Controls.Add(this.label4);
-            this.panel6.Location = new System.Drawing.Point(12, 426);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(573, 60);
-            this.panel6.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(5, 13);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(193, 29);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Loại tài khoản:";
-            // 
-            // cbAccountType
-            // 
-            this.cbAccountType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbAccountType.FormattingEnabled = true;
-            this.cbAccountType.Location = new System.Drawing.Point(271, 18);
-            this.cbAccountType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbAccountType.Name = "cbAccountType";
-            this.cbAccountType.Size = new System.Drawing.Size(260, 24);
-            this.cbAccountType.TabIndex = 48;
             // 
             // ThongTinCaNhan
             // 
             this.AcceptButton = this.btSaveTT;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(617, 581);
-            this.Controls.Add(this.panel6);
+            this.ClientSize = new System.Drawing.Size(617, 527);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -286,8 +252,6 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -311,8 +275,5 @@
         private System.Windows.Forms.TextBox txtPassWordNew;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cbAccountType;
     }
 }

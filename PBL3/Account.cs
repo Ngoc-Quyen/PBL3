@@ -18,5 +18,7 @@ namespace PBL3
         public string DisplayName { get; set; }
         public string PassWord { get; set; }
         public Nullable<int> Type { get; set; }
+    
+        public virtual TypeAccount TypeAccount { get; set; }
     }
 }
