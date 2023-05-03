@@ -20,8 +20,11 @@ namespace PBL3
         public string IdStaff { get; set; }
         public string Location { get; set; }
         public string Destination { get; set; }
+        public Nullable<System.DateTime> DateLocation { get; set; }
+        public Nullable<int> IdStatus { get; set; }
     
         public virtual Car Car { get; set; }
         public virtual Staff Staff { get; set; }
+        public virtual Status Status { get; set; }
     }
 }

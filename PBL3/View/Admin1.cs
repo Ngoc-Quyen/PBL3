@@ -32,6 +32,7 @@ namespace PBL3.View
             LoadCar();
             LoadStaff();
             LoadAccount();
+            LoadSchedule();
         }
 
         #region EventCar
@@ -281,6 +282,7 @@ namespace PBL3.View
         }
 
         #endregion
+
         #region EventAccount
         public void LoadAccount()
         {
@@ -392,6 +394,47 @@ namespace PBL3.View
             string IdAccount = cbSearchAccount.SelectedValue.ToString();
             dtgvAccount.DataSource = QLTaiKhoan.Instance.GetAccountBySearch(IdAccount);
         }
+        #endregion
+
+        #region EventSchedule
+
+        public void LoadSchedule()
+        {
+            _enableSchedule();
+            dtgvSchedule.DataSource = QLLichTrinh.Instance.GetAllSchedule();
+
+        }
+        public void ResetSchedule()
+        {
+            txtIdCutomer.Text = "";
+            cbIdCar.ResetText();
+            cbIdStaff.ResetText();
+            txtLocation.ResetText();
+            dtLocation.ResetText();
+            txtDestination.ResetText();
+            cbStatus.ResetText();
+        }
+        void _enableSchedule()
+        {
+            btSaveSchedule.Visible = false;
+            btExitSchedule.Visible = false;
+            btAddSchedule.Visible = true;
+            btDeleteSchedule.Visible = true;
+            btEditSchedule.Visible = true;
+            btShowSchedule.Visible = true;
+            panelSearchSchedule.Visible = true;
+        }
+        void _disableSchedule()
+        {
+            btSaveSchedule.Visible = true;
+            btExitSchedule.Visible = true;
+            btAddSchedule.Visible = false;
+            btDeleteSchedule.Visible = false;
+            btEditSchedule.Visible = false;
+            btShowSchedule.Visible = false;
+            panelSearchSchedule.Visible = false;
+        }
+
         #endregion
     }
 }

@@ -32,6 +32,46 @@
             this.tpBaocao = new System.Windows.Forms.TabPage();
             this.tpHoadon = new System.Windows.Forms.TabPage();
             this.tpLichtrinh = new System.Windows.Forms.TabPage();
+            this.panelSearchSchedule = new System.Windows.Forms.Panel();
+            this.cbSearchSchedule = new System.Windows.Forms.ComboBox();
+            this.gbDanhmuc = new System.Windows.Forms.GroupBox();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.btSearchSchedule = new System.Windows.Forms.Button();
+            this.panel26 = new System.Windows.Forms.Panel();
+            this.panel27 = new System.Windows.Forms.Panel();
+            this.cbStatus = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel34 = new System.Windows.Forms.Panel();
+            this.txtDestination = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.panel32 = new System.Windows.Forms.Panel();
+            this.dtLocation = new System.Windows.Forms.DateTimePicker();
+            this.label14 = new System.Windows.Forms.Label();
+            this.panel31 = new System.Windows.Forms.Panel();
+            this.txtLocation = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.panel30 = new System.Windows.Forms.Panel();
+            this.cbIdCar = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel29 = new System.Windows.Forms.Panel();
+            this.cbIdStaff = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel28 = new System.Windows.Forms.Panel();
+            this.txtIdCutomer = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.dtgvSchedule = new System.Windows.Forms.DataGridView();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.btSaveSchedule = new System.Windows.Forms.Button();
+            this.btEditSchedule = new System.Windows.Forms.Button();
+            this.btExitSchedule = new System.Windows.Forms.Button();
+            this.btShowSchedule = new System.Windows.Forms.Button();
+            this.btDeleteSchedule = new System.Windows.Forms.Button();
+            this.btAddSchedule = new System.Windows.Forms.Button();
             this.tpXe = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btSaveCar = new System.Windows.Forms.Button();
@@ -113,15 +153,21 @@
             this.panel23 = new System.Windows.Forms.Panel();
             this.txtAccountName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.btSaveSchedule = new System.Windows.Forms.Button();
-            this.btEditSchedule = new System.Windows.Forms.Button();
-            this.btExitSchedule = new System.Windows.Forms.Button();
-            this.btShowSchedule = new System.Windows.Forms.Button();
-            this.btDeleteSchedule = new System.Windows.Forms.Button();
-            this.btAddSchedule = new System.Windows.Forms.Button();
             this.tabAdmin.SuspendLayout();
             this.tpLichtrinh.SuspendLayout();
+            this.panelSearchSchedule.SuspendLayout();
+            this.gbDanhmuc.SuspendLayout();
+            this.panel26.SuspendLayout();
+            this.panel27.SuspendLayout();
+            this.panel34.SuspendLayout();
+            this.panel32.SuspendLayout();
+            this.panel31.SuspendLayout();
+            this.panel30.SuspendLayout();
+            this.panel29.SuspendLayout();
+            this.panel28.SuspendLayout();
+            this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvSchedule)).BeginInit();
+            this.panel6.SuspendLayout();
             this.tpXe.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -155,7 +201,6 @@
             this.panel21.SuspendLayout();
             this.panel22.SuspendLayout();
             this.panel23.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabAdmin
@@ -196,6 +241,9 @@
             // 
             // tpLichtrinh
             // 
+            this.tpLichtrinh.Controls.Add(this.panelSearchSchedule);
+            this.tpLichtrinh.Controls.Add(this.panel26);
+            this.tpLichtrinh.Controls.Add(this.panel11);
             this.tpLichtrinh.Controls.Add(this.panel6);
             this.tpLichtrinh.Location = new System.Drawing.Point(4, 29);
             this.tpLichtrinh.Name = "tpLichtrinh";
@@ -204,6 +252,436 @@
             this.tpLichtrinh.TabIndex = 2;
             this.tpLichtrinh.Text = "Lịch trình";
             this.tpLichtrinh.UseVisualStyleBackColor = true;
+            // 
+            // panelSearchSchedule
+            // 
+            this.panelSearchSchedule.Controls.Add(this.cbSearchSchedule);
+            this.panelSearchSchedule.Controls.Add(this.gbDanhmuc);
+            this.panelSearchSchedule.Controls.Add(this.btSearchSchedule);
+            this.panelSearchSchedule.Location = new System.Drawing.Point(9, 378);
+            this.panelSearchSchedule.Name = "panelSearchSchedule";
+            this.panelSearchSchedule.Size = new System.Drawing.Size(502, 116);
+            this.panelSearchSchedule.TabIndex = 50;
+            // 
+            // cbSearchSchedule
+            // 
+            this.cbSearchSchedule.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSearchSchedule.FormattingEnabled = true;
+            this.cbSearchSchedule.Location = new System.Drawing.Point(7, 53);
+            this.cbSearchSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbSearchSchedule.Name = "cbSearchSchedule";
+            this.cbSearchSchedule.Size = new System.Drawing.Size(142, 28);
+            this.cbSearchSchedule.TabIndex = 48;
+            // 
+            // gbDanhmuc
+            // 
+            this.gbDanhmuc.Controls.Add(this.radioButton5);
+            this.gbDanhmuc.Controls.Add(this.radioButton4);
+            this.gbDanhmuc.Controls.Add(this.radioButton3);
+            this.gbDanhmuc.Controls.Add(this.radioButton2);
+            this.gbDanhmuc.Controls.Add(this.radioButton1);
+            this.gbDanhmuc.Location = new System.Drawing.Point(155, 6);
+            this.gbDanhmuc.Name = "gbDanhmuc";
+            this.gbDanhmuc.Size = new System.Drawing.Size(342, 91);
+            this.gbDanhmuc.TabIndex = 49;
+            this.gbDanhmuc.TabStop = false;
+            this.gbDanhmuc.Text = "Danh mục";
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(112, 61);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(105, 24);
+            this.radioButton5.TabIndex = 4;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.Text = "Trạng thái";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(7, 61);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(50, 24);
+            this.radioButton4.TabIndex = 3;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Xe";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(201, 24);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(118, 24);
+            this.radioButton3.TabIndex = 2;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Khách hàng";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(112, 24);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(75, 24);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Tài xế";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(7, 24);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(98, 24);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Thời gian";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // btSearchSchedule
+            // 
+            this.btSearchSchedule.BackColor = System.Drawing.Color.White;
+            this.btSearchSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSearchSchedule.Image = global::PBL3.Properties.Resources.search_icon1;
+            this.btSearchSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btSearchSchedule.Location = new System.Drawing.Point(5, 6);
+            this.btSearchSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btSearchSchedule.Name = "btSearchSchedule";
+            this.btSearchSchedule.Size = new System.Drawing.Size(144, 40);
+            this.btSearchSchedule.TabIndex = 46;
+            this.btSearchSchedule.Text = "Tìm kiếm";
+            this.btSearchSchedule.UseVisualStyleBackColor = false;
+            // 
+            // panel26
+            // 
+            this.panel26.Controls.Add(this.panel27);
+            this.panel26.Controls.Add(this.panel34);
+            this.panel26.Controls.Add(this.panel32);
+            this.panel26.Controls.Add(this.panel31);
+            this.panel26.Controls.Add(this.panel30);
+            this.panel26.Controls.Add(this.panel29);
+            this.panel26.Controls.Add(this.panel28);
+            this.panel26.Location = new System.Drawing.Point(512, 78);
+            this.panel26.Name = "panel26";
+            this.panel26.Size = new System.Drawing.Size(381, 420);
+            this.panel26.TabIndex = 21;
+            // 
+            // panel27
+            // 
+            this.panel27.Controls.Add(this.cbStatus);
+            this.panel27.Controls.Add(this.label9);
+            this.panel27.Location = new System.Drawing.Point(7, 318);
+            this.panel27.Name = "panel27";
+            this.panel27.Size = new System.Drawing.Size(371, 46);
+            this.panel27.TabIndex = 7;
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Location = new System.Drawing.Point(179, 8);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(183, 28);
+            this.cbStatus.TabIndex = 2;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(5, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(110, 24);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Trạng thái:";
+            // 
+            // panel34
+            // 
+            this.panel34.Controls.Add(this.txtDestination);
+            this.panel34.Controls.Add(this.label15);
+            this.panel34.Location = new System.Drawing.Point(7, 266);
+            this.panel34.Name = "panel34";
+            this.panel34.Size = new System.Drawing.Size(371, 46);
+            this.panel34.TabIndex = 6;
+            // 
+            // txtDestination
+            // 
+            this.txtDestination.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDestination.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDestination.Location = new System.Drawing.Point(179, 9);
+            this.txtDestination.Multiline = true;
+            this.txtDestination.Name = "txtDestination";
+            this.txtDestination.Size = new System.Drawing.Size(183, 25);
+            this.txtDestination.TabIndex = 1;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(5, 9);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(107, 24);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Điểm đến:";
+            // 
+            // panel32
+            // 
+            this.panel32.Controls.Add(this.dtLocation);
+            this.panel32.Controls.Add(this.label14);
+            this.panel32.Location = new System.Drawing.Point(7, 214);
+            this.panel32.Name = "panel32";
+            this.panel32.Size = new System.Drawing.Size(371, 46);
+            this.panel32.TabIndex = 5;
+            // 
+            // dtLocation
+            // 
+            this.dtLocation.Location = new System.Drawing.Point(179, 9);
+            this.dtLocation.Name = "dtLocation";
+            this.dtLocation.Size = new System.Drawing.Size(183, 27);
+            this.dtLocation.TabIndex = 1;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(5, 9);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(147, 24);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Thời gian đón:";
+            // 
+            // panel31
+            // 
+            this.panel31.Controls.Add(this.txtLocation);
+            this.panel31.Controls.Add(this.label13);
+            this.panel31.Location = new System.Drawing.Point(7, 162);
+            this.panel31.Name = "panel31";
+            this.panel31.Size = new System.Drawing.Size(371, 46);
+            this.panel31.TabIndex = 4;
+            // 
+            // txtLocation
+            // 
+            this.txtLocation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLocation.Location = new System.Drawing.Point(179, 9);
+            this.txtLocation.Multiline = true;
+            this.txtLocation.Name = "txtLocation";
+            this.txtLocation.Size = new System.Drawing.Size(183, 25);
+            this.txtLocation.TabIndex = 1;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(5, 9);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(107, 24);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Điểm đón:";
+            // 
+            // panel30
+            // 
+            this.panel30.Controls.Add(this.cbIdCar);
+            this.panel30.Controls.Add(this.label12);
+            this.panel30.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel30.Location = new System.Drawing.Point(7, 110);
+            this.panel30.Name = "panel30";
+            this.panel30.Size = new System.Drawing.Size(371, 46);
+            this.panel30.TabIndex = 3;
+            // 
+            // cbIdCar
+            // 
+            this.cbIdCar.FormattingEnabled = true;
+            this.cbIdCar.Location = new System.Drawing.Point(179, 8);
+            this.cbIdCar.Name = "cbIdCar";
+            this.cbIdCar.Size = new System.Drawing.Size(183, 28);
+            this.cbIdCar.TabIndex = 1;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(5, 9);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(68, 24);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "ID Xe:";
+            // 
+            // panel29
+            // 
+            this.panel29.Controls.Add(this.cbIdStaff);
+            this.panel29.Controls.Add(this.label11);
+            this.panel29.Location = new System.Drawing.Point(7, 58);
+            this.panel29.Name = "panel29";
+            this.panel29.Size = new System.Drawing.Size(371, 46);
+            this.panel29.TabIndex = 2;
+            // 
+            // cbIdStaff
+            // 
+            this.cbIdStaff.FormattingEnabled = true;
+            this.cbIdStaff.Location = new System.Drawing.Point(179, 8);
+            this.cbIdStaff.Name = "cbIdStaff";
+            this.cbIdStaff.Size = new System.Drawing.Size(183, 28);
+            this.cbIdStaff.TabIndex = 1;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(5, 9);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(99, 24);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "ID Tài xế:";
+            // 
+            // panel28
+            // 
+            this.panel28.Controls.Add(this.txtIdCutomer);
+            this.panel28.Controls.Add(this.label10);
+            this.panel28.Location = new System.Drawing.Point(7, 6);
+            this.panel28.Name = "panel28";
+            this.panel28.Size = new System.Drawing.Size(371, 46);
+            this.panel28.TabIndex = 1;
+            // 
+            // txtIdCutomer
+            // 
+            this.txtIdCutomer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdCutomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdCutomer.Location = new System.Drawing.Point(179, 9);
+            this.txtIdCutomer.Multiline = true;
+            this.txtIdCutomer.Name = "txtIdCutomer";
+            this.txtIdCutomer.Size = new System.Drawing.Size(183, 25);
+            this.txtIdCutomer.TabIndex = 1;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(5, 9);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(168, 22);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "SĐT Khách hàng:";
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.dtgvSchedule);
+            this.panel11.Location = new System.Drawing.Point(3, 77);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(508, 295);
+            this.panel11.TabIndex = 20;
+            // 
+            // dtgvSchedule
+            // 
+            this.dtgvSchedule.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dtgvSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvSchedule.Location = new System.Drawing.Point(6, 3);
+            this.dtgvSchedule.Name = "dtgvSchedule";
+            this.dtgvSchedule.RowHeadersWidth = 51;
+            this.dtgvSchedule.RowTemplate.Height = 24;
+            this.dtgvSchedule.Size = new System.Drawing.Size(495, 289);
+            this.dtgvSchedule.TabIndex = 19;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.Controls.Add(this.btSaveSchedule);
+            this.panel6.Controls.Add(this.btEditSchedule);
+            this.panel6.Controls.Add(this.btExitSchedule);
+            this.panel6.Controls.Add(this.btShowSchedule);
+            this.panel6.Controls.Add(this.btDeleteSchedule);
+            this.panel6.Controls.Add(this.btAddSchedule);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(3, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(893, 68);
+            this.panel6.TabIndex = 18;
+            // 
+            // btSaveSchedule
+            // 
+            this.btSaveSchedule.BackColor = System.Drawing.Color.White;
+            this.btSaveSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSaveSchedule.Image = global::PBL3.Properties.Resources.diskette__1_;
+            this.btSaveSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btSaveSchedule.Location = new System.Drawing.Point(559, 15);
+            this.btSaveSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btSaveSchedule.Name = "btSaveSchedule";
+            this.btSaveSchedule.Size = new System.Drawing.Size(144, 40);
+            this.btSaveSchedule.TabIndex = 46;
+            this.btSaveSchedule.Text = "Lưu";
+            this.btSaveSchedule.UseVisualStyleBackColor = false;
+            // 
+            // btEditSchedule
+            // 
+            this.btEditSchedule.BackColor = System.Drawing.Color.White;
+            this.btEditSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btEditSchedule.Image = global::PBL3.Properties.Resources.edit_icon;
+            this.btEditSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btEditSchedule.Location = new System.Drawing.Point(342, 15);
+            this.btEditSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btEditSchedule.Name = "btEditSchedule";
+            this.btEditSchedule.Size = new System.Drawing.Size(144, 40);
+            this.btEditSchedule.TabIndex = 44;
+            this.btEditSchedule.Text = "     Chỉnh sửa";
+            this.btEditSchedule.UseVisualStyleBackColor = false;
+            // 
+            // btExitSchedule
+            // 
+            this.btExitSchedule.BackColor = System.Drawing.Color.White;
+            this.btExitSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btExitSchedule.Image = global::PBL3.Properties.Resources.reload;
+            this.btExitSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btExitSchedule.Location = new System.Drawing.Point(743, 15);
+            this.btExitSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btExitSchedule.Name = "btExitSchedule";
+            this.btExitSchedule.Size = new System.Drawing.Size(144, 40);
+            this.btExitSchedule.TabIndex = 50;
+            this.btExitSchedule.Text = "Hủy";
+            this.btExitSchedule.UseVisualStyleBackColor = false;
+            // 
+            // btShowSchedule
+            // 
+            this.btShowSchedule.BackColor = System.Drawing.Color.White;
+            this.btShowSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btShowSchedule.Image = global::PBL3.Properties.Resources.list__4_;
+            this.btShowSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btShowSchedule.Location = new System.Drawing.Point(509, 15);
+            this.btShowSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btShowSchedule.Name = "btShowSchedule";
+            this.btShowSchedule.Size = new System.Drawing.Size(144, 40);
+            this.btShowSchedule.TabIndex = 45;
+            this.btShowSchedule.Text = "  Hiển thị";
+            this.btShowSchedule.UseVisualStyleBackColor = false;
+            // 
+            // btDeleteSchedule
+            // 
+            this.btDeleteSchedule.BackColor = System.Drawing.Color.White;
+            this.btDeleteSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btDeleteSchedule.Image = global::PBL3.Properties.Resources.delete_icon11;
+            this.btDeleteSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btDeleteSchedule.Location = new System.Drawing.Point(176, 15);
+            this.btDeleteSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btDeleteSchedule.Name = "btDeleteSchedule";
+            this.btDeleteSchedule.Size = new System.Drawing.Size(144, 40);
+            this.btDeleteSchedule.TabIndex = 43;
+            this.btDeleteSchedule.Text = "Xóa";
+            this.btDeleteSchedule.UseVisualStyleBackColor = false;
+            // 
+            // btAddSchedule
+            // 
+            this.btAddSchedule.BackColor = System.Drawing.Color.White;
+            this.btAddSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAddSchedule.Image = global::PBL3.Properties.Resources.add_icon1;
+            this.btAddSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btAddSchedule.Location = new System.Drawing.Point(11, 15);
+            this.btAddSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btAddSchedule.Name = "btAddSchedule";
+            this.btAddSchedule.Size = new System.Drawing.Size(144, 40);
+            this.btAddSchedule.TabIndex = 42;
+            this.btAddSchedule.Text = "Thêm";
+            this.btAddSchedule.UseVisualStyleBackColor = false;
             // 
             // tpXe
             // 
@@ -1128,105 +1606,6 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Tên tài khoản:";
             // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.Controls.Add(this.btSaveSchedule);
-            this.panel6.Controls.Add(this.btEditSchedule);
-            this.panel6.Controls.Add(this.btExitSchedule);
-            this.panel6.Controls.Add(this.btShowSchedule);
-            this.panel6.Controls.Add(this.btDeleteSchedule);
-            this.panel6.Controls.Add(this.btAddSchedule);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(3, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(893, 68);
-            this.panel6.TabIndex = 18;
-            // 
-            // btSaveSchedule
-            // 
-            this.btSaveSchedule.BackColor = System.Drawing.Color.White;
-            this.btSaveSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSaveSchedule.Image = global::PBL3.Properties.Resources.diskette__1_;
-            this.btSaveSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btSaveSchedule.Location = new System.Drawing.Point(559, 15);
-            this.btSaveSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btSaveSchedule.Name = "btSaveSchedule";
-            this.btSaveSchedule.Size = new System.Drawing.Size(144, 40);
-            this.btSaveSchedule.TabIndex = 46;
-            this.btSaveSchedule.Text = "Lưu";
-            this.btSaveSchedule.UseVisualStyleBackColor = false;
-            // 
-            // btEditSchedule
-            // 
-            this.btEditSchedule.BackColor = System.Drawing.Color.White;
-            this.btEditSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btEditSchedule.Image = global::PBL3.Properties.Resources.edit_icon;
-            this.btEditSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btEditSchedule.Location = new System.Drawing.Point(342, 15);
-            this.btEditSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btEditSchedule.Name = "btEditSchedule";
-            this.btEditSchedule.Size = new System.Drawing.Size(144, 40);
-            this.btEditSchedule.TabIndex = 44;
-            this.btEditSchedule.Text = "     Chỉnh sửa";
-            this.btEditSchedule.UseVisualStyleBackColor = false;
-            // 
-            // btExitSchedule
-            // 
-            this.btExitSchedule.BackColor = System.Drawing.Color.White;
-            this.btExitSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btExitSchedule.Image = global::PBL3.Properties.Resources.reload;
-            this.btExitSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btExitSchedule.Location = new System.Drawing.Point(743, 15);
-            this.btExitSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btExitSchedule.Name = "btExitSchedule";
-            this.btExitSchedule.Size = new System.Drawing.Size(144, 40);
-            this.btExitSchedule.TabIndex = 50;
-            this.btExitSchedule.Text = "Hủy";
-            this.btExitSchedule.UseVisualStyleBackColor = false;
-            // 
-            // btShowSchedule
-            // 
-            this.btShowSchedule.BackColor = System.Drawing.Color.White;
-            this.btShowSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btShowSchedule.Image = global::PBL3.Properties.Resources.list__4_;
-            this.btShowSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btShowSchedule.Location = new System.Drawing.Point(509, 15);
-            this.btShowSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btShowSchedule.Name = "btShowSchedule";
-            this.btShowSchedule.Size = new System.Drawing.Size(144, 40);
-            this.btShowSchedule.TabIndex = 45;
-            this.btShowSchedule.Text = "  Hiển thị";
-            this.btShowSchedule.UseVisualStyleBackColor = false;
-            // 
-            // btDeleteSchedule
-            // 
-            this.btDeleteSchedule.BackColor = System.Drawing.Color.White;
-            this.btDeleteSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btDeleteSchedule.Image = global::PBL3.Properties.Resources.delete_icon11;
-            this.btDeleteSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btDeleteSchedule.Location = new System.Drawing.Point(176, 15);
-            this.btDeleteSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btDeleteSchedule.Name = "btDeleteSchedule";
-            this.btDeleteSchedule.Size = new System.Drawing.Size(144, 40);
-            this.btDeleteSchedule.TabIndex = 43;
-            this.btDeleteSchedule.Text = "Xóa";
-            this.btDeleteSchedule.UseVisualStyleBackColor = false;
-            // 
-            // btAddSchedule
-            // 
-            this.btAddSchedule.BackColor = System.Drawing.Color.White;
-            this.btAddSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAddSchedule.Image = global::PBL3.Properties.Resources.add_icon1;
-            this.btAddSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btAddSchedule.Location = new System.Drawing.Point(11, 15);
-            this.btAddSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btAddSchedule.Name = "btAddSchedule";
-            this.btAddSchedule.Size = new System.Drawing.Size(144, 40);
-            this.btAddSchedule.TabIndex = 42;
-            this.btAddSchedule.Text = "Thêm";
-            this.btAddSchedule.UseVisualStyleBackColor = false;
-            // 
             // Admin1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1235,10 +1614,31 @@
             this.Controls.Add(this.tabAdmin);
             this.Name = "Admin1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Admin";
+            this.Text = "A";
             this.Load += new System.EventHandler(this.Admin_Load);
             this.tabAdmin.ResumeLayout(false);
             this.tpLichtrinh.ResumeLayout(false);
+            this.panelSearchSchedule.ResumeLayout(false);
+            this.gbDanhmuc.ResumeLayout(false);
+            this.gbDanhmuc.PerformLayout();
+            this.panel26.ResumeLayout(false);
+            this.panel27.ResumeLayout(false);
+            this.panel27.PerformLayout();
+            this.panel34.ResumeLayout(false);
+            this.panel34.PerformLayout();
+            this.panel32.ResumeLayout(false);
+            this.panel32.PerformLayout();
+            this.panel31.ResumeLayout(false);
+            this.panel31.PerformLayout();
+            this.panel30.ResumeLayout(false);
+            this.panel30.PerformLayout();
+            this.panel29.ResumeLayout(false);
+            this.panel29.PerformLayout();
+            this.panel28.ResumeLayout(false);
+            this.panel28.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvSchedule)).EndInit();
+            this.panel6.ResumeLayout(false);
             this.tpXe.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -1285,7 +1685,6 @@
             this.panel22.PerformLayout();
             this.panel23.ResumeLayout(false);
             this.panel23.PerformLayout();
-            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1384,5 +1783,38 @@
         private System.Windows.Forms.Button btShowSchedule;
         private System.Windows.Forms.Button btDeleteSchedule;
         private System.Windows.Forms.Button btAddSchedule;
+        private System.Windows.Forms.Panel panelSearchSchedule;
+        private System.Windows.Forms.ComboBox cbSearchSchedule;
+        private System.Windows.Forms.Button btSearchSchedule;
+        private System.Windows.Forms.Panel panel26;
+        private System.Windows.Forms.Panel panel32;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Panel panel31;
+        private System.Windows.Forms.TextBox txtLocation;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel panel30;
+        private System.Windows.Forms.ComboBox cbIdCar;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel panel29;
+        private System.Windows.Forms.ComboBox cbIdStaff;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panel28;
+        private System.Windows.Forms.TextBox txtIdCutomer;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.DataGridView dtgvSchedule;
+        private System.Windows.Forms.Panel panel27;
+        private System.Windows.Forms.ComboBox cbStatus;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel34;
+        private System.Windows.Forms.TextBox txtDestination;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.DateTimePicker dtLocation;
+        private System.Windows.Forms.GroupBox gbDanhmuc;
+        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }

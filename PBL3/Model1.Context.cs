@@ -29,6 +29,7 @@ namespace PBL3
         public virtual DbSet<Car> Cars { get; set; }
         public virtual DbSet<Schedule> Schedules { get; set; }
         public virtual DbSet<Staff> Staffs { get; set; }
+        public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TypeAccount> TypeAccounts { get; set; }
     }

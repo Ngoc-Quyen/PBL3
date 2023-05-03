@@ -33,6 +33,8 @@
           <Property Name="IdStaff" Type="nvarchar" MaxLength="100" />
           <Property Name="Location" Type="nvarchar" MaxLength="100" />
           <Property Name="Destination" Type="nvarchar" MaxLength="100" />
+          <Property Name="DateLocation" Type="date" />
+          <Property Name="IdStatus" Type="int" />
         </EntityType>
         <EntityType Name="Staff">
           <Key>
@@ -42,6 +44,13 @@
           <Property Name="NameStaff" Type="nvarchar" MaxLength="100" />
           <Property Name="AddressStaff" Type="nvarchar" MaxLength="100" />
           <Property Name="PhoneStaff" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="IdStatus" />
+          </Key>
+          <Property Name="IdStatus" Type="int" Nullable="false" />
+          <Property Name="NameStatus" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -96,11 +105,24 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Schedule_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="IdStatus" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="TestPbl3ModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Car" EntityType="Self.Car" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeAccount" EntityType="Self.TypeAccount" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Account_TypeAccount" Association="Self.FK_Account_TypeAccount">
@@ -113,6 +135,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Schedule_Staff" Association="Self.FK_Schedule_Staff">
             <End Role="Staff" EntitySet="Staff" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Status" Association="Self.FK_Schedule_Status">
+            <End Role="Status" EntitySet="Status" />
             <End Role="Schedule" EntitySet="Schedule" />
           </AssociationSet>
         </EntityContainer>
@@ -151,8 +177,11 @@
           <Property Name="IdStaff" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Destination" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DateLocation" Type="DateTime" Precision="0" />
+          <Property Name="IdStatus" Type="Int32" />
           <NavigationProperty Name="Car" Relationship="Self.FK_Schedule_Car" FromRole="Schedule" ToRole="Car" />
           <NavigationProperty Name="Staff" Relationship="Self.FK_Schedule_Staff" FromRole="Schedule" ToRole="Staff" />
+          <NavigationProperty Name="Status" Relationship="Self.FK_Schedule_Status" FromRole="Schedule" ToRole="Status" />
         </EntityType>
         <EntityType Name="Staff">
           <Key>
@@ -163,6 +192,14 @@
           <Property Name="AddressStaff" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="PhoneStaff" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Schedules" Relationship="Self.FK_Schedule_Staff" FromRole="Staff" ToRole="Schedule" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="IdStatus" />
+          </Key>
+          <Property Name="IdStatus" Type="Int32" Nullable="false" />
+          <Property Name="NameStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Schedules" Relationship="Self.FK_Schedule_Status" FromRole="Status" ToRole="Schedule" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -218,11 +255,24 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Schedule_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="IdStatus" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="TestPbl3Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Accounts" EntityType="Self.Account" />
           <EntitySet Name="Cars" EntityType="Self.Car" />
           <EntitySet Name="Schedules" EntityType="Self.Schedule" />
           <EntitySet Name="Staffs" EntityType="Self.Staff" />
+          <EntitySet Name="Status" EntityType="Self.Status" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TypeAccounts" EntityType="Self.TypeAccount" />
           <AssociationSet Name="FK_Account_TypeAccount" Association="Self.FK_Account_TypeAccount">
@@ -235,6 +285,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Schedule_Staff" Association="Self.FK_Schedule_Staff">
             <End Role="Staff" EntitySet="Staffs" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Status" Association="Self.FK_Schedule_Status">
+            <End Role="Status" EntitySet="Status" />
             <End Role="Schedule" EntitySet="Schedules" />
           </AssociationSet>
         </EntityContainer>
@@ -273,6 +327,8 @@
                 <ScalarProperty Name="IdStaff" ColumnName="IdStaff" />
                 <ScalarProperty Name="Location" ColumnName="Location" />
                 <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="DateLocation" ColumnName="DateLocation" />
+                <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -283,6 +339,14 @@
                 <ScalarProperty Name="NameStaff" ColumnName="NameStaff" />
                 <ScalarProperty Name="AddressStaff" ColumnName="AddressStaff" />
                 <ScalarProperty Name="PhoneStaff" ColumnName="PhoneStaff" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="TestPbl3Model.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+                <ScalarProperty Name="NameStatus" ColumnName="NameStatus" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
