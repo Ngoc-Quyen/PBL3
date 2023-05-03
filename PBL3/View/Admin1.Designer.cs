@@ -61,14 +61,14 @@
             this.cbIdStaff = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel28 = new System.Windows.Forms.Panel();
-            this.txtIdCutomer = new System.Windows.Forms.TextBox();
+            this.txtIdCustomer = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.dtgvSchedule = new System.Windows.Forms.DataGridView();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btSaveSchedule = new System.Windows.Forms.Button();
             this.btEditSchedule = new System.Windows.Forms.Button();
-            this.btExitSchedule = new System.Windows.Forms.Button();
+            this.btResetSchedule = new System.Windows.Forms.Button();
             this.btShowSchedule = new System.Windows.Forms.Button();
             this.btDeleteSchedule = new System.Windows.Forms.Button();
             this.btAddSchedule = new System.Windows.Forms.Button();
@@ -538,22 +538,22 @@
             // 
             // panel28
             // 
-            this.panel28.Controls.Add(this.txtIdCutomer);
+            this.panel28.Controls.Add(this.txtIdCustomer);
             this.panel28.Controls.Add(this.label10);
             this.panel28.Location = new System.Drawing.Point(7, 6);
             this.panel28.Name = "panel28";
             this.panel28.Size = new System.Drawing.Size(371, 46);
             this.panel28.TabIndex = 1;
             // 
-            // txtIdCutomer
+            // txtIdCustomer
             // 
-            this.txtIdCutomer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIdCutomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdCutomer.Location = new System.Drawing.Point(179, 9);
-            this.txtIdCutomer.Multiline = true;
-            this.txtIdCutomer.Name = "txtIdCutomer";
-            this.txtIdCutomer.Size = new System.Drawing.Size(183, 25);
-            this.txtIdCutomer.TabIndex = 1;
+            this.txtIdCustomer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdCustomer.Location = new System.Drawing.Point(179, 9);
+            this.txtIdCustomer.Multiline = true;
+            this.txtIdCustomer.Name = "txtIdCustomer";
+            this.txtIdCustomer.Size = new System.Drawing.Size(183, 25);
+            this.txtIdCustomer.TabIndex = 1;
             // 
             // label10
             // 
@@ -583,13 +583,14 @@
             this.dtgvSchedule.RowTemplate.Height = 24;
             this.dtgvSchedule.Size = new System.Drawing.Size(495, 289);
             this.dtgvSchedule.TabIndex = 19;
+            this.dtgvSchedule.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvSchedule_CellClick);
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.White;
             this.panel6.Controls.Add(this.btSaveSchedule);
             this.panel6.Controls.Add(this.btEditSchedule);
-            this.panel6.Controls.Add(this.btExitSchedule);
+            this.panel6.Controls.Add(this.btResetSchedule);
             this.panel6.Controls.Add(this.btShowSchedule);
             this.panel6.Controls.Add(this.btDeleteSchedule);
             this.panel6.Controls.Add(this.btAddSchedule);
@@ -612,6 +613,7 @@
             this.btSaveSchedule.TabIndex = 46;
             this.btSaveSchedule.Text = "Lưu";
             this.btSaveSchedule.UseVisualStyleBackColor = false;
+            this.btSaveSchedule.Click += new System.EventHandler(this.btSaveSchedule_Click);
             // 
             // btEditSchedule
             // 
@@ -626,20 +628,22 @@
             this.btEditSchedule.TabIndex = 44;
             this.btEditSchedule.Text = "     Chỉnh sửa";
             this.btEditSchedule.UseVisualStyleBackColor = false;
+            this.btEditSchedule.Click += new System.EventHandler(this.btEditSchedule_Click);
             // 
-            // btExitSchedule
+            // btResetSchedule
             // 
-            this.btExitSchedule.BackColor = System.Drawing.Color.White;
-            this.btExitSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btExitSchedule.Image = global::PBL3.Properties.Resources.reload;
-            this.btExitSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btExitSchedule.Location = new System.Drawing.Point(743, 15);
-            this.btExitSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btExitSchedule.Name = "btExitSchedule";
-            this.btExitSchedule.Size = new System.Drawing.Size(144, 40);
-            this.btExitSchedule.TabIndex = 50;
-            this.btExitSchedule.Text = "Hủy";
-            this.btExitSchedule.UseVisualStyleBackColor = false;
+            this.btResetSchedule.BackColor = System.Drawing.Color.White;
+            this.btResetSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btResetSchedule.Image = global::PBL3.Properties.Resources.reload;
+            this.btResetSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btResetSchedule.Location = new System.Drawing.Point(743, 15);
+            this.btResetSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btResetSchedule.Name = "btResetSchedule";
+            this.btResetSchedule.Size = new System.Drawing.Size(144, 40);
+            this.btResetSchedule.TabIndex = 50;
+            this.btResetSchedule.Text = "Hủy";
+            this.btResetSchedule.UseVisualStyleBackColor = false;
+            this.btResetSchedule.Click += new System.EventHandler(this.btExitSchedule_Click);
             // 
             // btShowSchedule
             // 
@@ -654,6 +658,7 @@
             this.btShowSchedule.TabIndex = 45;
             this.btShowSchedule.Text = "  Hiển thị";
             this.btShowSchedule.UseVisualStyleBackColor = false;
+            this.btShowSchedule.Click += new System.EventHandler(this.btShowSchedule_Click);
             // 
             // btDeleteSchedule
             // 
@@ -668,6 +673,7 @@
             this.btDeleteSchedule.TabIndex = 43;
             this.btDeleteSchedule.Text = "Xóa";
             this.btDeleteSchedule.UseVisualStyleBackColor = false;
+            this.btDeleteSchedule.Click += new System.EventHandler(this.btDeleteSchedule_Click);
             // 
             // btAddSchedule
             // 
@@ -682,6 +688,7 @@
             this.btAddSchedule.TabIndex = 42;
             this.btAddSchedule.Text = "Thêm";
             this.btAddSchedule.UseVisualStyleBackColor = false;
+            this.btAddSchedule.Click += new System.EventHandler(this.btAddSchedule_Click);
             // 
             // tpXe
             // 
@@ -1614,7 +1621,7 @@
             this.Controls.Add(this.tabAdmin);
             this.Name = "Admin1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "A";
+            this.Text = "Admin";
             this.Load += new System.EventHandler(this.Admin_Load);
             this.tabAdmin.ResumeLayout(false);
             this.tpLichtrinh.ResumeLayout(false);
@@ -1779,7 +1786,7 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btSaveSchedule;
         private System.Windows.Forms.Button btEditSchedule;
-        private System.Windows.Forms.Button btExitSchedule;
+        private System.Windows.Forms.Button btResetSchedule;
         private System.Windows.Forms.Button btShowSchedule;
         private System.Windows.Forms.Button btDeleteSchedule;
         private System.Windows.Forms.Button btAddSchedule;
@@ -1799,7 +1806,7 @@
         private System.Windows.Forms.ComboBox cbIdStaff;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel28;
-        private System.Windows.Forms.TextBox txtIdCutomer;
+        private System.Windows.Forms.TextBox txtIdCustomer;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.DataGridView dtgvSchedule;

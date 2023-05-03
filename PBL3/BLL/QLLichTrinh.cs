@@ -29,6 +29,26 @@ namespace PBL3.BLL
         {
             var l = db.Schedules.Select(p => p);
             return l.ToList();
+            //var sch = from s in db.Schedules
+            //          select new Schedule(s.IdSchedule, s.IdCar, s.IdStaff, 
+            //          s.IdCustomer, s.Location, s.DateLocation, s.Destination, s.IdStatus);
+            ////select new Schedule 
+            ////{ 
+            ////    IdSchedule = s.IdSchedule, 
+            ////    IdCar = s.IdCar, 
+            ////    IdCustomer = s.IdCustomer, 
+            ////    IdStaff = s.IdStaff, 
+            ////    Location = s.Location, 
+            ////    DateLocation = s.DateLocation, 
+            ////    Destination = s.Destination, 
+            ////    IdStatus = s.IdStatus 
+            ////};
+            //return sch.ToList();
+        }
+        public List<Status> GetAllStatus()
+        {
+            var l = db.Status.Select(p => p);
+            return l.ToList();
         }
         public Schedule GetScheduleById(int id)
         {
@@ -47,7 +67,7 @@ namespace PBL3.BLL
             bool c = false;
             foreach(Schedule i in GetAllSchedule())
             {
-                if (i.IdStaff == id)
+                if (i.IdCustomer == id)
                 {
                     c = true;
                 }
@@ -59,8 +79,10 @@ namespace PBL3.BLL
         {
             try
             {
-                if (Checked(schedule.IdStaff))
+                if (Checked(schedule.IdCustomer))
                 {
+                    //var _sch = new Schedule { IdSchedule = schedule.IdSchedule }; // Tạo một đối tượng mới với IdSchedule được chỉ định
+                    //db.Schedules.Attach(_sch); // Đính kèm đối tượng mới vào đối tượng db
                     var _sch = db.Schedules.Find(schedule.IdSchedule);
                     _sch.IdSchedule = schedule.IdSchedule;
                     _sch.IdCar = schedule.IdCar;
@@ -100,9 +122,10 @@ namespace PBL3.BLL
             {
                 if(Checked(txt))
                 {
-                    var ac = db.Schedules.FirstOrDefault(p => p.IdStaff == txt);
+                    var ac = db.Schedules.FirstOrDefault(p => p.IdCustomer == txt);
                     db.Schedules.Remove(ac);
                     db.SaveChanges();
+                    MessageBox.Show("Lịch trình đã xóa thành công!");
                 }
                 else
                 {

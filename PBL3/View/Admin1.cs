@@ -8,8 +8,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace PBL3.View
 {
@@ -397,16 +399,17 @@ namespace PBL3.View
         #endregion
 
         #region EventSchedule
-
+        static int Id;
         public void LoadSchedule()
         {
             _enableSchedule();
             dtgvSchedule.DataSource = QLLichTrinh.Instance.GetAllSchedule();
+            show_combobox();
 
         }
         public void ResetSchedule()
         {
-            txtIdCutomer.Text = "";
+            txtIdCustomer.Text = "";
             cbIdCar.ResetText();
             cbIdStaff.ResetText();
             txtLocation.ResetText();
@@ -417,7 +420,7 @@ namespace PBL3.View
         void _enableSchedule()
         {
             btSaveSchedule.Visible = false;
-            btExitSchedule.Visible = false;
+            btResetSchedule.Visible = false;
             btAddSchedule.Visible = true;
             btDeleteSchedule.Visible = true;
             btEditSchedule.Visible = true;
@@ -427,7 +430,7 @@ namespace PBL3.View
         void _disableSchedule()
         {
             btSaveSchedule.Visible = true;
-            btExitSchedule.Visible = true;
+            btResetSchedule.Visible = true;
             btAddSchedule.Visible = false;
             btDeleteSchedule.Visible = false;
             btEditSchedule.Visible = false;
@@ -435,6 +438,126 @@ namespace PBL3.View
             panelSearchSchedule.Visible = false;
         }
 
+        private void dtgvSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            if (row >= 0)
+            {
+                DataGridViewRow selectedRow = dtgvSchedule.Rows[row];
+                Id = Convert.ToInt32(selectedRow.Cells["IdSchedule"].Value.ToString());
+                txtIdCustomer.Text = selectedRow.Cells["IdCustomer"].Value.ToString();
+                cbIdCar.SelectedValue = selectedRow.Cells["IdCar"].Value.ToString();
+                cbIdStaff.SelectedValue = selectedRow.Cells["IdStaff"].Value.ToString();
+                txtLocation.Text = selectedRow.Cells["Location"].Value.ToString();
+                dtLocation.Text = selectedRow.Cells["DateLocation"].Value.ToString();
+                txtDestination.Text = selectedRow.Cells["Destination"].Value.ToString();
+                int numberValue = Convert.ToInt32(selectedRow.Cells["IdStatus"].Value.ToString());
+                cbStatus.SelectedValue = numberValue;
+            }
+        }
+        public void show_combobox()
+        { 
+            cbIdCar.DataSource = QLXe1.Instance.GetAllCar();
+            cbIdCar.DisplayMember = "IdCar";
+            cbIdCar.ValueMember = "IdCar";
+
+            cbIdStaff.DataSource = QLTaiXe.Instance.GetAllStaff();
+            cbIdStaff.DisplayMember = "IdStaff";
+            cbIdStaff.ValueMember = "IdStaff";
+
+            cbStatus.DataSource = QLLichTrinh.Instance.GetAllStatus();
+            cbStatus.DisplayMember = "NameStatus";
+            cbStatus.ValueMember = "IdStatus";
+        }
+
+        private void btAddSchedule_Click(object sender, EventArgs e)
+        {
+            _them = true;
+            ResetSchedule();
+            txtIdCustomer.ReadOnly = false;
+            _disableSchedule();
+        }
+
+        private void btDeleteSchedule_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc chắn muốn xóa lịch trình?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
+                {
+                    string id = txtIdCustomer.Text;
+                    // Xóa đối tượng
+                    QLLichTrinh.Instance.Delete(id);
+
+                    // Tải lại danh sách
+                    LoadSchedule();
+                }
+                catch (Exception ex)
+                {
+                    // Hiển thị thông báo lỗi
+                    MessageBox.Show("An error occurred while deleting the item: " + ex.Message);
+
+                    // Hủy sự kiện
+                    if (e is CancelEventArgs)
+                    {
+                        ((CancelEventArgs)e).Cancel = true;
+                    }
+                }
+            }
+        }
+
+    private void btEditSchedule_Click(object sender, EventArgs e)
+    {
+        _them = false;
+        _disableSchedule();
+        txtIdCustomer.ReadOnly = true;
+    }
+
+        private void btShowSchedule_Click(object sender, EventArgs e)
+        {
+            LoadSchedule();
+            ResetSchedule();
+        }
+
+        private void btSaveSchedule_Click(object sender, EventArgs e)
+        {
+            if(_them)
+            {
+                Schedule _sch = new Schedule();
+                _sch.IdCustomer = txtIdCustomer.Text;
+                _sch.IdCar = cbIdCar.Text;
+                _sch.IdStaff = cbIdStaff.Text;
+                _sch.Location = txtLocation.Text;
+                _sch.DateLocation = dtLocation.Value;
+                _sch.Destination = txtDestination.Text;
+                _sch.IdStatus = Convert.ToInt32(cbStatus.SelectedIndex);
+                QLLichTrinh.Instance.Add(_sch );
+                LoadSchedule();
+            }
+            else
+            {
+                Schedule _sch = new Schedule();
+                _sch.IdSchedule = Id;
+                _sch.IdCustomer = txtIdCustomer.Text;
+                _sch.IdCar = cbIdCar.Text;
+                _sch.IdStaff = cbIdStaff.Text;
+                _sch.Location = txtLocation.Text;
+                _sch.DateLocation = dtLocation.Value;
+                _sch.Destination = txtDestination.Text;
+                _sch.IdStatus = Convert.ToInt32(cbStatus.SelectedValue.ToString());
+                QLLichTrinh.Instance.Edit(_sch);
+                LoadSchedule();
+            }
+            _them = false;
+            _enableSchedule();
+        }
+
+        private void btExitSchedule_Click(object sender, EventArgs e)
+        {
+            _enableSchedule();
+            ResetSchedule();
+        }
+
         #endregion
+
     }
 }
