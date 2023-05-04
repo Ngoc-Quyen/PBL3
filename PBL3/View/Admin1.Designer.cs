@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabAdmin = new System.Windows.Forms.TabControl();
             this.tpBaocao = new System.Windows.Forms.TabPage();
             this.tpHoadon = new System.Windows.Forms.TabPage();
@@ -156,9 +153,7 @@
             this.panel23 = new System.Windows.Forms.Panel();
             this.txtAccountName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabAdmin.SuspendLayout();
-            this.tpBaocao.SuspendLayout();
             this.tpLichtrinh.SuspendLayout();
             this.panelSearchSchedule.SuspendLayout();
             this.gbDanhmuc.SuspendLayout();
@@ -206,7 +201,6 @@
             this.panel21.SuspendLayout();
             this.panel22.SuspendLayout();
             this.panel23.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabAdmin
@@ -226,7 +220,6 @@
             // 
             // tpBaocao
             // 
-            this.tpBaocao.Controls.Add(this.chart1);
             this.tpBaocao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tpBaocao.Location = new System.Drawing.Point(4, 29);
             this.tpBaocao.Name = "tpBaocao";
@@ -293,7 +286,6 @@
             this.gbDanhmuc.TabIndex = 49;
             this.gbDanhmuc.TabStop = false;
             this.gbDanhmuc.Text = "Danh mục";
-            this.gbDanhmuc.Enter += new System.EventHandler(this.gbDanhmuc_Enter);
             // 
             // rdbStatus
             // 
@@ -1626,23 +1618,6 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Tên tài khoản:";
             // 
-            // chart1
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(156, 81);
-            this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(563, 338);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
-            // 
             // Admin1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1652,9 +1627,7 @@
             this.Name = "Admin1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
-            this.Load += new System.EventHandler(this.Admin_Load);
             this.tabAdmin.ResumeLayout(false);
-            this.tpBaocao.ResumeLayout(false);
             this.tpLichtrinh.ResumeLayout(false);
             this.panelSearchSchedule.ResumeLayout(false);
             this.gbDanhmuc.ResumeLayout(false);
@@ -1723,7 +1696,6 @@
             this.panel22.PerformLayout();
             this.panel23.ResumeLayout(false);
             this.panel23.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1855,6 +1827,5 @@
         private System.Windows.Forms.RadioButton rdbCustomer;
         private System.Windows.Forms.RadioButton rdbStaff;
         private System.Windows.Forms.RadioButton rdbTime;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }

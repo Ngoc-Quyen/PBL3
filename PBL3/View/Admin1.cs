@@ -24,11 +24,6 @@ namespace PBL3.View
             InitializeComponent();
             LoadData();
         }
-
-        private void Admin_Load(object sender, EventArgs e)
-        {
-
-        }
         public void LoadData()
         {
             LoadCar();
@@ -500,12 +495,12 @@ namespace PBL3.View
             }
         }
 
-    private void btEditSchedule_Click(object sender, EventArgs e)
-    {
-        _them = false;
-        _disableSchedule();
-        txtIdCustomer.ReadOnly = true;
-    }
+        private void btEditSchedule_Click(object sender, EventArgs e)
+        {
+            _them = false;
+            _disableSchedule();
+            txtIdCustomer.ReadOnly = true;
+        }
 
         private void btShowSchedule_Click(object sender, EventArgs e)
         {
@@ -589,8 +584,6 @@ namespace PBL3.View
             }
         }
         static string columnName = "";
-        #endregion
-
         private void rdbTime_CheckedChanged(object sender, EventArgs e)
         {
             if (rdbTime.Checked)
@@ -613,7 +606,6 @@ namespace PBL3.View
             if (rdbStaff.Checked)
             {
                 columnName = "IdStaff";
-                cbSearchSchedule.DataSource = null;
                 cbSearchSchedule.DataSource = QLTaiXe.Instance.GetAllStaff();
                 cbSearchSchedule.DisplayMember = columnName;
                 cbSearchSchedule.ValueMember = columnName;
@@ -642,12 +634,7 @@ namespace PBL3.View
         {
             if (rdbCar.Checked)
             {
-                cbSearchSchedule.DataSource = null;
                 columnName = "IdCar";
-                if (cbSearchSchedule.Items.Count > 0)
-                {
-                    cbSearchSchedule.Items.Clear();
-                }
                 cbSearchSchedule.DataSource = QLXe1.Instance.GetAllCar();
                 cbSearchSchedule.DisplayMember = columnName;
                 cbSearchSchedule.ValueMember = columnName;
@@ -664,15 +651,6 @@ namespace PBL3.View
                 cbSearchSchedule.DisplayMember = "NameStatus";
                 cbSearchSchedule.ValueMember = columnName;
             }
-        }
-
-        private void gbDanhmuc_Enter(object sender, EventArgs e)
-        {
-            rdbTime.CheckedChanged += new EventHandler(rdbTime_CheckedChanged);
-            rdbStaff.CheckedChanged += new EventHandler(rdbStaff_CheckedChanged);
-            rdbCustomer.CheckedChanged += new EventHandler(rdbCustomer_CheckedChanged);
-            rdbCar.CheckedChanged += new EventHandler(rdbCar_CheckedChanged);
-            rdbStatus.CheckedChanged += new EventHandler(rdbStatus_CheckedChanged);
         }
 
         private void btSearchSchedule_Click(object sender, EventArgs e)
@@ -703,6 +681,6 @@ namespace PBL3.View
                 dtgvSchedule.DataSource = QLLichTrinh.Instance.GetSearchByStatus(status);
             }    
         }
-
+        #endregion
     }
 }
