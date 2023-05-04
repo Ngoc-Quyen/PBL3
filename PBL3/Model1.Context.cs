@@ -24,7 +24,12 @@ namespace PBL3
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
+        internal object Set(string tableName)
+        {
+            throw new NotImplementedException();
+        }
+
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Car> Cars { get; set; }
         public virtual DbSet<Schedule> Schedules { get; set; }

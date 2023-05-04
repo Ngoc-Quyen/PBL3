@@ -47,7 +47,6 @@ namespace PBL3.View
         {
 
         }
-
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -29,7 +29,7 @@ namespace PBL3.View
         {
 
         }
-        void LoadData()
+        public void LoadData()
         {
             LoadCar();
             LoadStaff();
@@ -101,11 +101,6 @@ namespace PBL3.View
             }
         }
 
-        private void dtgvCar_Click(object sender, EventArgs e)
-        {
-
-
-        }
 
         void _enable()
         {
@@ -543,7 +538,7 @@ namespace PBL3.View
                 _sch.Location = txtLocation.Text;
                 _sch.DateLocation = dtLocation.Value;
                 _sch.Destination = txtDestination.Text;
-                _sch.IdStatus = Convert.ToInt32(cbStatus.SelectedValue.ToString());
+                _sch.IdStatus = Convert.ToInt32(cbStatus.SelectedValue);
                 QLLichTrinh.Instance.Edit(_sch);
                 LoadSchedule();
             }
@@ -557,7 +552,157 @@ namespace PBL3.View
             ResetSchedule();
         }
 
+        private void gbDanhmuc_CheckedChanged()
+        {
+            string columnName = "";
+            foreach(Control control in gbDanhmuc.Controls)
+            {
+                if(control is System.Windows.Forms.RadioButton && ((System.Windows.Forms.RadioButton)control).Checked)
+                {
+                    switch(control.Name)
+                    {
+                        case "rdbTime":
+                            columnName = "DateLocation";
+                            MessageBox.Show(columnName);
+                            break;
+                        case "rdbStaff":
+                            columnName = "IdStaff";
+                            MessageBox.Show(columnName);
+                            break;
+                        case "rdbCustomer":
+                            columnName = "IdCustomer";
+                            MessageBox.Show(columnName);
+                            break;
+                        case "rdbCar":
+                            columnName = "IdCar";
+                            MessageBox.Show(columnName);
+                            break;
+                        case "rdbStatus":
+                            columnName = "IdStatus";
+                            MessageBox.Show(columnName);
+                            break;
+                    }    
+                }
+                //cbSearchSchedule.Items.Clear();
+                //cbSearchSchedule.Items.AddRange(QLLichTrinh.Instance.GetColumnValue("Schedule", columnName).ToArray());
+                
+            }
+        }
+        static string columnName = "";
         #endregion
+
+        private void rdbTime_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbTime.Checked)
+            {
+                var l = QLLichTrinh.Instance.GetAllByDateLocation();
+                cbSearchSchedule.DataSource = null;
+                if(cbSearchSchedule.Items.Count > 0)
+                {
+                    cbSearchSchedule.Items.Clear();
+                }
+                foreach (var i in l)
+                {
+                    cbSearchSchedule.Items.Add(i);
+                }    
+            }
+        }
+
+        private void rdbStaff_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbStaff.Checked)
+            {
+                columnName = "IdStaff";
+                cbSearchSchedule.DataSource = null;
+                cbSearchSchedule.DataSource = QLTaiXe.Instance.GetAllStaff();
+                cbSearchSchedule.DisplayMember = columnName;
+                cbSearchSchedule.ValueMember = columnName;
+
+            }
+        }
+        
+        private void rdbCustomer_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbCustomer.Checked)
+            {
+                var l = QLLichTrinh.Instance.GetAllByCustomer();
+                cbSearchSchedule.DataSource = null;
+                if (cbSearchSchedule.Items.Count > 0)
+                {
+                    cbSearchSchedule.Items.Clear();
+                }
+                foreach (var i in l)
+                {
+                    cbSearchSchedule.Items.Add(i);
+                }
+            }
+        }
+
+        private void rdbCar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbCar.Checked)
+            {
+                cbSearchSchedule.DataSource = null;
+                columnName = "IdCar";
+                if (cbSearchSchedule.Items.Count > 0)
+                {
+                    cbSearchSchedule.Items.Clear();
+                }
+                cbSearchSchedule.DataSource = QLXe1.Instance.GetAllCar();
+                cbSearchSchedule.DisplayMember = columnName;
+                cbSearchSchedule.ValueMember = columnName;
+            }
+        }
+
+        private void rdbStatus_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbStatus.Checked)
+            {
+                columnName = "IdStatus";
+                cbSearchSchedule.DataSource = null;
+                cbSearchSchedule.DataSource = QLLichTrinh.Instance.GetAllStatus();
+                cbSearchSchedule.DisplayMember = "NameStatus";
+                cbSearchSchedule.ValueMember = columnName;
+            }
+        }
+
+        private void gbDanhmuc_Enter(object sender, EventArgs e)
+        {
+            rdbTime.CheckedChanged += new EventHandler(rdbTime_CheckedChanged);
+            rdbStaff.CheckedChanged += new EventHandler(rdbStaff_CheckedChanged);
+            rdbCustomer.CheckedChanged += new EventHandler(rdbCustomer_CheckedChanged);
+            rdbCar.CheckedChanged += new EventHandler(rdbCar_CheckedChanged);
+            rdbStatus.CheckedChanged += new EventHandler(rdbStatus_CheckedChanged);
+        }
+
+        private void btSearchSchedule_Click(object sender, EventArgs e)
+        {
+            if (rdbTime.Checked)
+            {
+                DateTime dateTime = Convert.ToDateTime(cbSearchSchedule.SelectedItem.ToString());
+                dtgvSchedule.DataSource = QLLichTrinh.Instance.GetSearchByTime(dateTime);
+            }
+            if (rdbStaff.Checked)
+            {
+                string staff = cbSearchSchedule.SelectedValue.ToString();
+                dtgvSchedule.DataSource = QLLichTrinh.Instance.GetSearchByIdStaff(staff);
+            }  
+            if (rdbCustomer.Checked)
+            {
+                string sdt = cbSearchSchedule.SelectedItem.ToString();
+                dtgvSchedule.DataSource = QLLichTrinh.Instance.GetSearchByIdCustomer(sdt);
+            }
+            if (rdbCar.Checked)
+            {
+                string car = cbSearchSchedule.SelectedValue.ToString();
+                dtgvSchedule.DataSource = QLLichTrinh.Instance.GetSearchByIdCar(car);
+            }    
+            if(rdbStatus.Checked)
+            {
+                int status = Convert.ToInt32(cbSearchSchedule.SelectedValue.ToString());
+                dtgvSchedule.DataSource = QLLichTrinh.Instance.GetSearchByStatus(status);
+            }    
+        }
 
     }
 }

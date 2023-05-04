@@ -27,7 +27,7 @@ namespace PBL3.BLL
         {
             var data = db.Staffs.Select(p => p);
             return data.ToList();
-        }    
+        } 
         public Staff GetStaffBy(string id)
         {
             Staff st = new Staff();

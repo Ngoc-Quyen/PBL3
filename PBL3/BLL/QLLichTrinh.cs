@@ -137,5 +137,50 @@ namespace PBL3.BLL
                 throw new Exception("Có lỗi xảy ra trong quá trình xử lý dữ liệu: " + ex.Message);
             }
         }
+        public List<string> GetColumnValue(string tableName, string columnName)
+        {
+            var tableType = Type.GetType(tableName);
+            var query = from row in db.Set(tableType) as IQueryable<object>
+                        select 
+                        row.GetType().GetProperty(columnName).GetValue(row, null) != null ?
+                        row.GetType().GetProperty(columnName).GetValue(row, null).ToString()
+                        : null;
+            return query.ToList();
+        }
+        public List<Schedule> GetSearchByTime(DateTime start)
+        {
+            var l = db.Schedules.Where(p => p.DateLocation == start).ToList();
+            return l; 
+        }    
+        public List<Schedule> GetSearchByIdStaff(string id)
+        {
+            var l = db.Schedules.Where(p => p.IdStaff == id).ToList();
+            return l;
+        }
+        public List<Schedule> GetSearchByIdCar(string id)
+        {
+            var l = db.Schedules.Where(p => p.IdCar == id).ToList();
+            return l;
+        }
+        public List<Schedule> GetSearchByIdCustomer(string id)
+        {
+            var l = db.Schedules.Where(p => p.IdCustomer == id).ToList();
+            return l;
+        }
+        public List<Schedule> GetSearchByStatus(int id)
+        {
+            var l = db.Schedules.Where(p => p.IdStatus == id).ToList();
+            return l;
+        }
+        public List<DateTime?> GetAllByDateLocation()
+        {
+            var l = db.Schedules.Select(p => p.DateLocation).Distinct().ToList();
+            return l;
+        }
+        public List<string> GetAllByCustomer()
+        {
+            var l = db.Schedules.Select(p => p.IdCustomer).Distinct().ToList();
+            return l;
+        }    
     }
 }

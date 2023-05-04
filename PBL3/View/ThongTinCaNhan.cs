@@ -24,7 +24,7 @@ namespace PBL3.View
                 ChangeAccount(loginAccount);
             }
         }
-        Admin1 admin = new Admin1();
+        static Admin1 admin = new Admin1();
         public ThongTinCaNhan(Account acc)
         {
             InitializeComponent();
@@ -53,9 +53,8 @@ namespace PBL3.View
             ac.PassWord = txtPassWordNew.Text;
             //ac.Type = cbAccountType.SelectedIndex;
             QLTaiKhoan.Instance.Edit(ac);
-            admin.LoadAccount();
             MessageBox.Show("Bạn đã cập nhật thành công!");
-            this.Close();
+            this.Hide();
         }
 
         private void btExitTT_Click(object sender, EventArgs e)

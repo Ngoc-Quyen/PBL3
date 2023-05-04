@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabAdmin = new System.Windows.Forms.TabControl();
             this.tpBaocao = new System.Windows.Forms.TabPage();
             this.tpHoadon = new System.Windows.Forms.TabPage();
@@ -35,11 +38,11 @@
             this.panelSearchSchedule = new System.Windows.Forms.Panel();
             this.cbSearchSchedule = new System.Windows.Forms.ComboBox();
             this.gbDanhmuc = new System.Windows.Forms.GroupBox();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rdbStatus = new System.Windows.Forms.RadioButton();
+            this.rdbCar = new System.Windows.Forms.RadioButton();
+            this.rdbCustomer = new System.Windows.Forms.RadioButton();
+            this.rdbStaff = new System.Windows.Forms.RadioButton();
+            this.rdbTime = new System.Windows.Forms.RadioButton();
             this.btSearchSchedule = new System.Windows.Forms.Button();
             this.panel26 = new System.Windows.Forms.Panel();
             this.panel27 = new System.Windows.Forms.Panel();
@@ -153,7 +156,9 @@
             this.panel23 = new System.Windows.Forms.Panel();
             this.txtAccountName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabAdmin.SuspendLayout();
+            this.tpBaocao.SuspendLayout();
             this.tpLichtrinh.SuspendLayout();
             this.panelSearchSchedule.SuspendLayout();
             this.gbDanhmuc.SuspendLayout();
@@ -201,6 +206,7 @@
             this.panel21.SuspendLayout();
             this.panel22.SuspendLayout();
             this.panel23.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabAdmin
@@ -220,6 +226,7 @@
             // 
             // tpBaocao
             // 
+            this.tpBaocao.Controls.Add(this.chart1);
             this.tpBaocao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tpBaocao.Location = new System.Drawing.Point(4, 29);
             this.tpBaocao.Name = "tpBaocao";
@@ -258,9 +265,9 @@
             this.panelSearchSchedule.Controls.Add(this.cbSearchSchedule);
             this.panelSearchSchedule.Controls.Add(this.gbDanhmuc);
             this.panelSearchSchedule.Controls.Add(this.btSearchSchedule);
-            this.panelSearchSchedule.Location = new System.Drawing.Point(9, 378);
+            this.panelSearchSchedule.Location = new System.Drawing.Point(3, 378);
             this.panelSearchSchedule.Name = "panelSearchSchedule";
-            this.panelSearchSchedule.Size = new System.Drawing.Size(502, 116);
+            this.panelSearchSchedule.Size = new System.Drawing.Size(508, 120);
             this.panelSearchSchedule.TabIndex = 50;
             // 
             // cbSearchSchedule
@@ -275,72 +282,78 @@
             // 
             // gbDanhmuc
             // 
-            this.gbDanhmuc.Controls.Add(this.radioButton5);
-            this.gbDanhmuc.Controls.Add(this.radioButton4);
-            this.gbDanhmuc.Controls.Add(this.radioButton3);
-            this.gbDanhmuc.Controls.Add(this.radioButton2);
-            this.gbDanhmuc.Controls.Add(this.radioButton1);
+            this.gbDanhmuc.Controls.Add(this.rdbStatus);
+            this.gbDanhmuc.Controls.Add(this.rdbCar);
+            this.gbDanhmuc.Controls.Add(this.rdbCustomer);
+            this.gbDanhmuc.Controls.Add(this.rdbStaff);
+            this.gbDanhmuc.Controls.Add(this.rdbTime);
             this.gbDanhmuc.Location = new System.Drawing.Point(155, 6);
             this.gbDanhmuc.Name = "gbDanhmuc";
             this.gbDanhmuc.Size = new System.Drawing.Size(342, 91);
             this.gbDanhmuc.TabIndex = 49;
             this.gbDanhmuc.TabStop = false;
             this.gbDanhmuc.Text = "Danh mục";
+            this.gbDanhmuc.Enter += new System.EventHandler(this.gbDanhmuc_Enter);
             // 
-            // radioButton5
+            // rdbStatus
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(112, 61);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(105, 24);
-            this.radioButton5.TabIndex = 4;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Trạng thái";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.rdbStatus.AutoSize = true;
+            this.rdbStatus.Location = new System.Drawing.Point(112, 61);
+            this.rdbStatus.Name = "rdbStatus";
+            this.rdbStatus.Size = new System.Drawing.Size(105, 24);
+            this.rdbStatus.TabIndex = 4;
+            this.rdbStatus.TabStop = true;
+            this.rdbStatus.Text = "Trạng thái";
+            this.rdbStatus.UseVisualStyleBackColor = true;
+            this.rdbStatus.CheckedChanged += new System.EventHandler(this.rdbStatus_CheckedChanged);
             // 
-            // radioButton4
+            // rdbCar
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(7, 61);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(50, 24);
-            this.radioButton4.TabIndex = 3;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Xe";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rdbCar.AutoSize = true;
+            this.rdbCar.Location = new System.Drawing.Point(7, 61);
+            this.rdbCar.Name = "rdbCar";
+            this.rdbCar.Size = new System.Drawing.Size(50, 24);
+            this.rdbCar.TabIndex = 3;
+            this.rdbCar.TabStop = true;
+            this.rdbCar.Text = "Xe";
+            this.rdbCar.UseVisualStyleBackColor = true;
+            this.rdbCar.CheckedChanged += new System.EventHandler(this.rdbCar_CheckedChanged);
             // 
-            // radioButton3
+            // rdbCustomer
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(201, 24);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(118, 24);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Khách hàng";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rdbCustomer.AutoSize = true;
+            this.rdbCustomer.Location = new System.Drawing.Point(201, 24);
+            this.rdbCustomer.Name = "rdbCustomer";
+            this.rdbCustomer.Size = new System.Drawing.Size(118, 24);
+            this.rdbCustomer.TabIndex = 2;
+            this.rdbCustomer.TabStop = true;
+            this.rdbCustomer.Text = "Khách hàng";
+            this.rdbCustomer.UseVisualStyleBackColor = true;
+            this.rdbCustomer.CheckedChanged += new System.EventHandler(this.rdbCustomer_CheckedChanged);
             // 
-            // radioButton2
+            // rdbStaff
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(112, 24);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(75, 24);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Tài xế";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdbStaff.AutoSize = true;
+            this.rdbStaff.Location = new System.Drawing.Point(112, 24);
+            this.rdbStaff.Name = "rdbStaff";
+            this.rdbStaff.Size = new System.Drawing.Size(75, 24);
+            this.rdbStaff.TabIndex = 1;
+            this.rdbStaff.TabStop = true;
+            this.rdbStaff.Text = "Tài xế";
+            this.rdbStaff.UseVisualStyleBackColor = true;
+            this.rdbStaff.CheckedChanged += new System.EventHandler(this.rdbStaff_CheckedChanged);
             // 
-            // radioButton1
+            // rdbTime
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(7, 24);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(98, 24);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Thời gian";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdbTime.AutoSize = true;
+            this.rdbTime.Location = new System.Drawing.Point(7, 24);
+            this.rdbTime.Name = "rdbTime";
+            this.rdbTime.Size = new System.Drawing.Size(98, 24);
+            this.rdbTime.TabIndex = 0;
+            this.rdbTime.TabStop = true;
+            this.rdbTime.Text = "Thời gian";
+            this.rdbTime.UseVisualStyleBackColor = true;
+            this.rdbTime.CheckedChanged += new System.EventHandler(this.rdbTime_CheckedChanged);
             // 
             // btSearchSchedule
             // 
@@ -355,6 +368,7 @@
             this.btSearchSchedule.TabIndex = 46;
             this.btSearchSchedule.Text = "Tìm kiếm";
             this.btSearchSchedule.UseVisualStyleBackColor = false;
+            this.btSearchSchedule.Click += new System.EventHandler(this.btSearchSchedule_Click);
             // 
             // panel26
             // 
@@ -846,7 +860,6 @@
             this.dtgvCar.Size = new System.Drawing.Size(510, 340);
             this.dtgvCar.TabIndex = 3;
             this.dtgvCar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvCar_CellClick);
-            this.dtgvCar.Click += new System.EventHandler(this.dtgvCar_Click);
             // 
             // panel5
             // 
@@ -1613,6 +1626,23 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Tên tài khoản:";
             // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(156, 81);
+            this.chart1.Name = "chart1";
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(563, 338);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "chart1";
+            // 
             // Admin1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1624,6 +1654,7 @@
             this.Text = "Admin";
             this.Load += new System.EventHandler(this.Admin_Load);
             this.tabAdmin.ResumeLayout(false);
+            this.tpBaocao.ResumeLayout(false);
             this.tpLichtrinh.ResumeLayout(false);
             this.panelSearchSchedule.ResumeLayout(false);
             this.gbDanhmuc.ResumeLayout(false);
@@ -1692,6 +1723,7 @@
             this.panel22.PerformLayout();
             this.panel23.ResumeLayout(false);
             this.panel23.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1818,10 +1850,11 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DateTimePicker dtLocation;
         private System.Windows.Forms.GroupBox gbDanhmuc;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rdbStatus;
+        private System.Windows.Forms.RadioButton rdbCar;
+        private System.Windows.Forms.RadioButton rdbCustomer;
+        private System.Windows.Forms.RadioButton rdbStaff;
+        private System.Windows.Forms.RadioButton rdbTime;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }

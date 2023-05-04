@@ -95,10 +95,10 @@ namespace PBL3.BLL
                 if(Check(ac.UserName))
                 {
                     var _ac = db.Accounts.Find(ac.UserName);
-                    _ac.UserName = ac.UserName;
+                    //_ac.UserName = ac.UserName;
                     _ac.DisplayName = ac.DisplayName;
                     _ac.PassWord = ac.PassWord;
-                    _ac.Type = ac.Type;
+                    //_ac.Type = ac.Type;
                     db.SaveChanges();
                 }
                 else
