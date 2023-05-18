@@ -111,8 +111,8 @@ namespace PBL3.BLL
                 _detai.Location = detailed.Location;
                 _detai.Destination = detailed.Destination;
                 _detai.Distance = detailed.Distance;
-                //_detai.Complete = detailed.Complete();
-                    
+                _detai.Complete = detailed.Complete;
+                db.SaveChanges();
 
             }
             catch (Exception ex)
@@ -217,6 +217,10 @@ namespace PBL3.BLL
         public List<Detailed_Schedule> GetAllDetailed()
         {
             return CTLTrinh.Instance.getAllDetailed();
+        }
+        public List<Detailed_Schedule> GetAllDetailedBy()
+        {
+            return CTLTrinh.Instance.getAllDetailedBy();
         }
     }
     

@@ -18,5 +18,6 @@ namespace PBL3
         public string Location { get; set; }
         public string Destination { get; set; }
         public Nullable<double> Distance { get; set; }
+        public Nullable<int> Complete { get; set; }
     }
 }

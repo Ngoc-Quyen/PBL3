@@ -95,13 +95,13 @@ namespace PBL3.View
         private void btXacnhan_Click(object sender, EventArgs e)
         {
             string idStaff = LoginAccount.UserName;
-            TaoLichTrinh f = new TaoLichTrinh(idStaff, location, destination);
+            TaoLichTrinh f = new TaoLichTrinh(idStaff, location, destination, Id, distance);
             f.ShowDialog();
         }
 
         public void ShowQly()
         {
-            dtgvLichtrinh.DataSource = QLLichTrinh.Instance.GetAllDetailed();
+            dtgvLichtrinh.DataSource = QLLichTrinh.Instance.GetAllDetailedBy();
         }
 
     }

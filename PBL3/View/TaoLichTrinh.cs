@@ -16,16 +16,20 @@ namespace PBL3.View
         private string _idStaff;
         private string _location;
         private string _destination;
+        private int IdDetailed;
+        private double Distance;
         private Account _account;
         public TaoLichTrinh()
         {
             InitializeComponent();
         }
-        public TaoLichTrinh(string IdStaff, string Location, string Destination)
+        public TaoLichTrinh(string IdStaff, string Location, string Destination, int IdDetailed, double Distance)
         {
             this.Location1 = Location;
             this.Destination = Destination;
             this.IdStaff = IdStaff;
+            this.IdDetailed = IdDetailed;
+            this.Distance = Distance;
             InitializeComponent();
             Show();
             
@@ -58,6 +62,13 @@ namespace PBL3.View
             if(QLLichTrinh.Instance.AddLT(_sch))    
             {
                 MessageBox.Show("Bạn đã thêm lịch trình thành công");
+                Detailed_Schedule _detai = new Detailed_Schedule();
+                _detai.IdDetailed = IdDetailed;
+                _detai.Location = txtLocation.Text;
+                _detai.Destination = txtDestination.Text;
+                _detai.Distance = Distance;
+                _detai.Complete = 1;
+                QLLichTrinh.Instance.EditComplete( _detai );
                 this.Hide();
             }
             else

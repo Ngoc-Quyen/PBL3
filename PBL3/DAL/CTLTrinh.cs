@@ -28,5 +28,10 @@ namespace PBL3.DAL
             var l = db.Detailed_Schedule.Select(s => s).ToList();
             return l;
         }
+        public List<Detailed_Schedule> getAllDetailedBy()
+        {
+            var l = db.Detailed_Schedule.Where(s => s.Complete == 0).Select(s => s).ToList();
+            return l;
+        }    
     }
 }
