@@ -36,7 +36,6 @@ namespace PBL3.View
         {
             txtUserName.Text = loginAccount.UserName;
             txtDisplayName.Text = loginAccount.DisplayName;
-
         }
         //public void cbAccountType_Show()
         //{

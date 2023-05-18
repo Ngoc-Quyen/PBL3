@@ -36,6 +36,7 @@ namespace PBL3.BLL
         }
         public bool Login(string username, string password)
         {
+            TestPbl3Entities db = new TestPbl3Entities();
             var user = db.Accounts.Where(p => p.UserName.Equals(username)).ToList();
             if (user.Count > 0)
             {

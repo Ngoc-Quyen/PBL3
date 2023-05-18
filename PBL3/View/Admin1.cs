@@ -30,16 +30,20 @@ namespace PBL3.View
             LoadStaff();
             LoadAccount();
             LoadSchedule();
+            LoadBill();
         }
 
         #region EventCar
         void LoadCar()
         {
             _enable();
-            dtgvCar.DataSource = QLXe1.Instance.GetAllCar();
+            dtgvCar.DataSource = QLXe1.Instance.getAllCarInfo();
             cbSearchCar.DataSource = QLXe1.Instance.GetAllCar();
             cbSearchCar.DisplayMember = "IdCar";
             cbSearchCar.ValueMember = "IdCar";
+            cbChongoi.DataSource = QLXe1.Instance.GetAllPrice();
+            cbChongoi.DisplayMember = "IdLoai";
+            cbChongoi.ValueMember = "IdLoai";
             Reset();
         }
         private void btAddCar_Click(object sender, EventArgs e)
@@ -74,7 +78,7 @@ namespace PBL3.View
             txtCarId.Text = "";
             txtCarName.Text = "";
             txtCarColor.Text = "";
-            numericChongoi.Value = 0;
+            cbChongoi.ResetText();
             txtCarId.ReadOnly = false;
         }
         private void btSearchCar_Click(object sender, EventArgs e)
@@ -92,7 +96,7 @@ namespace PBL3.View
                 txtCarId.Text = selectedRow.Cells["IdCar"].Value.ToString();
                 txtCarName.Text = selectedRow.Cells["NameCar"].Value.ToString();
                 txtCarColor.Text = selectedRow.Cells["ColorCar"].Value.ToString();
-                numericChongoi.Value = Convert.ToInt32(selectedRow.Cells["ChoNgoi"].Value.ToString());
+                cbChongoi.SelectedValue = Convert.ToInt32(selectedRow.Cells["ChoNgoi"].Value.ToString());
             }
         }
 
@@ -127,7 +131,7 @@ namespace PBL3.View
                 car.IdCar = txtCarId.Text;
                 car.NameCar = txtCarName.Text;
                 car.ColorCar = txtCarColor.Text;
-                car.ChoNgoi = Convert.ToInt32(numericChongoi.Value.ToString());
+                car.ChoNgoi = Convert.ToInt32(cbChongoi.SelectedValue.ToString());
 
                 QLXe1.Instance.Add(car);
                 LoadCar();
@@ -138,7 +142,7 @@ namespace PBL3.View
                 car.IdCar = txtCarId.Text;
                 car.NameCar = txtCarName.Text;
                 car.ColorCar = txtCarColor.Text;
-                car.ChoNgoi = Convert.ToInt32(numericChongoi.Value.ToString());
+                car.ChoNgoi = Convert.ToInt32(cbChongoi.SelectedValue.ToString());
                 QLXe1.Instance.Edit(car);
                 LoadCar();
             }
@@ -159,7 +163,7 @@ namespace PBL3.View
         void LoadStaff()
         {
             _enableStaff();
-            dtgvStaff.DataSource = QLTaiXe.Instance.GetAllStaff();
+            dtgvStaff.DataSource = QLTaiXe.Instance.getAllStaffInfo();
             cbSearchStaff.DataSource = QLTaiXe.Instance.GetAllStaff();
             cbSearchStaff.DisplayMember = "NameStaff";
             cbSearchStaff.ValueMember = "IdStaff";
@@ -279,7 +283,8 @@ namespace PBL3.View
         public void LoadAccount()
         {
             _enableAccount();
-            dtgvAccount.DataSource = QLDangNhap.Instance.GetAllAccounts();
+            //dtgvAccount.DataSource = QLDangNhap.Instance.GetAllAccounts();
+            dtgvAccount.DataSource = QLTaiKhoan.Instance.getAllAccoutInfo();
             cbSearchAccount_Show();
             cbAccountType.DataSource = QLTaiKhoan.Instance.GetAllType();
             cbAccountType.DisplayMember = "NameType";
@@ -393,7 +398,8 @@ namespace PBL3.View
         public void LoadSchedule()
         {
             _enableSchedule();
-            dtgvSchedule.DataSource = QLLichTrinh.Instance.GetAllSchedule();
+            dtgvSchedule.DataSource = QLLichTrinh.Instance.GetAllScheduleInfo();
+           
             show_combobox();
 
         }
@@ -519,7 +525,7 @@ namespace PBL3.View
                 _sch.Location = txtLocation.Text;
                 _sch.DateLocation = dtLocation.Value;
                 _sch.Destination = txtDestination.Text;
-                _sch.IdStatus = Convert.ToInt32(cbStatus.SelectedIndex);
+                _sch.IdStatus = Convert.ToInt32(cbStatus.SelectedValue.ToString());
                 QLLichTrinh.Instance.Add(_sch );
                 LoadSchedule();
             }
@@ -533,7 +539,7 @@ namespace PBL3.View
                 _sch.Location = txtLocation.Text;
                 _sch.DateLocation = dtLocation.Value;
                 _sch.Destination = txtDestination.Text;
-                _sch.IdStatus = Convert.ToInt32(cbStatus.SelectedValue);
+                _sch.IdStatus = Convert.ToInt32(cbStatus.SelectedValue.ToString());
                 QLLichTrinh.Instance.Edit(_sch);
                 LoadSchedule();
             }
@@ -681,6 +687,126 @@ namespace PBL3.View
                 dtgvSchedule.DataSource = QLLichTrinh.Instance.GetSearchByStatus(status);
             }    
         }
+        #endregion
+
+        #region Event_Bill
+
+        void _enableBill()
+        {
+            btSave_Bill.Visible = false;
+            btReset_Bill.Visible = false;
+            btAdd_Bill.Visible = true;
+            //btDelete_Bill.Visible = true;
+            btEdit_Bill.Visible = true;
+            btShow_Bill.Visible = true;
+            pnSearch_Bill.Visible = true;
+        }
+        void _disableBill()
+        {
+            btSave_Bill.Visible = true;
+            btReset_Bill.Visible = true;
+            btAdd_Bill.Visible = false;
+            btEdit_Bill.Visible = false;
+            btShow_Bill.Visible = false;
+            pnSearch_Bill.Visible = false;
+        }
+        void LoadBill()
+        {
+            _enableBill();
+            dtgvBill.DataSource = QLHoaDon.Instance.getAllBillInfo();
+            ShowcbBill();
+        }
+
+        void ShowcbBill()
+        {
+            cbIdCar_Bill.DataSource = QLXe1.Instance.GetAllCar();
+            cbIdCar_Bill.DisplayMember = "IdCar";
+            cbIdCar_Bill.ValueMember = "IdCar";
+
+            cbIdStaff_Bill.DataSource = QLTaiXe.Instance.GetAllStaff();
+            cbIdStaff_Bill.DisplayMember = "IdStaff";
+            cbIdStaff_Bill.ValueMember = "IdStaff";
+        }
+       
+        void ResetBill()
+        {
+            txtSDT_Bill.ResetText();
+            cbIdCar_Bill.ResetText();
+            cbIdStaff_Bill.ResetText();
+            txtMoney.ResetText();
+            dtBill.ResetText();
+        }
+        private void btAdd_Bill_Click(object sender, EventArgs e)
+        {
+            if(_them)
+            {
+                _disableBill();
+            }    
+        }
+
+        private void btShow_Bill_Click(object sender, EventArgs e)
+        {
+            LoadBill();
+            ResetBill();
+        }
+
+        private void rdbTime_Bill_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbTime_Bill.Checked)
+            {
+                var l = QLHoaDon.Instance.getAllByTime();
+                cbSearch_Bill.DataSource = null;
+                if (cbSearch_Bill.Items.Count > 0)
+                {
+                    cbSearch_Bill.Items.Clear();
+                }
+                foreach (var i in l)
+                {
+                    cbSearch_Bill.Items.Add(i);
+                }
+            }
+        }
+
+        private void rdbStaff_Bill_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbStaff_Bill.Checked)
+            {
+                columnName = "IdStaff";
+                cbSearch_Bill.DataSource = QLTaiXe.Instance.GetAllStaff();
+                cbSearch_Bill.DisplayMember = columnName;
+                cbSearch_Bill.ValueMember = columnName;
+
+            }
+        }
+
+        private void rdbCar_Bill_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbCar_Bill.Checked)
+            {
+                columnName = "IdCar";
+                cbSearch_Bill.DataSource = QLXe1.Instance.GetAllCar();
+                cbSearch_Bill.DisplayMember = columnName;
+                cbSearch_Bill.ValueMember = columnName;
+            }
+        }
+
+        private void rdbSDT_Bill_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbSDT_Bill.Checked)
+            {
+                var l = QLHoaDon.Instance.getAllByCustomer();
+                cbSearchSchedule.DataSource = null;
+                if (cbSearch_Bill.Items.Count > 0)
+                {
+                    cbSearchSchedule.Items.Clear();
+                }
+                foreach (var i in l)
+                {
+                    cbSearch_Bill.Items.Add(i);
+                }
+            }
+        }
+
         #endregion
     }
 }

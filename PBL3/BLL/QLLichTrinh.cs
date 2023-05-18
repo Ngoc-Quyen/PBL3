@@ -1,4 +1,6 @@
 ﻿using Microsoft.SqlServer.Management.Smo;
+using PBL3.DAL;
+using PBL3.DAO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,21 +31,16 @@ namespace PBL3.BLL
         {
             var l = db.Schedules.Select(p => p);
             return l.ToList();
-            //var sch = from s in db.Schedules
-            //          select new Schedule(s.IdSchedule, s.IdCar, s.IdStaff, 
-            //          s.IdCustomer, s.Location, s.DateLocation, s.Destination, s.IdStatus);
-            ////select new Schedule 
-            ////{ 
-            ////    IdSchedule = s.IdSchedule, 
-            ////    IdCar = s.IdCar, 
-            ////    IdCustomer = s.IdCustomer, 
-            ////    IdStaff = s.IdStaff, 
-            ////    Location = s.Location, 
-            ////    DateLocation = s.DateLocation, 
-            ////    Destination = s.Destination, 
-            ////    IdStatus = s.IdStatus 
-            ////};
-            //return sch.ToList();
+
+            //var l = db.Schedules.Select(s => new { s.IdSchedule, s.IdCar, s.IdStaff,
+            //          s.IdCustomer, s.Location, s.DateLocation, s.Destination, s.IdStatus});
+            //return l.ToList();
+        }
+        public List<ScheduleInfo> GetAllScheduleInfo()
+        {
+
+            var schedules = db.Schedules.Select(s => new ScheduleInfo { IdSchedule = s.IdSchedule, IdCar = s.IdCar, IdStaff = s.IdStaff, IdCustomer = s.IdCustomer, Location = s.Location, DateLocation = s.DateLocation, Destination = s.Destination, IdStatus = s.IdStatus }).ToList();
+            return schedules;
         }
         public List<Status> GetAllStatus()
         {
@@ -79,6 +76,7 @@ namespace PBL3.BLL
         {
             try
             {
+                
                 if (Checked(schedule.IdCustomer))
                 {
                     //var _sch = new Schedule { IdSchedule = schedule.IdSchedule }; // Tạo một đối tượng mới với IdSchedule được chỉ định
@@ -91,13 +89,31 @@ namespace PBL3.BLL
                     _sch.Location = schedule.Location;
                     _sch.Destination = schedule.Destination;
                     _sch.DateLocation = schedule.DateLocation;
-                    _sch.Status = schedule.Status;
+                    _sch.IdStatus = schedule.IdStatus;
                     db.SaveChanges();
                 }
                 else
                 {
                     MessageBox.Show("Lịch trình không có trong hệ thống!");
                 }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Có lỗi xảy ra trong quá trình xử lý dữ liệu: " + ex.Message);
+            }
+        }
+        public void EditComplete(Detailed_Schedule detailed)
+        {
+            try
+            {
+                var _detai = db.Detailed_Schedule.Find(detailed.IdDetailed);
+                _detai.IdDetailed = detailed.IdDetailed;
+                _detai.Location = detailed.Location;
+                _detai.Destination = detailed.Destination;
+                _detai.Distance = detailed.Distance;
+                //_detai.Complete = detailed.Complete();
+                    
+
             }
             catch (Exception ex)
             {
@@ -115,6 +131,21 @@ namespace PBL3.BLL
             {
                 throw new Exception("Có lỗi xảy ra trong quá trình xử lý dữ liệu: " + ex.Message);
             }
+        }
+        public bool AddLT(Schedule schedule)
+        {
+            bool check = false;
+            try
+            {
+                db.Schedules.Add(schedule);
+                db.SaveChanges();
+                check = true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Có lỗi xảy ra trong quá trình xử lý dữ liệu: " + ex.Message);
+            }
+            return check;
         }
         public void Delete(string txt)
         {
@@ -181,6 +212,12 @@ namespace PBL3.BLL
         {
             var l = db.Schedules.Select(p => p.IdCustomer).Distinct().ToList();
             return l;
-        }    
+        }  
+        
+        public List<Detailed_Schedule> GetAllDetailed()
+        {
+            return CTLTrinh.Instance.getAllDetailed();
+        }
     }
+    
 }

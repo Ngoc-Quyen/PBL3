@@ -1,4 +1,5 @@
 ﻿using PBL3.DAL;
+using PBL3.DAO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,6 +38,11 @@ namespace PBL3.BLL
             var data = db.Cars.Select(p => p);
             return data.ToList();
         }
+        public List<CarInfo> getAllCarInfo()
+        {
+            var l = db.Cars.Select(s => new CarInfo { IdCar = s.IdCar, NameCar = s.NameCar, ColorCar = s.ColorCar, ChoNgoi = s.ChoNgoi }).ToList();
+            return l;
+        }    
         public Car GetCarBy(string id)
         {
             Car xe = new Car();
@@ -136,5 +142,28 @@ namespace PBL3.BLL
         //        var l = db.Cars.Where(p => p.)
         //    }
         //}
+
+        public int getChongoi(string Id)
+        {
+            int? chongoi = db.Cars.Where(p => p.IdCar == Id).Select(p => p.ChoNgoi).FirstOrDefault();
+            return (int)chongoi;
+        }
+
+        public decimal getPriceDuoi2km(int id)
+        {
+            decimal? d = db.Prices.Where(p => p.IdLoai == id).Select(p => p.GiaDuoi2Km).FirstOrDefault();
+            return (decimal) d;
+        }
+        public decimal getPrice(int id)
+        {
+            decimal? d = db.Prices.Where(p => p.IdLoai == id).Select(p => p.Gia).FirstOrDefault();
+            return (decimal)d;
+        }
+
+        public List<Price> GetAllPrice()
+        {
+            var l = db.Prices.Select(p => p);
+            return l.ToList();
+        }
     }
 }

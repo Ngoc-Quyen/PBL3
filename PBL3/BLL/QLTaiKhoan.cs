@@ -1,4 +1,5 @@
-﻿using PBL3.View;
+﻿using PBL3.DAO;
+using PBL3.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,11 @@ namespace PBL3.BLL
         public List<Account> GetAllAccount()
         {
             var list = db.Accounts.Select(p => p);
+            return list.ToList();
+        }
+        public List<AccountInfo> getAllAccoutInfo()
+        {
+            var list = db.Accounts.Select(s => new AccountInfo {UserName = s.UserName , DisplayName = s.DisplayName, PassWord = s.PassWord, Type = s.Type});
             return list.ToList();
         }
         public Account GetAccountByPrime(string id)  //lấy account theo khóa chính

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PBL3.DAO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +29,11 @@ namespace PBL3.BLL
             var data = db.Staffs.Select(p => p);
             return data.ToList();
         } 
+        public List<StaffInfo> getAllStaffInfo()
+        {
+            var l = db.Staffs.Select(s => new StaffInfo { IdStaff = s.IdStaff, NameStaff = s.NameStaff, AddressStaff = s.AddressStaff, PhoneStaff = s.PhoneStaff }).ToList();
+            return l;
+        }    
         public Staff GetStaffBy(string id)
         {
             Staff st = new Staff();

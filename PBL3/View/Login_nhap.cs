@@ -17,7 +17,9 @@ namespace PBL3.View
         public Login_nhap()
         {
             InitializeComponent();
+            QLTaiKhoan.Instance.getAllAccoutInfo();
         }
+
 
         private void ckbpass_CheckedChanged(object sender, EventArgs e)
         {

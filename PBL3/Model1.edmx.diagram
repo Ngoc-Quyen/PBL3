@@ -16,6 +16,12 @@
         <AssociationConnector Association="TestPbl3Model.FK_Schedule_Car" ManuallyRouted="false" />
         <AssociationConnector Association="TestPbl3Model.FK_Schedule_Staff" ManuallyRouted="false" />
         <AssociationConnector Association="TestPbl3Model.FK_Schedule_Status" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TestPbl3Model.Price" Width="1.5" PointX="0.75" PointY="10.75" />
+        <AssociationConnector Association="TestPbl3Model.FK_Car_Price" />
+        <EntityTypeShape EntityType="TestPbl3Model.Bill" Width="1.5" PointX="5" PointY="7.125" />
+        <EntityTypeShape EntityType="TestPbl3Model.Detailed_Schedule" Width="1.5" PointX="7.375" PointY="3.75" />
+        <AssociationConnector Association="TestPbl3Model.FK_Bills_Car" />
+        <AssociationConnector Association="TestPbl3Model.FK_Bills_Staff" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

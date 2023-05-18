@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TestPbl3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TestPbl3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="UserName" />
@@ -14,6 +14,17 @@
           <Property Name="PassWord" Type="nvarchar" MaxLength="100" />
           <Property Name="Type" Type="int" />
         </EntityType>
+        <EntityType Name="Bills">
+          <Key>
+            <PropertyRef Name="IdBill" />
+          </Key>
+          <Property Name="IdBill" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCar" Type="nvarchar" MaxLength="100" />
+          <Property Name="IdCustomer" Type="nvarchar" MaxLength="100" />
+          <Property Name="IdStaff" Type="nvarchar" MaxLength="100" />
+          <Property Name="GiaThanhToan" Type="money" />
+          <Property Name="TimeThanhToan" Type="date" />
+        </EntityType>
         <EntityType Name="Car">
           <Key>
             <PropertyRef Name="IdCar" />
@@ -22,6 +33,23 @@
           <Property Name="NameCar" Type="nvarchar" MaxLength="100" />
           <Property Name="ColorCar" Type="nvarchar" MaxLength="100" />
           <Property Name="ChoNgoi" Type="int" />
+        </EntityType>
+        <EntityType Name="Detailed_Schedule">
+          <Key>
+            <PropertyRef Name="IdDetailed" />
+          </Key>
+          <Property Name="IdDetailed" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="100" />
+          <Property Name="Destination" Type="nvarchar" MaxLength="100" />
+          <Property Name="Distance" Type="float" />
+        </EntityType>
+        <EntityType Name="Price">
+          <Key>
+            <PropertyRef Name="IdLoai" />
+          </Key>
+          <Property Name="IdLoai" Type="int" Nullable="false" />
+          <Property Name="Gia" Type="money" />
+          <Property Name="GiaDuoi2Km" Type="money" />
         </EntityType>
         <EntityType Name="Schedule">
           <Key>
@@ -81,6 +109,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Bills_Car">
+          <End Role="Car" Type="Self.Car" Multiplicity="0..1" />
+          <End Role="Bills" Type="Self.Bills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Car">
+              <PropertyRef Name="IdCar" />
+            </Principal>
+            <Dependent Role="Bills">
+              <PropertyRef Name="IdCar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bills_Staff">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
+          <End Role="Bills" Type="Self.Bills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="IdStaff" />
+            </Principal>
+            <Dependent Role="Bills">
+              <PropertyRef Name="IdStaff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Car_Price">
+          <End Role="Price" Type="Self.Price" Multiplicity="0..1" />
+          <End Role="Car" Type="Self.Car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Price">
+              <PropertyRef Name="IdLoai" />
+            </Principal>
+            <Dependent Role="Car">
+              <PropertyRef Name="ChoNgoi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Schedule_Car">
           <End Role="Car" Type="Self.Car" Multiplicity="0..1" />
           <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
@@ -119,7 +183,10 @@
         </Association>
         <EntityContainer Name="TestPbl3ModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bills" EntityType="Self.Bills" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Car" EntityType="Self.Car" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Detailed_Schedule" EntityType="Self.Detailed_Schedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Price" EntityType="Self.Price" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
@@ -128,6 +195,18 @@
           <AssociationSet Name="FK_Account_TypeAccount" Association="Self.FK_Account_TypeAccount">
             <End Role="TypeAccount" EntitySet="TypeAccount" />
             <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bills_Car" Association="Self.FK_Bills_Car">
+            <End Role="Car" EntitySet="Car" />
+            <End Role="Bills" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bills_Staff" Association="Self.FK_Bills_Staff">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="Bills" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Car_Price" Association="Self.FK_Car_Price">
+            <End Role="Price" EntitySet="Price" />
+            <End Role="Car" EntitySet="Car" />
           </AssociationSet>
           <AssociationSet Name="FK_Schedule_Car" Association="Self.FK_Schedule_Car">
             <End Role="Car" EntitySet="Car" />
@@ -142,8 +221,7 @@
             <End Role="Schedule" EntitySet="Schedule" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TestPbl3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -166,6 +244,8 @@
           <Property Name="ColorCar" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ChoNgoi" Type="Int32" />
           <NavigationProperty Name="Schedules" Relationship="Self.FK_Schedule_Car" FromRole="Car" ToRole="Schedule" />
+          <NavigationProperty Name="Price" Relationship="TestPbl3Model.FK_Car_Price" FromRole="Car" ToRole="Price" />
+          <NavigationProperty Name="Bills" Relationship="TestPbl3Model.FK_Bills_Car" FromRole="Car" ToRole="Bill1" />
         </EntityType>
         <EntityType Name="Schedule">
           <Key>
@@ -192,6 +272,7 @@
           <Property Name="AddressStaff" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="PhoneStaff" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Schedules" Relationship="Self.FK_Schedule_Staff" FromRole="Staff" ToRole="Schedule" />
+          <NavigationProperty Name="Bills" Relationship="TestPbl3Model.FK_Bills_Staff" FromRole="Staff" ToRole="Bill1" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -291,7 +372,89 @@
             <End Role="Status" EntitySet="Status" />
             <End Role="Schedule" EntitySet="Schedules" />
           </AssociationSet>
+          <EntitySet Name="Prices" EntityType="TestPbl3Model.Price" />
+          <AssociationSet Name="FK_Car_Price" Association="TestPbl3Model.FK_Car_Price">
+            <End Role="Price" EntitySet="Prices" />
+            <End Role="Car" EntitySet="Cars" />
+          </AssociationSet>
+          <EntitySet Name="Bills" EntityType="TestPbl3Model.Bill" />
+          <EntitySet Name="Detailed_Schedule" EntityType="TestPbl3Model.Detailed_Schedule" />
+          <AssociationSet Name="FK_Bills_Car" Association="TestPbl3Model.FK_Bills_Car">
+            <End Role="Car" EntitySet="Cars" />
+            <End Role="Bill1" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bills_Staff" Association="TestPbl3Model.FK_Bills_Staff">
+            <End Role="Staff" EntitySet="Staffs" />
+            <End Role="Bill1" EntitySet="Bills" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Price">
+          <Key>
+            <PropertyRef Name="IdLoai" />
+          </Key>
+          <Property Name="IdLoai" Type="Int32" Nullable="false" />
+          <Property Name="Gia" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="GiaDuoi2Km" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Cars" Relationship="TestPbl3Model.FK_Car_Price" FromRole="Price" ToRole="Car" />
+        </EntityType>
+        <Association Name="FK_Car_Price">
+          <End Type="TestPbl3Model.Price" Role="Price" Multiplicity="0..1" />
+          <End Type="TestPbl3Model.Car" Role="Car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Price">
+              <PropertyRef Name="IdLoai" />
+            </Principal>
+            <Dependent Role="Car">
+              <PropertyRef Name="ChoNgoi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="IdBill" />
+          </Key>
+          <Property Name="IdBill" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCar" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IdCustomer" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IdStaff" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GiaThanhToan" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TimeThanhToan" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Car" Relationship="TestPbl3Model.FK_Bills_Car" FromRole="Bill1" ToRole="Car" />
+          <NavigationProperty Name="Staff" Relationship="TestPbl3Model.FK_Bills_Staff" FromRole="Bill1" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="Detailed_Schedule">
+          <Key>
+            <PropertyRef Name="IdDetailed" />
+          </Key>
+          <Property Name="IdDetailed" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Destination" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Distance" Type="Double" />
+        </EntityType>
+        <Association Name="FK_Bills_Car">
+          <End Type="TestPbl3Model.Car" Role="Car" Multiplicity="0..1" />
+          <End Type="TestPbl3Model.Bill" Role="Bill1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Car">
+              <PropertyRef Name="IdCar" />
+            </Principal>
+            <Dependent Role="Bill1">
+              <PropertyRef Name="IdCar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bills_Staff">
+          <End Type="TestPbl3Model.Staff" Role="Staff" Multiplicity="0..1" />
+          <End Type="TestPbl3Model.Bill" Role="Bill1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="IdStaff" />
+            </Principal>
+            <Dependent Role="Bill1">
+              <PropertyRef Name="IdStaff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -366,6 +529,37 @@
               <MappingFragment StoreEntitySet="TypeAccount">
                 <ScalarProperty Name="IdType" ColumnName="IdType" />
                 <ScalarProperty Name="NameType" ColumnName="NameType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prices">
+            <EntityTypeMapping TypeName="TestPbl3Model.Price">
+              <MappingFragment StoreEntitySet="Price">
+                <ScalarProperty Name="GiaDuoi2Km" ColumnName="GiaDuoi2Km" />
+                <ScalarProperty Name="Gia" ColumnName="Gia" />
+                <ScalarProperty Name="IdLoai" ColumnName="IdLoai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bills">
+            <EntityTypeMapping TypeName="TestPbl3Model.Bill">
+              <MappingFragment StoreEntitySet="Bills">
+                <ScalarProperty Name="TimeThanhToan" ColumnName="TimeThanhToan" />
+                <ScalarProperty Name="GiaThanhToan" ColumnName="GiaThanhToan" />
+                <ScalarProperty Name="IdStaff" ColumnName="IdStaff" />
+                <ScalarProperty Name="IdCustomer" ColumnName="IdCustomer" />
+                <ScalarProperty Name="IdCar" ColumnName="IdCar" />
+                <ScalarProperty Name="IdBill" ColumnName="IdBill" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Detailed_Schedule">
+            <EntityTypeMapping TypeName="TestPbl3Model.Detailed_Schedule">
+              <MappingFragment StoreEntitySet="Detailed_Schedule">
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="IdDetailed" ColumnName="IdDetailed" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

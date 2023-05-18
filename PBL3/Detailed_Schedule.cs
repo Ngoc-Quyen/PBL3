@@ -12,19 +12,11 @@ namespace PBL3
     using System;
     using System.Collections.Generic;
     
-    public partial class Schedule
+    public partial class Detailed_Schedule
     {
-        public int IdSchedule { get; set; }
-        public string IdCar { get; set; }
-        public string IdCustomer { get; set; }
-        public string IdStaff { get; set; }
+        public int IdDetailed { get; set; }
         public string Location { get; set; }
         public string Destination { get; set; }
-        public Nullable<System.DateTime> DateLocation { get; set; }
-        public Nullable<int> IdStatus { get; set; }
-    
-        public virtual Car Car { get; set; }
-        public virtual Staff Staff { get; set; }
-        public virtual Status Status { get; set; }
+        public Nullable<double> Distance { get; set; }
     }
 }

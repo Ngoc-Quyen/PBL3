@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btXacnhan = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.numericGiamgia = new System.Windows.Forms.NumericUpDown();
             this.lbGiamgia = new System.Windows.Forms.Label();
@@ -61,6 +62,7 @@
             // 
             this.panel1.BackgroundImage = global::PBL3.Properties.Resources.Nền__2_;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.btXacnhan);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.numericGiamgia);
             this.panel1.Controls.Add(this.lbGiamgia);
@@ -85,11 +87,23 @@
             this.panel1.Size = new System.Drawing.Size(922, 551);
             this.panel1.TabIndex = 0;
             // 
+            // btXacnhan
+            // 
+            this.btXacnhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btXacnhan.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btXacnhan.Location = new System.Drawing.Point(776, 457);
+            this.btXacnhan.Name = "btXacnhan";
+            this.btXacnhan.Size = new System.Drawing.Size(134, 36);
+            this.btXacnhan.TabIndex = 27;
+            this.btXacnhan.Text = "Xác nhận";
+            this.btXacnhan.UseVisualStyleBackColor = true;
+            this.btXacnhan.Click += new System.EventHandler(this.btXacnhan_Click);
+            // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button1.Location = new System.Drawing.Point(776, 480);
+            this.button1.Location = new System.Drawing.Point(776, 503);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(134, 36);
             this.button1.TabIndex = 26;
@@ -138,12 +152,13 @@
             // 
             this.dtgvLichtrinh.BackgroundColor = System.Drawing.Color.White;
             this.dtgvLichtrinh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvLichtrinh.Location = new System.Drawing.Point(530, 108);
+            this.dtgvLichtrinh.Location = new System.Drawing.Point(530, 114);
             this.dtgvLichtrinh.Name = "dtgvLichtrinh";
             this.dtgvLichtrinh.RowHeadersWidth = 51;
             this.dtgvLichtrinh.RowTemplate.Height = 24;
             this.dtgvLichtrinh.Size = new System.Drawing.Size(380, 263);
             this.dtgvLichtrinh.TabIndex = 10;
+            this.dtgvLichtrinh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvLichtrinh_CellClick);
             // 
             // lbLichtrinh
             // 
@@ -316,6 +331,7 @@
             this.Name = "QuanLy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QuanLy";
+            this.Load += new System.EventHandler(this.QuanLy_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericGiamgia)).EndInit();
@@ -351,5 +367,6 @@
         private System.Windows.Forms.ToolStripMenuItem thôngTinTàiKhoảnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thôngTinCáNhânToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
+        private System.Windows.Forms.Button btXacnhan;
     }
 }

@@ -12,24 +12,19 @@ namespace PBL3
     using System;
     using System.Collections.Generic;
     
-    public partial class Car
+    public partial class Price
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Car()
+        public Price()
         {
-            this.Schedules = new HashSet<Schedule>();
-            this.Bills = new HashSet<Bill>();
+            this.Cars = new HashSet<Car>();
         }
     
-        public string IdCar { get; set; }
-        public string NameCar { get; set; }
-        public string ColorCar { get; set; }
-        public Nullable<int> ChoNgoi { get; set; }
+        public int IdLoai { get; set; }
+        public Nullable<decimal> Gia { get; set; }
+        public Nullable<decimal> GiaDuoi2Km { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Schedule> Schedules { get; set; }
-        public virtual Price Price { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Bill> Bills { get; set; }
+        public virtual ICollection<Car> Cars { get; set; }
     }
 }
