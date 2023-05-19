@@ -42,13 +42,13 @@
             this.cbIdCar = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.panel29 = new System.Windows.Forms.Panel();
+            this.txtIdStaff = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel28 = new System.Windows.Forms.Panel();
             this.txtIdCustomer = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblHeader = new System.Windows.Forms.Label();
-            this.txtIdStaff = new System.Windows.Forms.TextBox();
             this.btThanhtoan = new System.Windows.Forms.Button();
             this.btSaveSchedule = new System.Windows.Forms.Button();
             this.btResetSchedule = new System.Windows.Forms.Button();
@@ -72,7 +72,7 @@
             this.panel26.Controls.Add(this.panel28);
             this.panel26.Location = new System.Drawing.Point(29, 66);
             this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(470, 410);
+            this.panel26.Size = new System.Drawing.Size(470, 346);
             this.panel26.TabIndex = 54;
             // 
             // panel34
@@ -210,6 +210,19 @@
             this.panel29.Size = new System.Drawing.Size(451, 46);
             this.panel29.TabIndex = 2;
             // 
+            // txtIdStaff
+            // 
+            this.txtIdStaff.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtIdStaff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdStaff.Location = new System.Drawing.Point(240, 9);
+            this.txtIdStaff.Multiline = true;
+            this.txtIdStaff.Name = "txtIdStaff";
+            this.txtIdStaff.ReadOnly = true;
+            this.txtIdStaff.Size = new System.Drawing.Size(202, 25);
+            this.txtIdStaff.TabIndex = 2;
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -273,33 +286,21 @@
             this.lblHeader.Text = "Tạo lịch trình";
             this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtIdStaff
-            // 
-            this.txtIdStaff.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtIdStaff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIdStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdStaff.Location = new System.Drawing.Point(240, 9);
-            this.txtIdStaff.Multiline = true;
-            this.txtIdStaff.Name = "txtIdStaff";
-            this.txtIdStaff.ReadOnly = true;
-            this.txtIdStaff.Size = new System.Drawing.Size(202, 25);
-            this.txtIdStaff.TabIndex = 2;
-            // 
             // btThanhtoan
             // 
             this.btThanhtoan.BackColor = System.Drawing.Color.White;
             this.btThanhtoan.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btThanhtoan.Image = global::PBL3.Properties.Resources.bill;
             this.btThanhtoan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btThanhtoan.Location = new System.Drawing.Point(372, 481);
+            this.btThanhtoan.Location = new System.Drawing.Point(337, 441);
             this.btThanhtoan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btThanhtoan.Name = "btThanhtoan";
-            this.btThanhtoan.Size = new System.Drawing.Size(127, 40);
+            this.btThanhtoan.Size = new System.Drawing.Size(150, 50);
             this.btThanhtoan.TabIndex = 63;
             this.btThanhtoan.Text = "Thanh toán";
             this.btThanhtoan.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btThanhtoan.UseVisualStyleBackColor = false;
+            this.btThanhtoan.Click += new System.EventHandler(this.btThanhtoan_Click);
             // 
             // btSaveSchedule
             // 
@@ -307,12 +308,13 @@
             this.btSaveSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSaveSchedule.Image = global::PBL3.Properties.Resources.diskette__1_;
             this.btSaveSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btSaveSchedule.Location = new System.Drawing.Point(193, 481);
+            this.btSaveSchedule.Location = new System.Drawing.Point(179, 441);
             this.btSaveSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btSaveSchedule.Name = "btSaveSchedule";
-            this.btSaveSchedule.Size = new System.Drawing.Size(104, 40);
+            this.btSaveSchedule.Size = new System.Drawing.Size(104, 50);
             this.btSaveSchedule.TabIndex = 55;
             this.btSaveSchedule.Text = "Lưu";
+            this.btSaveSchedule.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btSaveSchedule.UseVisualStyleBackColor = false;
             this.btSaveSchedule.Click += new System.EventHandler(this.btSaveSchedule_Click);
             // 
@@ -322,18 +324,20 @@
             this.btResetSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btResetSchedule.Image = global::PBL3.Properties.Resources.reload;
             this.btResetSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btResetSchedule.Location = new System.Drawing.Point(29, 481);
+            this.btResetSchedule.Location = new System.Drawing.Point(28, 441);
             this.btResetSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btResetSchedule.Name = "btResetSchedule";
-            this.btResetSchedule.Size = new System.Drawing.Size(103, 40);
+            this.btResetSchedule.Size = new System.Drawing.Size(104, 50);
             this.btResetSchedule.TabIndex = 56;
             this.btResetSchedule.Text = "Hủy";
+            this.btResetSchedule.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btResetSchedule.UseVisualStyleBackColor = false;
             // 
             // TaoLichTrinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(511, 536);
             this.Controls.Add(this.btThanhtoan);
             this.Controls.Add(this.panel1);
@@ -341,6 +345,7 @@
             this.Controls.Add(this.btResetSchedule);
             this.Controls.Add(this.panel26);
             this.Name = "TaoLichTrinh";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TaoLichTrinh";
             this.panel26.ResumeLayout(false);
             this.panel34.ResumeLayout(false);

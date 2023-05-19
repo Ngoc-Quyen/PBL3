@@ -38,15 +38,14 @@
             this.txtMoney = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.panel38 = new System.Windows.Forms.Panel();
-            this.cbIdStaff_Bill = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.panel41 = new System.Windows.Forms.Panel();
-            this.cbIdCar_Bill = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
             this.panel42 = new System.Windows.Forms.Panel();
-            this.txtSDT_Bill = new System.Windows.Forms.TextBox();
+            this.txtIdCustomer = new System.Windows.Forms.TextBox();
             this.lbSDTKhach = new System.Windows.Forms.Label();
-            this.btExitTT = new System.Windows.Forms.Button();
+            this.txtIdCar = new System.Windows.Forms.TextBox();
+            this.txtNameStaff = new System.Windows.Forms.TextBox();
             this.btTT = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -59,11 +58,10 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.btExitTT);
             this.panel5.Controls.Add(this.btTT);
-            this.panel5.Location = new System.Drawing.Point(154, 403);
+            this.panel5.Location = new System.Drawing.Point(181, 375);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(258, 58);
+            this.panel5.Size = new System.Drawing.Size(294, 58);
             this.panel5.TabIndex = 60;
             // 
             // panel1
@@ -71,14 +69,14 @@
             this.panel1.Controls.Add(this.lblHeader);
             this.panel1.Location = new System.Drawing.Point(38, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(374, 53);
+            this.panel1.Size = new System.Drawing.Size(437, 55);
             this.panel1.TabIndex = 61;
             // 
             // lblHeader
             // 
             this.lblHeader.AutoSize = true;
             this.lblHeader.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.Location = new System.Drawing.Point(48, 10);
+            this.lblHeader.Location = new System.Drawing.Point(100, 11);
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(238, 32);
             this.lblHeader.TabIndex = 21;
@@ -88,19 +86,21 @@
             // 
             this.panel39.Controls.Add(this.dtBill);
             this.panel39.Controls.Add(this.label21);
-            this.panel39.Location = new System.Drawing.Point(38, 325);
+            this.panel39.Location = new System.Drawing.Point(38, 311);
             this.panel39.Name = "panel39";
-            this.panel39.Size = new System.Drawing.Size(374, 46);
+            this.panel39.Size = new System.Drawing.Size(437, 46);
             this.panel39.TabIndex = 56;
             // 
             // dtBill
             // 
             this.dtBill.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtBill.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtBill.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtBill.Location = new System.Drawing.Point(224, 6);
+            this.dtBill.Location = new System.Drawing.Point(224, 9);
             this.dtBill.Name = "dtBill";
-            this.dtBill.Size = new System.Drawing.Size(141, 22);
+            this.dtBill.Size = new System.Drawing.Size(204, 27);
             this.dtBill.TabIndex = 1;
             // 
             // label21
@@ -117,9 +117,9 @@
             // 
             this.panel40.Controls.Add(this.txtMoney);
             this.panel40.Controls.Add(this.label22);
-            this.panel40.Location = new System.Drawing.Point(38, 273);
+            this.panel40.Location = new System.Drawing.Point(38, 259);
             this.panel40.Name = "panel40";
-            this.panel40.Size = new System.Drawing.Size(374, 46);
+            this.panel40.Size = new System.Drawing.Size(437, 46);
             this.panel40.TabIndex = 55;
             // 
             // txtMoney
@@ -128,11 +128,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMoney.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMoney.Location = new System.Drawing.Point(188, 9);
+            this.txtMoney.Location = new System.Drawing.Point(224, 9);
             this.txtMoney.Multiline = true;
             this.txtMoney.Name = "txtMoney";
             this.txtMoney.ReadOnly = true;
-            this.txtMoney.Size = new System.Drawing.Size(177, 25);
+            this.txtMoney.Size = new System.Drawing.Size(204, 25);
             this.txtMoney.TabIndex = 1;
             // 
             // label22
@@ -147,23 +147,13 @@
             // 
             // panel38
             // 
-            this.panel38.Controls.Add(this.cbIdStaff_Bill);
+            this.panel38.Controls.Add(this.txtNameStaff);
             this.panel38.Controls.Add(this.label20);
             this.panel38.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel38.Location = new System.Drawing.Point(38, 221);
+            this.panel38.Location = new System.Drawing.Point(38, 207);
             this.panel38.Name = "panel38";
-            this.panel38.Size = new System.Drawing.Size(374, 46);
+            this.panel38.Size = new System.Drawing.Size(437, 46);
             this.panel38.TabIndex = 64;
-            // 
-            // cbIdStaff_Bill
-            // 
-            this.cbIdStaff_Bill.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbIdStaff_Bill.FormattingEnabled = true;
-            this.cbIdStaff_Bill.Location = new System.Drawing.Point(188, 8);
-            this.cbIdStaff_Bill.Name = "cbIdStaff_Bill";
-            this.cbIdStaff_Bill.Size = new System.Drawing.Size(177, 28);
-            this.cbIdStaff_Bill.TabIndex = 1;
             // 
             // label20
             // 
@@ -177,23 +167,13 @@
             // 
             // panel41
             // 
-            this.panel41.Controls.Add(this.cbIdCar_Bill);
+            this.panel41.Controls.Add(this.txtIdCar);
             this.panel41.Controls.Add(this.label23);
             this.panel41.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel41.Location = new System.Drawing.Point(38, 169);
+            this.panel41.Location = new System.Drawing.Point(38, 155);
             this.panel41.Name = "panel41";
-            this.panel41.Size = new System.Drawing.Size(374, 46);
+            this.panel41.Size = new System.Drawing.Size(437, 46);
             this.panel41.TabIndex = 63;
-            // 
-            // cbIdCar_Bill
-            // 
-            this.cbIdCar_Bill.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbIdCar_Bill.FormattingEnabled = true;
-            this.cbIdCar_Bill.Location = new System.Drawing.Point(188, 8);
-            this.cbIdCar_Bill.Name = "cbIdCar_Bill";
-            this.cbIdCar_Bill.Size = new System.Drawing.Size(177, 28);
-            this.cbIdCar_Bill.TabIndex = 1;
             // 
             // label23
             // 
@@ -207,24 +187,25 @@
             // 
             // panel42
             // 
-            this.panel42.Controls.Add(this.txtSDT_Bill);
+            this.panel42.Controls.Add(this.txtIdCustomer);
             this.panel42.Controls.Add(this.lbSDTKhach);
-            this.panel42.Location = new System.Drawing.Point(38, 117);
+            this.panel42.Location = new System.Drawing.Point(38, 103);
             this.panel42.Name = "panel42";
-            this.panel42.Size = new System.Drawing.Size(374, 46);
+            this.panel42.Size = new System.Drawing.Size(437, 46);
             this.panel42.TabIndex = 62;
             // 
-            // txtSDT_Bill
+            // txtIdCustomer
             // 
-            this.txtSDT_Bill.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtIdCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSDT_Bill.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSDT_Bill.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSDT_Bill.Location = new System.Drawing.Point(188, 9);
-            this.txtSDT_Bill.Multiline = true;
-            this.txtSDT_Bill.Name = "txtSDT_Bill";
-            this.txtSDT_Bill.Size = new System.Drawing.Size(177, 25);
-            this.txtSDT_Bill.TabIndex = 2;
+            this.txtIdCustomer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdCustomer.Location = new System.Drawing.Point(224, 9);
+            this.txtIdCustomer.Multiline = true;
+            this.txtIdCustomer.Name = "txtIdCustomer";
+            this.txtIdCustomer.ReadOnly = true;
+            this.txtIdCustomer.Size = new System.Drawing.Size(204, 25);
+            this.txtIdCustomer.TabIndex = 2;
             // 
             // lbSDTKhach
             // 
@@ -236,39 +217,53 @@
             this.lbSDTKhach.TabIndex = 0;
             this.lbSDTKhach.Text = "SĐT Khách hàng:";
             // 
-            // btExitTT
+            // txtIdCar
             // 
-            this.btExitTT.BackColor = System.Drawing.Color.White;
-            this.btExitTT.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btExitTT.Image = global::PBL3.Properties.Resources.logout__1_;
-            this.btExitTT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btExitTT.Location = new System.Drawing.Point(150, 13);
-            this.btExitTT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btExitTT.Name = "btExitTT";
-            this.btExitTT.Size = new System.Drawing.Size(99, 30);
-            this.btExitTT.TabIndex = 54;
-            this.btExitTT.Text = "Thoát";
-            this.btExitTT.UseVisualStyleBackColor = false;
+            this.txtIdCar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtIdCar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdCar.Location = new System.Drawing.Point(224, 9);
+            this.txtIdCar.Multiline = true;
+            this.txtIdCar.Name = "txtIdCar";
+            this.txtIdCar.ReadOnly = true;
+            this.txtIdCar.Size = new System.Drawing.Size(204, 25);
+            this.txtIdCar.TabIndex = 3;
+            // 
+            // txtNameStaff
+            // 
+            this.txtNameStaff.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNameStaff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNameStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNameStaff.Location = new System.Drawing.Point(224, 8);
+            this.txtNameStaff.Multiline = true;
+            this.txtNameStaff.Name = "txtNameStaff";
+            this.txtNameStaff.ReadOnly = true;
+            this.txtNameStaff.Size = new System.Drawing.Size(204, 25);
+            this.txtNameStaff.TabIndex = 3;
             // 
             // btTT
             // 
             this.btTT.BackColor = System.Drawing.Color.White;
             this.btTT.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btTT.Image = global::PBL3.Properties.Resources.diskette__1_;
+            this.btTT.Image = global::PBL3.Properties.Resources.bill1;
             this.btTT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btTT.Location = new System.Drawing.Point(5, 13);
+            this.btTT.Location = new System.Drawing.Point(131, 2);
             this.btTT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btTT.Name = "btTT";
-            this.btTT.Size = new System.Drawing.Size(139, 30);
+            this.btTT.Size = new System.Drawing.Size(150, 50);
             this.btTT.TabIndex = 53;
             this.btTT.Text = "Thanh toán";
+            this.btTT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btTT.UseVisualStyleBackColor = false;
             // 
             // ThanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 488);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(511, 491);
             this.Controls.Add(this.panel38);
             this.Controls.Add(this.panel41);
             this.Controls.Add(this.panel42);
@@ -277,6 +272,7 @@
             this.Controls.Add(this.panel40);
             this.Controls.Add(this.panel1);
             this.Name = "ThanhToan";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ThanhToan";
             this.panel5.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -298,7 +294,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button btExitTT;
         private System.Windows.Forms.Button btTT;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblHeader;
@@ -309,13 +304,13 @@
         private System.Windows.Forms.TextBox txtMoney;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Panel panel38;
-        private System.Windows.Forms.ComboBox cbIdStaff_Bill;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Panel panel41;
-        private System.Windows.Forms.ComboBox cbIdCar_Bill;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Panel panel42;
-        private System.Windows.Forms.TextBox txtSDT_Bill;
+        private System.Windows.Forms.TextBox txtIdCustomer;
         private System.Windows.Forms.Label lbSDTKhach;
+        private System.Windows.Forms.TextBox txtNameStaff;
+        private System.Windows.Forms.TextBox txtIdCar;
     }
 }

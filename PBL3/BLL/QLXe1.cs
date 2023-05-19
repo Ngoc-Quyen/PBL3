@@ -165,5 +165,10 @@ namespace PBL3.BLL
             var l = db.Prices.Select(p => p);
             return l.ToList();
         }
+        public List<Car> GetAllCarByLoai(int id)
+        {
+            var l = db.Cars.Where(s => s.ChoNgoi == id).Select(s => s).ToList();
+            return l;
+        }
     }
 }

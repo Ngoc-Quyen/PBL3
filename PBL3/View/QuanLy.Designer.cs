@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btShowPrice = new System.Windows.Forms.Button();
             this.btXacnhan = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.numericGiamgia = new System.Windows.Forms.NumericUpDown();
             this.lbGiamgia = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbIdLoai = new System.Windows.Forms.ComboBox();
             this.lbLoaixe = new System.Windows.Forms.Label();
             this.dtgvLichtrinh = new System.Windows.Forms.DataGridView();
             this.lbLichtrinh = new System.Windows.Forms.Label();
@@ -46,7 +46,7 @@
             this.txtDiembatdau = new System.Windows.Forms.TextBox();
             this.lbDiembatdau = new System.Windows.Forms.Label();
             this.lbTaoLT = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPrice = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinTàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,11 +62,11 @@
             // 
             this.panel1.BackgroundImage = global::PBL3.Properties.Resources.Nền__2_;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.btShowPrice);
             this.panel1.Controls.Add(this.btXacnhan);
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.numericGiamgia);
             this.panel1.Controls.Add(this.lbGiamgia);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.cbIdLoai);
             this.panel1.Controls.Add(this.lbLoaixe);
             this.panel1.Controls.Add(this.dtgvLichtrinh);
             this.panel1.Controls.Add(this.lbLichtrinh);
@@ -79,7 +79,7 @@
             this.panel1.Controls.Add(this.txtDiembatdau);
             this.panel1.Controls.Add(this.lbDiembatdau);
             this.panel1.Controls.Add(this.lbTaoLT);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtPrice);
             this.panel1.Controls.Add(this.menuStrip1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -87,28 +87,29 @@
             this.panel1.Size = new System.Drawing.Size(922, 551);
             this.panel1.TabIndex = 0;
             // 
+            // btShowPrice
+            // 
+            this.btShowPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btShowPrice.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btShowPrice.Location = new System.Drawing.Point(776, 438);
+            this.btShowPrice.Name = "btShowPrice";
+            this.btShowPrice.Size = new System.Drawing.Size(134, 36);
+            this.btShowPrice.TabIndex = 28;
+            this.btShowPrice.Text = "Xem giá";
+            this.btShowPrice.UseVisualStyleBackColor = true;
+            this.btShowPrice.Click += new System.EventHandler(this.btShowPrice_Click);
+            // 
             // btXacnhan
             // 
             this.btXacnhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btXacnhan.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btXacnhan.Location = new System.Drawing.Point(776, 457);
+            this.btXacnhan.Location = new System.Drawing.Point(776, 477);
             this.btXacnhan.Name = "btXacnhan";
             this.btXacnhan.Size = new System.Drawing.Size(134, 36);
             this.btXacnhan.TabIndex = 27;
             this.btXacnhan.Text = "Xác nhận";
             this.btXacnhan.UseVisualStyleBackColor = true;
             this.btXacnhan.Click += new System.EventHandler(this.btXacnhan_Click);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button1.Location = new System.Drawing.Point(776, 503);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 36);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "Thanh toán";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // numericGiamgia
             // 
@@ -129,13 +130,13 @@
             this.lbGiamgia.TabIndex = 22;
             this.lbGiamgia.Text = "Giảm giá:";
             // 
-            // comboBox1
+            // cbIdLoai
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(643, 397);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(106, 24);
-            this.comboBox1.TabIndex = 21;
+            this.cbIdLoai.FormattingEnabled = true;
+            this.cbIdLoai.Location = new System.Drawing.Point(643, 397);
+            this.cbIdLoai.Name = "cbIdLoai";
+            this.cbIdLoai.Size = new System.Drawing.Size(106, 24);
+            this.cbIdLoai.TabIndex = 21;
             // 
             // lbLoaixe
             // 
@@ -185,20 +186,20 @@
             // txtDiemketthuc
             // 
             this.txtDiemketthuc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDiemketthuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiemketthuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiemketthuc.Location = new System.Drawing.Point(206, 268);
             this.txtDiemketthuc.Name = "txtDiemketthuc";
-            this.txtDiemketthuc.Size = new System.Drawing.Size(281, 24);
+            this.txtDiemketthuc.Size = new System.Drawing.Size(281, 26);
             this.txtDiemketthuc.TabIndex = 18;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 272);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 268);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(162, 20);
+            this.label2.Size = new System.Drawing.Size(178, 24);
             this.label2.TabIndex = 15;
             this.label2.Text = "Địa điểm kết thúc:";
             // 
@@ -217,40 +218,40 @@
             // txtDiemtieptheo
             // 
             this.txtDiemtieptheo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDiemtieptheo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiemtieptheo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiemtieptheo.Location = new System.Drawing.Point(206, 178);
             this.txtDiemtieptheo.Name = "txtDiemtieptheo";
-            this.txtDiemtieptheo.Size = new System.Drawing.Size(281, 24);
+            this.txtDiemtieptheo.Size = new System.Drawing.Size(281, 26);
             this.txtDiemtieptheo.TabIndex = 17;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 179);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 20);
+            this.label1.Size = new System.Drawing.Size(186, 24);
             this.label1.TabIndex = 13;
             this.label1.Text = "Địa điểm tiếp theo:";
             // 
             // txtDiembatdau
             // 
             this.txtDiembatdau.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDiembatdau.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiembatdau.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiembatdau.Location = new System.Drawing.Point(206, 113);
             this.txtDiembatdau.Name = "txtDiembatdau";
-            this.txtDiembatdau.Size = new System.Drawing.Size(281, 24);
+            this.txtDiembatdau.Size = new System.Drawing.Size(281, 26);
             this.txtDiembatdau.TabIndex = 16;
             // 
             // lbDiembatdau
             // 
             this.lbDiembatdau.AutoSize = true;
             this.lbDiembatdau.BackColor = System.Drawing.Color.Transparent;
-            this.lbDiembatdau.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDiembatdau.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDiembatdau.Location = new System.Drawing.Point(12, 114);
             this.lbDiembatdau.Name = "lbDiembatdau";
-            this.lbDiembatdau.Size = new System.Drawing.Size(157, 20);
+            this.lbDiembatdau.Size = new System.Drawing.Size(175, 24);
             this.lbDiembatdau.TabIndex = 12;
             this.lbDiembatdau.Text = "Địa điểm bắt đầu:";
             // 
@@ -265,18 +266,18 @@
             this.lbTaoLT.TabIndex = 11;
             this.lbTaoLT.Text = "Tạo lịch trình";
             // 
-            // textBox1
+            // txtPrice
             // 
-            this.textBox1.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textBox1.Location = new System.Drawing.Point(540, 480);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(209, 33);
-            this.textBox1.TabIndex = 25;
+            this.txtPrice.BackColor = System.Drawing.Color.AliceBlue;
+            this.txtPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrice.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtPrice.Location = new System.Drawing.Point(540, 480);
+            this.txtPrice.Multiline = true;
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.ReadOnly = true;
+            this.txtPrice.Size = new System.Drawing.Size(209, 33);
+            this.txtPrice.TabIndex = 25;
             // 
             // menuStrip1
             // 
@@ -345,10 +346,9 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.NumericUpDown numericGiamgia;
         private System.Windows.Forms.Label lbGiamgia;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbIdLoai;
         private System.Windows.Forms.Label lbLoaixe;
         private System.Windows.Forms.DataGridView dtgvLichtrinh;
         private System.Windows.Forms.Label lbLichtrinh;
@@ -361,12 +361,13 @@
         private System.Windows.Forms.TextBox txtDiembatdau;
         private System.Windows.Forms.Label lbDiembatdau;
         private System.Windows.Forms.Label lbTaoLT;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thôngTinTàiKhoảnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thôngTinCáNhânToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
         private System.Windows.Forms.Button btXacnhan;
+        private System.Windows.Forms.Button btShowPrice;
     }
 }

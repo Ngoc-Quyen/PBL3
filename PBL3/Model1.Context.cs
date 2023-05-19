@@ -33,7 +33,7 @@ namespace PBL3
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TypeAccount> TypeAccounts { get; set; }
         public virtual DbSet<Price> Prices { get; set; }
-        public virtual DbSet<Bill> Bills { get; set; }
         public virtual DbSet<Detailed_Schedule> Detailed_Schedule { get; set; }
+        public virtual DbSet<Bill> Bills { get; set; }
     }
 }

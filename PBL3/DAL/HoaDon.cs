@@ -1,4 +1,5 @@
-﻿using PBL3.DAO;
+﻿using PBL3.BLL;
+using PBL3.DAO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,6 +52,19 @@ namespace PBL3.DAL
         {
             var l = db.Bills.Select(p => p.IdCustomer).Distinct().ToList();
             return l;
+        }
+        public double Tinhtien(int loai, double distance)
+        {
+            double sum = 0.0;
+            if (distance > 2)
+            {
+                sum = distance * Convert.ToDouble(QLXe1.Instance.getPrice(loai));
+            }
+            else
+            {
+                sum = Convert.ToDouble(QLXe1.Instance.getPriceDuoi2km(loai));
+            }
+            return sum;
         }
     }
 }

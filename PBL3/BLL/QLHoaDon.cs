@@ -43,5 +43,9 @@ namespace PBL3.BLL
         {
             return HoaDon.Instance.getAllByCustomer();
         }
+        public double Tinhtien(int loai, double distance)
+        {
+            return HoaDon.Instance.Tinhtien(loai, distance);
+        }    
     }
 }

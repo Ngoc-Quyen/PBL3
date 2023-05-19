@@ -79,6 +79,8 @@ namespace PBL3.View
         public static string location = "";
         public static string destination = "";
         public static double distance = 0.0;
+        public static int idLoai = 0;
+        
         private void dtgvLichtrinh_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int row = e.RowIndex;
@@ -89,20 +91,35 @@ namespace PBL3.View
                 location = selectedRow.Cells["Location"].Value.ToString();
                 destination = selectedRow.Cells["Destination"].Value.ToString();
                 distance = Convert.ToDouble(selectedRow.Cells["Distance"].Value.ToString());
-
+                idLoai = Convert.ToInt32(cbIdLoai.SelectedValue.ToString());
             }
         }
         private void btXacnhan_Click(object sender, EventArgs e)
         {
+            this.Hide();
             string idStaff = LoginAccount.UserName;
-            TaoLichTrinh f = new TaoLichTrinh(idStaff, location, destination, Id, distance);
+            idLoai = Convert.ToInt32(cbIdLoai.SelectedValue.ToString());
+            TaoLichTrinh f = new TaoLichTrinh(idStaff, location, destination, Id, distance, idLoai);
             f.ShowDialog();
+            this.Show();
         }
 
         public void ShowQly()
         {
             dtgvLichtrinh.DataSource = QLLichTrinh.Instance.GetAllDetailedBy();
+            cbIdLoai.DataSource = QLXe1.Instance.GetAllPrice();
+            cbIdLoai.DisplayMember = "IdLoai";
+            cbIdLoai.ValueMember = "IdLoai";
+        }
+        public double Tinhtoan()
+        {
+            int loai = Convert.ToInt32(cbIdLoai.SelectedValue.ToString());
+            return QLHoaDon.Instance.Tinhtien(loai, distance);
         }
 
+        private void btShowPrice_Click(object sender, EventArgs e)
+        {
+            txtPrice.Text = Tinhtoan().ToString();
+        }
     }
 }

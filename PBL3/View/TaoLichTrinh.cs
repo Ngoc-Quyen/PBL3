@@ -19,17 +19,19 @@ namespace PBL3.View
         private int IdDetailed;
         private double Distance;
         private Account _account;
+        private int _idLoai;
         public TaoLichTrinh()
         {
             InitializeComponent();
         }
-        public TaoLichTrinh(string IdStaff, string Location, string Destination, int IdDetailed, double Distance)
+        public TaoLichTrinh(string IdStaff, string Location, string Destination, int IdDetailed, double Distance, int IdLoai)
         {
             this.Location1 = Location;
             this.Destination = Destination;
             this.IdStaff = IdStaff;
             this.IdDetailed = IdDetailed;
             this.Distance = Distance;
+            this.IdLoai = IdLoai;
             InitializeComponent();
             Show();
             
@@ -39,7 +41,7 @@ namespace PBL3.View
             txtIdStaff.Text = IdStaff;
             txtLocation.Text = Location1;
             txtDestination.Text = Destination;
-            cbIdCar.DataSource = QLXe1.Instance.GetAllCar();
+            cbIdCar.DataSource = QLXe1.Instance.GetAllCarByLoai(IdLoai);
             cbIdCar.DisplayMember = "IdCar";
             cbIdCar.ValueMember = "IdCar";
         }
@@ -47,6 +49,8 @@ namespace PBL3.View
         public string IdStaff { get => _idStaff; set => _idStaff = value; }
         public string Location1 { get => _location; set => _location = value; }
         public string Destination { get => _destination; set => _destination = value; }
+        public int IdLoai { get => _idLoai; set => _idLoai = value; }
+
         private Account loginAccount;
 
         private void btSaveSchedule_Click(object sender, EventArgs e)
@@ -77,6 +81,18 @@ namespace PBL3.View
             }
             
             //Admin1 admin1 = new Admin1();
+        }
+
+        private void btThanhtoan_Click(object sender, EventArgs e)
+        {
+            string IdCustomer = txtIdCustomer.Text;
+            string IdCar = cbIdCar.SelectedValue.ToString();
+            string IdStaff = txtIdStaff.Text.ToString();
+            int loai = QLXe1.Instance.getChongoi(IdCar);
+            double sum = QLHoaDon.Instance.Tinhtien(loai, Distance);
+            this.Hide();
+            ThanhToan f = new ThanhToan(IdCustomer, IdCar, IdStaff, sum);
+            f.ShowDialog();
         }
     }
 }

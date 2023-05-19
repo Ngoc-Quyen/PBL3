@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabAdmin = new System.Windows.Forms.TabControl();
             this.tpBaocao = new System.Windows.Forms.TabPage();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -46,7 +46,15 @@
             this.panel45 = new System.Windows.Forms.Panel();
             this.dtgvBill = new System.Windows.Forms.DataGridView();
             this.panel44 = new System.Windows.Forms.Panel();
+            this.btSave_Bill = new System.Windows.Forms.Button();
+            this.btEdit_Bill = new System.Windows.Forms.Button();
+            this.btReset_Bill = new System.Windows.Forms.Button();
+            this.btShow_Bill = new System.Windows.Forms.Button();
+            this.btAdd_Bill = new System.Windows.Forms.Button();
             this.panel25 = new System.Windows.Forms.Panel();
+            this.panel38 = new System.Windows.Forms.Panel();
+            this.cbIdStaff_Bill = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.pnSearch_Bill = new System.Windows.Forms.Panel();
             this.cbSearch_Bill = new System.Windows.Forms.ComboBox();
             this.gbSearch_Bill = new System.Windows.Forms.GroupBox();
@@ -54,6 +62,7 @@
             this.rdbCar_Bill = new System.Windows.Forms.RadioButton();
             this.rdbStaff_Bill = new System.Windows.Forms.RadioButton();
             this.rdbTime_Bill = new System.Windows.Forms.RadioButton();
+            this.btSearch_Bill = new System.Windows.Forms.Button();
             this.panel39 = new System.Windows.Forms.Panel();
             this.dtBill = new System.Windows.Forms.DateTimePicker();
             this.label21 = new System.Windows.Forms.Label();
@@ -76,6 +85,7 @@
             this.rdbCustomer = new System.Windows.Forms.RadioButton();
             this.rdbStaff = new System.Windows.Forms.RadioButton();
             this.rdbTime = new System.Windows.Forms.RadioButton();
+            this.btSearchSchedule = new System.Windows.Forms.Button();
             this.panel26 = new System.Windows.Forms.Panel();
             this.panel27 = new System.Windows.Forms.Panel();
             this.cbStatus = new System.Windows.Forms.ComboBox();
@@ -101,8 +111,20 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.dtgvSchedule = new System.Windows.Forms.DataGridView();
             this.panel37 = new System.Windows.Forms.Panel();
+            this.btSaveSchedule = new System.Windows.Forms.Button();
+            this.btEditSchedule = new System.Windows.Forms.Button();
+            this.btResetSchedule = new System.Windows.Forms.Button();
+            this.btShowSchedule = new System.Windows.Forms.Button();
+            this.btDeleteSchedule = new System.Windows.Forms.Button();
+            this.btAddSchedule = new System.Windows.Forms.Button();
             this.tpXe = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btSaveCar = new System.Windows.Forms.Button();
+            this.btEditCar = new System.Windows.Forms.Button();
+            this.btResetCar = new System.Windows.Forms.Button();
+            this.btShowCar = new System.Windows.Forms.Button();
+            this.btDelCar = new System.Windows.Forms.Button();
+            this.btAddCar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel24 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -110,7 +132,9 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panelSearchCar = new System.Windows.Forms.Panel();
             this.cbSearchCar = new System.Windows.Forms.ComboBox();
+            this.btSearchCar = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.cbChongoi = new System.Windows.Forms.ComboBox();
             this.lbChongoi = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.txtCarColor = new System.Windows.Forms.TextBox();
@@ -123,6 +147,12 @@
             this.lbCarId = new System.Windows.Forms.Label();
             this.tpTaixe = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btSaveStaff = new System.Windows.Forms.Button();
+            this.btResetStaff = new System.Windows.Forms.Button();
+            this.btEditStaff = new System.Windows.Forms.Button();
+            this.btShowStaff = new System.Windows.Forms.Button();
+            this.btDelStaff = new System.Windows.Forms.Button();
+            this.btAddStaff = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel20 = new System.Windows.Forms.Panel();
             this.lblHeader = new System.Windows.Forms.Label();
@@ -130,6 +160,7 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.panelSearchStaff = new System.Windows.Forms.Panel();
             this.cbSearchStaff = new System.Windows.Forms.ComboBox();
+            this.btSrearchStaff = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
             this.txtStaffPhone = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -145,11 +176,18 @@
             this.tpTaikhoan = new System.Windows.Forms.TabPage();
             this.panel18 = new System.Windows.Forms.Panel();
             this.panelDisable = new System.Windows.Forms.Panel();
+            this.btSaveAccount = new System.Windows.Forms.Button();
+            this.btResetAccount = new System.Windows.Forms.Button();
+            this.btShowAccount = new System.Windows.Forms.Button();
+            this.btDelAccount = new System.Windows.Forms.Button();
+            this.btAddAccount = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
             this.dtgvAccount = new System.Windows.Forms.DataGridView();
             this.panel19 = new System.Windows.Forms.Panel();
             this.panelSearchAccount = new System.Windows.Forms.Panel();
             this.cbSearchAccount = new System.Windows.Forms.ComboBox();
+            this.btSearchAccount = new System.Windows.Forms.Button();
+            this.btResetPassWord = new System.Windows.Forms.Button();
             this.panel21 = new System.Windows.Forms.Panel();
             this.cbAccountType = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -159,44 +197,6 @@
             this.panel23 = new System.Windows.Forms.Panel();
             this.txtAccountName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.panel38 = new System.Windows.Forms.Panel();
-            this.cbIdStaff_Bill = new System.Windows.Forms.ComboBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.cbChongoi = new System.Windows.Forms.ComboBox();
-            this.btSave_Bill = new System.Windows.Forms.Button();
-            this.btEdit_Bill = new System.Windows.Forms.Button();
-            this.btReset_Bill = new System.Windows.Forms.Button();
-            this.btShow_Bill = new System.Windows.Forms.Button();
-            this.btAdd_Bill = new System.Windows.Forms.Button();
-            this.btSearch_Bill = new System.Windows.Forms.Button();
-            this.btSearchSchedule = new System.Windows.Forms.Button();
-            this.btSaveSchedule = new System.Windows.Forms.Button();
-            this.btEditSchedule = new System.Windows.Forms.Button();
-            this.btResetSchedule = new System.Windows.Forms.Button();
-            this.btShowSchedule = new System.Windows.Forms.Button();
-            this.btDeleteSchedule = new System.Windows.Forms.Button();
-            this.btAddSchedule = new System.Windows.Forms.Button();
-            this.btSaveCar = new System.Windows.Forms.Button();
-            this.btEditCar = new System.Windows.Forms.Button();
-            this.btResetCar = new System.Windows.Forms.Button();
-            this.btShowCar = new System.Windows.Forms.Button();
-            this.btDelCar = new System.Windows.Forms.Button();
-            this.btAddCar = new System.Windows.Forms.Button();
-            this.btSearchCar = new System.Windows.Forms.Button();
-            this.btSaveStaff = new System.Windows.Forms.Button();
-            this.btResetStaff = new System.Windows.Forms.Button();
-            this.btEditStaff = new System.Windows.Forms.Button();
-            this.btShowStaff = new System.Windows.Forms.Button();
-            this.btDelStaff = new System.Windows.Forms.Button();
-            this.btAddStaff = new System.Windows.Forms.Button();
-            this.btSrearchStaff = new System.Windows.Forms.Button();
-            this.btSaveAccount = new System.Windows.Forms.Button();
-            this.btResetAccount = new System.Windows.Forms.Button();
-            this.btShowAccount = new System.Windows.Forms.Button();
-            this.btDelAccount = new System.Windows.Forms.Button();
-            this.btAddAccount = new System.Windows.Forms.Button();
-            this.btSearchAccount = new System.Windows.Forms.Button();
-            this.btResetPassWord = new System.Windows.Forms.Button();
             this.tabAdmin.SuspendLayout();
             this.tpBaocao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -208,6 +208,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).BeginInit();
             this.panel44.SuspendLayout();
             this.panel25.SuspendLayout();
+            this.panel38.SuspendLayout();
             this.pnSearch_Bill.SuspendLayout();
             this.gbSearch_Bill.SuspendLayout();
             this.panel39.SuspendLayout();
@@ -261,7 +262,6 @@
             this.panel21.SuspendLayout();
             this.panel22.SuspendLayout();
             this.panel23.SuspendLayout();
-            this.panel38.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabAdmin
@@ -296,16 +296,16 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(414, 129);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(485, 372);
             this.chart1.TabIndex = 23;
             this.chart1.Text = "chart1";
@@ -401,7 +401,7 @@
             // panel45
             // 
             this.panel45.Controls.Add(this.dtgvBill);
-            this.panel45.Location = new System.Drawing.Point(13, 204);
+            this.panel45.Location = new System.Drawing.Point(13, 150);
             this.panel45.Name = "panel45";
             this.panel45.Size = new System.Drawing.Size(496, 287);
             this.panel45.TabIndex = 56;
@@ -435,6 +435,78 @@
             this.panel44.Size = new System.Drawing.Size(886, 68);
             this.panel44.TabIndex = 55;
             // 
+            // btSave_Bill
+            // 
+            this.btSave_Bill.BackColor = System.Drawing.Color.White;
+            this.btSave_Bill.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSave_Bill.Image = global::PBL3.Properties.Resources.diskette__1_;
+            this.btSave_Bill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btSave_Bill.Location = new System.Drawing.Point(569, 15);
+            this.btSave_Bill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btSave_Bill.Name = "btSave_Bill";
+            this.btSave_Bill.Size = new System.Drawing.Size(144, 40);
+            this.btSave_Bill.TabIndex = 46;
+            this.btSave_Bill.Text = "Lưu";
+            this.btSave_Bill.UseVisualStyleBackColor = false;
+            // 
+            // btEdit_Bill
+            // 
+            this.btEdit_Bill.BackColor = System.Drawing.Color.White;
+            this.btEdit_Bill.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btEdit_Bill.Image = global::PBL3.Properties.Resources.edit_icon;
+            this.btEdit_Bill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btEdit_Bill.Location = new System.Drawing.Point(182, 15);
+            this.btEdit_Bill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btEdit_Bill.Name = "btEdit_Bill";
+            this.btEdit_Bill.Size = new System.Drawing.Size(144, 40);
+            this.btEdit_Bill.TabIndex = 44;
+            this.btEdit_Bill.Text = "     Chỉnh sửa";
+            this.btEdit_Bill.UseVisualStyleBackColor = false;
+            // 
+            // btReset_Bill
+            // 
+            this.btReset_Bill.BackColor = System.Drawing.Color.White;
+            this.btReset_Bill.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btReset_Bill.Image = global::PBL3.Properties.Resources.reload;
+            this.btReset_Bill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btReset_Bill.Location = new System.Drawing.Point(733, 15);
+            this.btReset_Bill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btReset_Bill.Name = "btReset_Bill";
+            this.btReset_Bill.Size = new System.Drawing.Size(144, 40);
+            this.btReset_Bill.TabIndex = 50;
+            this.btReset_Bill.Text = "Hủy";
+            this.btReset_Bill.UseVisualStyleBackColor = false;
+            // 
+            // btShow_Bill
+            // 
+            this.btShow_Bill.BackColor = System.Drawing.Color.White;
+            this.btShow_Bill.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btShow_Bill.Image = global::PBL3.Properties.Resources.list__4_;
+            this.btShow_Bill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btShow_Bill.Location = new System.Drawing.Point(349, 15);
+            this.btShow_Bill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btShow_Bill.Name = "btShow_Bill";
+            this.btShow_Bill.Size = new System.Drawing.Size(144, 40);
+            this.btShow_Bill.TabIndex = 45;
+            this.btShow_Bill.Text = "  Hiển thị";
+            this.btShow_Bill.UseVisualStyleBackColor = false;
+            this.btShow_Bill.Click += new System.EventHandler(this.btShow_Bill_Click);
+            // 
+            // btAdd_Bill
+            // 
+            this.btAdd_Bill.BackColor = System.Drawing.Color.White;
+            this.btAdd_Bill.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAdd_Bill.Image = global::PBL3.Properties.Resources.add_icon1;
+            this.btAdd_Bill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btAdd_Bill.Location = new System.Drawing.Point(11, 15);
+            this.btAdd_Bill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btAdd_Bill.Name = "btAdd_Bill";
+            this.btAdd_Bill.Size = new System.Drawing.Size(144, 40);
+            this.btAdd_Bill.TabIndex = 42;
+            this.btAdd_Bill.Text = "Thêm";
+            this.btAdd_Bill.UseVisualStyleBackColor = false;
+            this.btAdd_Bill.Click += new System.EventHandler(this.btAdd_Bill_Click);
+            // 
             // panel25
             // 
             this.panel25.Controls.Add(this.panel38);
@@ -447,6 +519,36 @@
             this.panel25.Name = "panel25";
             this.panel25.Size = new System.Drawing.Size(384, 410);
             this.panel25.TabIndex = 54;
+            // 
+            // panel38
+            // 
+            this.panel38.Controls.Add(this.cbIdStaff_Bill);
+            this.panel38.Controls.Add(this.label20);
+            this.panel38.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel38.Location = new System.Drawing.Point(7, 107);
+            this.panel38.Name = "panel38";
+            this.panel38.Size = new System.Drawing.Size(374, 46);
+            this.panel38.TabIndex = 56;
+            // 
+            // cbIdStaff_Bill
+            // 
+            this.cbIdStaff_Bill.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbIdStaff_Bill.FormattingEnabled = true;
+            this.cbIdStaff_Bill.Location = new System.Drawing.Point(188, 8);
+            this.cbIdStaff_Bill.Name = "cbIdStaff_Bill";
+            this.cbIdStaff_Bill.Size = new System.Drawing.Size(177, 28);
+            this.cbIdStaff_Bill.TabIndex = 1;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(5, 9);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(97, 24);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "Id Tài xế:";
             // 
             // pnSearch_Bill
             // 
@@ -535,6 +637,21 @@
             this.rdbTime_Bill.Text = "Thời gian";
             this.rdbTime_Bill.UseVisualStyleBackColor = true;
             this.rdbTime_Bill.CheckedChanged += new System.EventHandler(this.rdbTime_Bill_CheckedChanged);
+            // 
+            // btSearch_Bill
+            // 
+            this.btSearch_Bill.BackColor = System.Drawing.Color.White;
+            this.btSearch_Bill.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSearch_Bill.Image = global::PBL3.Properties.Resources.search_icon1;
+            this.btSearch_Bill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btSearch_Bill.Location = new System.Drawing.Point(11, 21);
+            this.btSearch_Bill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btSearch_Bill.Name = "btSearch_Bill";
+            this.btSearch_Bill.Size = new System.Drawing.Size(144, 39);
+            this.btSearch_Bill.TabIndex = 46;
+            this.btSearch_Bill.Text = "Tìm kiếm";
+            this.btSearch_Bill.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btSearch_Bill.UseVisualStyleBackColor = false;
             // 
             // panel39
             // 
@@ -785,6 +902,22 @@
             this.rdbTime.Text = "Thời gian";
             this.rdbTime.UseVisualStyleBackColor = true;
             this.rdbTime.CheckedChanged += new System.EventHandler(this.rdbTime_CheckedChanged);
+            // 
+            // btSearchSchedule
+            // 
+            this.btSearchSchedule.BackColor = System.Drawing.Color.White;
+            this.btSearchSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSearchSchedule.Image = global::PBL3.Properties.Resources.search_icon1;
+            this.btSearchSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btSearchSchedule.Location = new System.Drawing.Point(11, 21);
+            this.btSearchSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btSearchSchedule.Name = "btSearchSchedule";
+            this.btSearchSchedule.Size = new System.Drawing.Size(144, 39);
+            this.btSearchSchedule.TabIndex = 46;
+            this.btSearchSchedule.Text = "Tìm kiếm";
+            this.btSearchSchedule.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btSearchSchedule.UseVisualStyleBackColor = false;
+            this.btSearchSchedule.Click += new System.EventHandler(this.btSearchSchedule_Click);
             // 
             // panel26
             // 
@@ -1051,6 +1184,96 @@
             this.panel37.Size = new System.Drawing.Size(886, 68);
             this.panel37.TabIndex = 51;
             // 
+            // btSaveSchedule
+            // 
+            this.btSaveSchedule.BackColor = System.Drawing.Color.White;
+            this.btSaveSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSaveSchedule.Image = global::PBL3.Properties.Resources.diskette__1_;
+            this.btSaveSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btSaveSchedule.Location = new System.Drawing.Point(569, 15);
+            this.btSaveSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btSaveSchedule.Name = "btSaveSchedule";
+            this.btSaveSchedule.Size = new System.Drawing.Size(144, 40);
+            this.btSaveSchedule.TabIndex = 46;
+            this.btSaveSchedule.Text = "Lưu";
+            this.btSaveSchedule.UseVisualStyleBackColor = false;
+            this.btSaveSchedule.Click += new System.EventHandler(this.btSaveSchedule_Click);
+            // 
+            // btEditSchedule
+            // 
+            this.btEditSchedule.BackColor = System.Drawing.Color.White;
+            this.btEditSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btEditSchedule.Image = global::PBL3.Properties.Resources.edit_icon;
+            this.btEditSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btEditSchedule.Location = new System.Drawing.Point(342, 15);
+            this.btEditSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btEditSchedule.Name = "btEditSchedule";
+            this.btEditSchedule.Size = new System.Drawing.Size(144, 40);
+            this.btEditSchedule.TabIndex = 44;
+            this.btEditSchedule.Text = "     Chỉnh sửa";
+            this.btEditSchedule.UseVisualStyleBackColor = false;
+            this.btEditSchedule.Click += new System.EventHandler(this.btEditSchedule_Click);
+            // 
+            // btResetSchedule
+            // 
+            this.btResetSchedule.BackColor = System.Drawing.Color.White;
+            this.btResetSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btResetSchedule.Image = global::PBL3.Properties.Resources.reload;
+            this.btResetSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btResetSchedule.Location = new System.Drawing.Point(733, 15);
+            this.btResetSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btResetSchedule.Name = "btResetSchedule";
+            this.btResetSchedule.Size = new System.Drawing.Size(144, 40);
+            this.btResetSchedule.TabIndex = 50;
+            this.btResetSchedule.Text = "Hủy";
+            this.btResetSchedule.UseVisualStyleBackColor = false;
+            this.btResetSchedule.Click += new System.EventHandler(this.btExitSchedule_Click);
+            // 
+            // btShowSchedule
+            // 
+            this.btShowSchedule.BackColor = System.Drawing.Color.White;
+            this.btShowSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btShowSchedule.Image = global::PBL3.Properties.Resources.list__4_;
+            this.btShowSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btShowSchedule.Location = new System.Drawing.Point(509, 15);
+            this.btShowSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btShowSchedule.Name = "btShowSchedule";
+            this.btShowSchedule.Size = new System.Drawing.Size(144, 40);
+            this.btShowSchedule.TabIndex = 45;
+            this.btShowSchedule.Text = "  Hiển thị";
+            this.btShowSchedule.UseVisualStyleBackColor = false;
+            this.btShowSchedule.Click += new System.EventHandler(this.btShowSchedule_Click);
+            // 
+            // btDeleteSchedule
+            // 
+            this.btDeleteSchedule.BackColor = System.Drawing.Color.White;
+            this.btDeleteSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btDeleteSchedule.Image = global::PBL3.Properties.Resources.delete_icon11;
+            this.btDeleteSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btDeleteSchedule.Location = new System.Drawing.Point(176, 15);
+            this.btDeleteSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btDeleteSchedule.Name = "btDeleteSchedule";
+            this.btDeleteSchedule.Size = new System.Drawing.Size(144, 40);
+            this.btDeleteSchedule.TabIndex = 43;
+            this.btDeleteSchedule.Text = "Xóa";
+            this.btDeleteSchedule.UseVisualStyleBackColor = false;
+            this.btDeleteSchedule.Click += new System.EventHandler(this.btDeleteSchedule_Click);
+            // 
+            // btAddSchedule
+            // 
+            this.btAddSchedule.BackColor = System.Drawing.Color.White;
+            this.btAddSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAddSchedule.Image = global::PBL3.Properties.Resources.add_icon1;
+            this.btAddSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btAddSchedule.Location = new System.Drawing.Point(11, 15);
+            this.btAddSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btAddSchedule.Name = "btAddSchedule";
+            this.btAddSchedule.Size = new System.Drawing.Size(144, 40);
+            this.btAddSchedule.TabIndex = 42;
+            this.btAddSchedule.Text = "Thêm";
+            this.btAddSchedule.UseVisualStyleBackColor = false;
+            this.btAddSchedule.Click += new System.EventHandler(this.btAddSchedule_Click);
+            // 
             // tpXe
             // 
             this.tpXe.Controls.Add(this.panel4);
@@ -1077,6 +1300,96 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(893, 68);
             this.panel4.TabIndex = 17;
+            // 
+            // btSaveCar
+            // 
+            this.btSaveCar.BackColor = System.Drawing.Color.White;
+            this.btSaveCar.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSaveCar.Image = global::PBL3.Properties.Resources.diskette__1_;
+            this.btSaveCar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btSaveCar.Location = new System.Drawing.Point(559, 15);
+            this.btSaveCar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btSaveCar.Name = "btSaveCar";
+            this.btSaveCar.Size = new System.Drawing.Size(144, 40);
+            this.btSaveCar.TabIndex = 46;
+            this.btSaveCar.Text = "Lưu";
+            this.btSaveCar.UseVisualStyleBackColor = false;
+            this.btSaveCar.Click += new System.EventHandler(this.btSaveCar_Click);
+            // 
+            // btEditCar
+            // 
+            this.btEditCar.BackColor = System.Drawing.Color.White;
+            this.btEditCar.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btEditCar.Image = global::PBL3.Properties.Resources.edit_icon;
+            this.btEditCar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btEditCar.Location = new System.Drawing.Point(342, 15);
+            this.btEditCar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btEditCar.Name = "btEditCar";
+            this.btEditCar.Size = new System.Drawing.Size(144, 40);
+            this.btEditCar.TabIndex = 44;
+            this.btEditCar.Text = "     Chỉnh sửa";
+            this.btEditCar.UseVisualStyleBackColor = false;
+            this.btEditCar.Click += new System.EventHandler(this.btEditCar_Click);
+            // 
+            // btResetCar
+            // 
+            this.btResetCar.BackColor = System.Drawing.Color.White;
+            this.btResetCar.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btResetCar.Image = global::PBL3.Properties.Resources.reload;
+            this.btResetCar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btResetCar.Location = new System.Drawing.Point(743, 15);
+            this.btResetCar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btResetCar.Name = "btResetCar";
+            this.btResetCar.Size = new System.Drawing.Size(144, 40);
+            this.btResetCar.TabIndex = 50;
+            this.btResetCar.Text = "Hủy";
+            this.btResetCar.UseVisualStyleBackColor = false;
+            this.btResetCar.Click += new System.EventHandler(this.btResetCar_Click);
+            // 
+            // btShowCar
+            // 
+            this.btShowCar.BackColor = System.Drawing.Color.White;
+            this.btShowCar.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btShowCar.Image = global::PBL3.Properties.Resources.list__4_;
+            this.btShowCar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btShowCar.Location = new System.Drawing.Point(509, 15);
+            this.btShowCar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btShowCar.Name = "btShowCar";
+            this.btShowCar.Size = new System.Drawing.Size(144, 40);
+            this.btShowCar.TabIndex = 45;
+            this.btShowCar.Text = "  Hiển thị";
+            this.btShowCar.UseVisualStyleBackColor = false;
+            this.btShowCar.Click += new System.EventHandler(this.btShowCar_Click);
+            // 
+            // btDelCar
+            // 
+            this.btDelCar.BackColor = System.Drawing.Color.White;
+            this.btDelCar.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btDelCar.Image = global::PBL3.Properties.Resources.delete_icon11;
+            this.btDelCar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btDelCar.Location = new System.Drawing.Point(176, 15);
+            this.btDelCar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btDelCar.Name = "btDelCar";
+            this.btDelCar.Size = new System.Drawing.Size(144, 40);
+            this.btDelCar.TabIndex = 43;
+            this.btDelCar.Text = "Xóa";
+            this.btDelCar.UseVisualStyleBackColor = false;
+            this.btDelCar.Click += new System.EventHandler(this.btDelCar_Click);
+            // 
+            // btAddCar
+            // 
+            this.btAddCar.BackColor = System.Drawing.Color.White;
+            this.btAddCar.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAddCar.Image = global::PBL3.Properties.Resources.add_icon1;
+            this.btAddCar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btAddCar.Location = new System.Drawing.Point(11, 15);
+            this.btAddCar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btAddCar.Name = "btAddCar";
+            this.btAddCar.Size = new System.Drawing.Size(144, 40);
+            this.btAddCar.TabIndex = 42;
+            this.btAddCar.Text = "Thêm";
+            this.btAddCar.UseVisualStyleBackColor = false;
+            this.btAddCar.Click += new System.EventHandler(this.btAddCar_Click);
             // 
             // panel1
             // 
@@ -1148,6 +1461,21 @@
             this.cbSearchCar.Size = new System.Drawing.Size(179, 28);
             this.cbSearchCar.TabIndex = 48;
             // 
+            // btSearchCar
+            // 
+            this.btSearchCar.BackColor = System.Drawing.Color.White;
+            this.btSearchCar.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSearchCar.Image = global::PBL3.Properties.Resources.search_icon1;
+            this.btSearchCar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btSearchCar.Location = new System.Drawing.Point(3, 6);
+            this.btSearchCar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btSearchCar.Name = "btSearchCar";
+            this.btSearchCar.Size = new System.Drawing.Size(144, 40);
+            this.btSearchCar.TabIndex = 46;
+            this.btSearchCar.Text = "Tìm kiếm";
+            this.btSearchCar.UseVisualStyleBackColor = false;
+            this.btSearchCar.Click += new System.EventHandler(this.btSearchCar_Click);
+            // 
             // panel10
             // 
             this.panel10.Controls.Add(this.cbChongoi);
@@ -1156,6 +1484,16 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(365, 46);
             this.panel10.TabIndex = 4;
+            // 
+            // cbChongoi
+            // 
+            this.cbChongoi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbChongoi.FormattingEnabled = true;
+            this.cbChongoi.Location = new System.Drawing.Point(146, 9);
+            this.cbChongoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbChongoi.Name = "cbChongoi";
+            this.cbChongoi.Size = new System.Drawing.Size(201, 28);
+            this.cbChongoi.TabIndex = 49;
             // 
             // lbChongoi
             // 
@@ -1282,6 +1620,95 @@
             this.panel3.Size = new System.Drawing.Size(899, 68);
             this.panel3.TabIndex = 16;
             // 
+            // btSaveStaff
+            // 
+            this.btSaveStaff.BackColor = System.Drawing.Color.White;
+            this.btSaveStaff.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSaveStaff.Image = global::PBL3.Properties.Resources.diskette__1_;
+            this.btSaveStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btSaveStaff.Location = new System.Drawing.Point(548, 15);
+            this.btSaveStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btSaveStaff.Name = "btSaveStaff";
+            this.btSaveStaff.Size = new System.Drawing.Size(144, 40);
+            this.btSaveStaff.TabIndex = 51;
+            this.btSaveStaff.Text = "Lưu";
+            this.btSaveStaff.UseVisualStyleBackColor = false;
+            this.btSaveStaff.Click += new System.EventHandler(this.btSaveStaff_Click);
+            // 
+            // btResetStaff
+            // 
+            this.btResetStaff.BackColor = System.Drawing.Color.White;
+            this.btResetStaff.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btResetStaff.Image = global::PBL3.Properties.Resources.reload;
+            this.btResetStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btResetStaff.Location = new System.Drawing.Point(732, 15);
+            this.btResetStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btResetStaff.Name = "btResetStaff";
+            this.btResetStaff.Size = new System.Drawing.Size(144, 40);
+            this.btResetStaff.TabIndex = 52;
+            this.btResetStaff.Text = "Hủy";
+            this.btResetStaff.UseVisualStyleBackColor = false;
+            // 
+            // btEditStaff
+            // 
+            this.btEditStaff.BackColor = System.Drawing.Color.White;
+            this.btEditStaff.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btEditStaff.Image = global::PBL3.Properties.Resources.edit_icon;
+            this.btEditStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btEditStaff.Location = new System.Drawing.Point(343, 15);
+            this.btEditStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btEditStaff.Name = "btEditStaff";
+            this.btEditStaff.Size = new System.Drawing.Size(144, 40);
+            this.btEditStaff.TabIndex = 44;
+            this.btEditStaff.Text = "     Chỉnh sửa";
+            this.btEditStaff.UseVisualStyleBackColor = false;
+            this.btEditStaff.Click += new System.EventHandler(this.btEditStaff_Click);
+            // 
+            // btShowStaff
+            // 
+            this.btShowStaff.BackColor = System.Drawing.Color.White;
+            this.btShowStaff.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btShowStaff.Image = global::PBL3.Properties.Resources.list__4_;
+            this.btShowStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btShowStaff.Location = new System.Drawing.Point(510, 15);
+            this.btShowStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btShowStaff.Name = "btShowStaff";
+            this.btShowStaff.Size = new System.Drawing.Size(144, 40);
+            this.btShowStaff.TabIndex = 45;
+            this.btShowStaff.Text = "  Hiển thị";
+            this.btShowStaff.UseVisualStyleBackColor = false;
+            this.btShowStaff.Click += new System.EventHandler(this.btShowStaff_Click);
+            // 
+            // btDelStaff
+            // 
+            this.btDelStaff.BackColor = System.Drawing.Color.White;
+            this.btDelStaff.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btDelStaff.Image = global::PBL3.Properties.Resources.delete_icon1;
+            this.btDelStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btDelStaff.Location = new System.Drawing.Point(176, 15);
+            this.btDelStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btDelStaff.Name = "btDelStaff";
+            this.btDelStaff.Size = new System.Drawing.Size(144, 40);
+            this.btDelStaff.TabIndex = 43;
+            this.btDelStaff.Text = "Xóa";
+            this.btDelStaff.UseVisualStyleBackColor = false;
+            this.btDelStaff.Click += new System.EventHandler(this.btDelStaff_Click);
+            // 
+            // btAddStaff
+            // 
+            this.btAddStaff.BackColor = System.Drawing.Color.White;
+            this.btAddStaff.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAddStaff.Image = global::PBL3.Properties.Resources.add_icon1;
+            this.btAddStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btAddStaff.Location = new System.Drawing.Point(11, 15);
+            this.btAddStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btAddStaff.Name = "btAddStaff";
+            this.btAddStaff.Size = new System.Drawing.Size(144, 40);
+            this.btAddStaff.TabIndex = 42;
+            this.btAddStaff.Text = "Thêm";
+            this.btAddStaff.UseVisualStyleBackColor = false;
+            this.btAddStaff.Click += new System.EventHandler(this.btAddStaff_Click);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel20);
@@ -1351,6 +1778,21 @@
             this.cbSearchStaff.Name = "cbSearchStaff";
             this.cbSearchStaff.Size = new System.Drawing.Size(185, 28);
             this.cbSearchStaff.TabIndex = 47;
+            // 
+            // btSrearchStaff
+            // 
+            this.btSrearchStaff.BackColor = System.Drawing.Color.White;
+            this.btSrearchStaff.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSrearchStaff.Image = global::PBL3.Properties.Resources.search_icon1;
+            this.btSrearchStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btSrearchStaff.Location = new System.Drawing.Point(3, 6);
+            this.btSrearchStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btSrearchStaff.Name = "btSrearchStaff";
+            this.btSrearchStaff.Size = new System.Drawing.Size(144, 40);
+            this.btSrearchStaff.TabIndex = 46;
+            this.btSrearchStaff.Text = "Tìm kiếm";
+            this.btSrearchStaff.UseVisualStyleBackColor = false;
+            this.btSrearchStaff.Click += new System.EventHandler(this.btSrearchStaff_Click);
             // 
             // panel13
             // 
@@ -1503,6 +1945,81 @@
             this.panelDisable.Size = new System.Drawing.Size(327, 49);
             this.panelDisable.TabIndex = 55;
             // 
+            // btSaveAccount
+            // 
+            this.btSaveAccount.BackColor = System.Drawing.Color.White;
+            this.btSaveAccount.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSaveAccount.Image = global::PBL3.Properties.Resources.diskette__1_;
+            this.btSaveAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btSaveAccount.Location = new System.Drawing.Point(16, 5);
+            this.btSaveAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btSaveAccount.Name = "btSaveAccount";
+            this.btSaveAccount.Size = new System.Drawing.Size(130, 40);
+            this.btSaveAccount.TabIndex = 53;
+            this.btSaveAccount.Text = "Lưu";
+            this.btSaveAccount.UseVisualStyleBackColor = false;
+            this.btSaveAccount.Click += new System.EventHandler(this.btSaveAccount_Click);
+            // 
+            // btResetAccount
+            // 
+            this.btResetAccount.BackColor = System.Drawing.Color.White;
+            this.btResetAccount.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btResetAccount.Image = global::PBL3.Properties.Resources.reload;
+            this.btResetAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btResetAccount.Location = new System.Drawing.Point(185, 5);
+            this.btResetAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btResetAccount.Name = "btResetAccount";
+            this.btResetAccount.Size = new System.Drawing.Size(130, 40);
+            this.btResetAccount.TabIndex = 54;
+            this.btResetAccount.Text = "Hủy";
+            this.btResetAccount.UseVisualStyleBackColor = false;
+            this.btResetAccount.Click += new System.EventHandler(this.btResetAccount_Click);
+            // 
+            // btShowAccount
+            // 
+            this.btShowAccount.BackColor = System.Drawing.Color.White;
+            this.btShowAccount.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btShowAccount.Image = global::PBL3.Properties.Resources.list__4_;
+            this.btShowAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btShowAccount.Location = new System.Drawing.Point(331, 15);
+            this.btShowAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btShowAccount.Name = "btShowAccount";
+            this.btShowAccount.Size = new System.Drawing.Size(130, 40);
+            this.btShowAccount.TabIndex = 45;
+            this.btShowAccount.Text = "  Hiển thị";
+            this.btShowAccount.UseVisualStyleBackColor = false;
+            this.btShowAccount.Click += new System.EventHandler(this.btShowAccount_Click);
+            // 
+            // btDelAccount
+            // 
+            this.btDelAccount.BackColor = System.Drawing.Color.White;
+            this.btDelAccount.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btDelAccount.Image = global::PBL3.Properties.Resources.delete_icon1;
+            this.btDelAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btDelAccount.Location = new System.Drawing.Point(170, 15);
+            this.btDelAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btDelAccount.Name = "btDelAccount";
+            this.btDelAccount.Size = new System.Drawing.Size(130, 40);
+            this.btDelAccount.TabIndex = 43;
+            this.btDelAccount.Text = "Xóa";
+            this.btDelAccount.UseVisualStyleBackColor = false;
+            this.btDelAccount.Click += new System.EventHandler(this.btDelAccount_Click);
+            // 
+            // btAddAccount
+            // 
+            this.btAddAccount.BackColor = System.Drawing.Color.White;
+            this.btAddAccount.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAddAccount.Image = global::PBL3.Properties.Resources.add_icon1;
+            this.btAddAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btAddAccount.Location = new System.Drawing.Point(11, 15);
+            this.btAddAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btAddAccount.Name = "btAddAccount";
+            this.btAddAccount.Size = new System.Drawing.Size(130, 40);
+            this.btAddAccount.TabIndex = 42;
+            this.btAddAccount.Text = "Thêm";
+            this.btAddAccount.UseVisualStyleBackColor = false;
+            this.btAddAccount.Click += new System.EventHandler(this.btAddAccount_Click);
+            // 
             // panel17
             // 
             this.panel17.Controls.Add(this.dtgvAccount);
@@ -1553,6 +2070,34 @@
             this.cbSearchAccount.Name = "cbSearchAccount";
             this.cbSearchAccount.Size = new System.Drawing.Size(155, 28);
             this.cbSearchAccount.TabIndex = 47;
+            // 
+            // btSearchAccount
+            // 
+            this.btSearchAccount.BackColor = System.Drawing.Color.White;
+            this.btSearchAccount.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSearchAccount.Image = global::PBL3.Properties.Resources.search_icon1;
+            this.btSearchAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btSearchAccount.Location = new System.Drawing.Point(10, 6);
+            this.btSearchAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btSearchAccount.Name = "btSearchAccount";
+            this.btSearchAccount.Size = new System.Drawing.Size(130, 40);
+            this.btSearchAccount.TabIndex = 46;
+            this.btSearchAccount.Text = "Tìm kiếm";
+            this.btSearchAccount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btSearchAccount.UseVisualStyleBackColor = false;
+            this.btSearchAccount.Click += new System.EventHandler(this.btSearchAccount_Click);
+            // 
+            // btResetPassWord
+            // 
+            this.btResetPassWord.Image = global::PBL3.Properties.Resources.recycle;
+            this.btResetPassWord.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btResetPassWord.Location = new System.Drawing.Point(212, 320);
+            this.btResetPassWord.Name = "btResetPassWord";
+            this.btResetPassWord.Size = new System.Drawing.Size(205, 52);
+            this.btResetPassWord.TabIndex = 5;
+            this.btResetPassWord.Text = "Đặt lại mật khẩu";
+            this.btResetPassWord.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btResetPassWord.UseVisualStyleBackColor = true;
             // 
             // panel21
             // 
@@ -1640,551 +2185,6 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Tên tài khoản:";
             // 
-            // panel38
-            // 
-            this.panel38.Controls.Add(this.cbIdStaff_Bill);
-            this.panel38.Controls.Add(this.label20);
-            this.panel38.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel38.Location = new System.Drawing.Point(7, 107);
-            this.panel38.Name = "panel38";
-            this.panel38.Size = new System.Drawing.Size(374, 46);
-            this.panel38.TabIndex = 56;
-            // 
-            // cbIdStaff_Bill
-            // 
-            this.cbIdStaff_Bill.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbIdStaff_Bill.FormattingEnabled = true;
-            this.cbIdStaff_Bill.Location = new System.Drawing.Point(188, 8);
-            this.cbIdStaff_Bill.Name = "cbIdStaff_Bill";
-            this.cbIdStaff_Bill.Size = new System.Drawing.Size(177, 28);
-            this.cbIdStaff_Bill.TabIndex = 1;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(5, 9);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(97, 24);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "Id Tài xế:";
-            // 
-            // cbChongoi
-            // 
-            this.cbChongoi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbChongoi.FormattingEnabled = true;
-            this.cbChongoi.Location = new System.Drawing.Point(146, 9);
-            this.cbChongoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbChongoi.Name = "cbChongoi";
-            this.cbChongoi.Size = new System.Drawing.Size(201, 28);
-            this.cbChongoi.TabIndex = 49;
-            // 
-            // btSave_Bill
-            // 
-            this.btSave_Bill.BackColor = System.Drawing.Color.White;
-            this.btSave_Bill.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSave_Bill.Image = global::PBL3.Properties.Resources.diskette__1_;
-            this.btSave_Bill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btSave_Bill.Location = new System.Drawing.Point(569, 15);
-            this.btSave_Bill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btSave_Bill.Name = "btSave_Bill";
-            this.btSave_Bill.Size = new System.Drawing.Size(144, 40);
-            this.btSave_Bill.TabIndex = 46;
-            this.btSave_Bill.Text = "Lưu";
-            this.btSave_Bill.UseVisualStyleBackColor = false;
-            // 
-            // btEdit_Bill
-            // 
-            this.btEdit_Bill.BackColor = System.Drawing.Color.White;
-            this.btEdit_Bill.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btEdit_Bill.Image = global::PBL3.Properties.Resources.edit_icon;
-            this.btEdit_Bill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btEdit_Bill.Location = new System.Drawing.Point(182, 15);
-            this.btEdit_Bill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btEdit_Bill.Name = "btEdit_Bill";
-            this.btEdit_Bill.Size = new System.Drawing.Size(144, 40);
-            this.btEdit_Bill.TabIndex = 44;
-            this.btEdit_Bill.Text = "     Chỉnh sửa";
-            this.btEdit_Bill.UseVisualStyleBackColor = false;
-            // 
-            // btReset_Bill
-            // 
-            this.btReset_Bill.BackColor = System.Drawing.Color.White;
-            this.btReset_Bill.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btReset_Bill.Image = global::PBL3.Properties.Resources.reload;
-            this.btReset_Bill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btReset_Bill.Location = new System.Drawing.Point(733, 15);
-            this.btReset_Bill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btReset_Bill.Name = "btReset_Bill";
-            this.btReset_Bill.Size = new System.Drawing.Size(144, 40);
-            this.btReset_Bill.TabIndex = 50;
-            this.btReset_Bill.Text = "Hủy";
-            this.btReset_Bill.UseVisualStyleBackColor = false;
-            // 
-            // btShow_Bill
-            // 
-            this.btShow_Bill.BackColor = System.Drawing.Color.White;
-            this.btShow_Bill.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btShow_Bill.Image = global::PBL3.Properties.Resources.list__4_;
-            this.btShow_Bill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btShow_Bill.Location = new System.Drawing.Point(349, 15);
-            this.btShow_Bill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btShow_Bill.Name = "btShow_Bill";
-            this.btShow_Bill.Size = new System.Drawing.Size(144, 40);
-            this.btShow_Bill.TabIndex = 45;
-            this.btShow_Bill.Text = "  Hiển thị";
-            this.btShow_Bill.UseVisualStyleBackColor = false;
-            this.btShow_Bill.Click += new System.EventHandler(this.btShow_Bill_Click);
-            // 
-            // btAdd_Bill
-            // 
-            this.btAdd_Bill.BackColor = System.Drawing.Color.White;
-            this.btAdd_Bill.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAdd_Bill.Image = global::PBL3.Properties.Resources.add_icon1;
-            this.btAdd_Bill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btAdd_Bill.Location = new System.Drawing.Point(11, 15);
-            this.btAdd_Bill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btAdd_Bill.Name = "btAdd_Bill";
-            this.btAdd_Bill.Size = new System.Drawing.Size(144, 40);
-            this.btAdd_Bill.TabIndex = 42;
-            this.btAdd_Bill.Text = "Thêm";
-            this.btAdd_Bill.UseVisualStyleBackColor = false;
-            this.btAdd_Bill.Click += new System.EventHandler(this.btAdd_Bill_Click);
-            // 
-            // btSearch_Bill
-            // 
-            this.btSearch_Bill.BackColor = System.Drawing.Color.White;
-            this.btSearch_Bill.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSearch_Bill.Image = global::PBL3.Properties.Resources.search_icon1;
-            this.btSearch_Bill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btSearch_Bill.Location = new System.Drawing.Point(11, 21);
-            this.btSearch_Bill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btSearch_Bill.Name = "btSearch_Bill";
-            this.btSearch_Bill.Size = new System.Drawing.Size(144, 39);
-            this.btSearch_Bill.TabIndex = 46;
-            this.btSearch_Bill.Text = "Tìm kiếm";
-            this.btSearch_Bill.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btSearch_Bill.UseVisualStyleBackColor = false;
-            // 
-            // btSearchSchedule
-            // 
-            this.btSearchSchedule.BackColor = System.Drawing.Color.White;
-            this.btSearchSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSearchSchedule.Image = global::PBL3.Properties.Resources.search_icon1;
-            this.btSearchSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btSearchSchedule.Location = new System.Drawing.Point(11, 21);
-            this.btSearchSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btSearchSchedule.Name = "btSearchSchedule";
-            this.btSearchSchedule.Size = new System.Drawing.Size(144, 39);
-            this.btSearchSchedule.TabIndex = 46;
-            this.btSearchSchedule.Text = "Tìm kiếm";
-            this.btSearchSchedule.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btSearchSchedule.UseVisualStyleBackColor = false;
-            this.btSearchSchedule.Click += new System.EventHandler(this.btSearchSchedule_Click);
-            // 
-            // btSaveSchedule
-            // 
-            this.btSaveSchedule.BackColor = System.Drawing.Color.White;
-            this.btSaveSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSaveSchedule.Image = global::PBL3.Properties.Resources.diskette__1_;
-            this.btSaveSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btSaveSchedule.Location = new System.Drawing.Point(569, 15);
-            this.btSaveSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btSaveSchedule.Name = "btSaveSchedule";
-            this.btSaveSchedule.Size = new System.Drawing.Size(144, 40);
-            this.btSaveSchedule.TabIndex = 46;
-            this.btSaveSchedule.Text = "Lưu";
-            this.btSaveSchedule.UseVisualStyleBackColor = false;
-            this.btSaveSchedule.Click += new System.EventHandler(this.btSaveSchedule_Click);
-            // 
-            // btEditSchedule
-            // 
-            this.btEditSchedule.BackColor = System.Drawing.Color.White;
-            this.btEditSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btEditSchedule.Image = global::PBL3.Properties.Resources.edit_icon;
-            this.btEditSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btEditSchedule.Location = new System.Drawing.Point(342, 15);
-            this.btEditSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btEditSchedule.Name = "btEditSchedule";
-            this.btEditSchedule.Size = new System.Drawing.Size(144, 40);
-            this.btEditSchedule.TabIndex = 44;
-            this.btEditSchedule.Text = "     Chỉnh sửa";
-            this.btEditSchedule.UseVisualStyleBackColor = false;
-            this.btEditSchedule.Click += new System.EventHandler(this.btEditSchedule_Click);
-            // 
-            // btResetSchedule
-            // 
-            this.btResetSchedule.BackColor = System.Drawing.Color.White;
-            this.btResetSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btResetSchedule.Image = global::PBL3.Properties.Resources.reload;
-            this.btResetSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btResetSchedule.Location = new System.Drawing.Point(733, 15);
-            this.btResetSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btResetSchedule.Name = "btResetSchedule";
-            this.btResetSchedule.Size = new System.Drawing.Size(144, 40);
-            this.btResetSchedule.TabIndex = 50;
-            this.btResetSchedule.Text = "Hủy";
-            this.btResetSchedule.UseVisualStyleBackColor = false;
-            this.btResetSchedule.Click += new System.EventHandler(this.btExitSchedule_Click);
-            // 
-            // btShowSchedule
-            // 
-            this.btShowSchedule.BackColor = System.Drawing.Color.White;
-            this.btShowSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btShowSchedule.Image = global::PBL3.Properties.Resources.list__4_;
-            this.btShowSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btShowSchedule.Location = new System.Drawing.Point(509, 15);
-            this.btShowSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btShowSchedule.Name = "btShowSchedule";
-            this.btShowSchedule.Size = new System.Drawing.Size(144, 40);
-            this.btShowSchedule.TabIndex = 45;
-            this.btShowSchedule.Text = "  Hiển thị";
-            this.btShowSchedule.UseVisualStyleBackColor = false;
-            this.btShowSchedule.Click += new System.EventHandler(this.btShowSchedule_Click);
-            // 
-            // btDeleteSchedule
-            // 
-            this.btDeleteSchedule.BackColor = System.Drawing.Color.White;
-            this.btDeleteSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btDeleteSchedule.Image = global::PBL3.Properties.Resources.delete_icon11;
-            this.btDeleteSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btDeleteSchedule.Location = new System.Drawing.Point(176, 15);
-            this.btDeleteSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btDeleteSchedule.Name = "btDeleteSchedule";
-            this.btDeleteSchedule.Size = new System.Drawing.Size(144, 40);
-            this.btDeleteSchedule.TabIndex = 43;
-            this.btDeleteSchedule.Text = "Xóa";
-            this.btDeleteSchedule.UseVisualStyleBackColor = false;
-            this.btDeleteSchedule.Click += new System.EventHandler(this.btDeleteSchedule_Click);
-            // 
-            // btAddSchedule
-            // 
-            this.btAddSchedule.BackColor = System.Drawing.Color.White;
-            this.btAddSchedule.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAddSchedule.Image = global::PBL3.Properties.Resources.add_icon1;
-            this.btAddSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btAddSchedule.Location = new System.Drawing.Point(11, 15);
-            this.btAddSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btAddSchedule.Name = "btAddSchedule";
-            this.btAddSchedule.Size = new System.Drawing.Size(144, 40);
-            this.btAddSchedule.TabIndex = 42;
-            this.btAddSchedule.Text = "Thêm";
-            this.btAddSchedule.UseVisualStyleBackColor = false;
-            this.btAddSchedule.Click += new System.EventHandler(this.btAddSchedule_Click);
-            // 
-            // btSaveCar
-            // 
-            this.btSaveCar.BackColor = System.Drawing.Color.White;
-            this.btSaveCar.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSaveCar.Image = global::PBL3.Properties.Resources.diskette__1_;
-            this.btSaveCar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btSaveCar.Location = new System.Drawing.Point(559, 15);
-            this.btSaveCar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btSaveCar.Name = "btSaveCar";
-            this.btSaveCar.Size = new System.Drawing.Size(144, 40);
-            this.btSaveCar.TabIndex = 46;
-            this.btSaveCar.Text = "Lưu";
-            this.btSaveCar.UseVisualStyleBackColor = false;
-            this.btSaveCar.Click += new System.EventHandler(this.btSaveCar_Click);
-            // 
-            // btEditCar
-            // 
-            this.btEditCar.BackColor = System.Drawing.Color.White;
-            this.btEditCar.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btEditCar.Image = global::PBL3.Properties.Resources.edit_icon;
-            this.btEditCar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btEditCar.Location = new System.Drawing.Point(342, 15);
-            this.btEditCar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btEditCar.Name = "btEditCar";
-            this.btEditCar.Size = new System.Drawing.Size(144, 40);
-            this.btEditCar.TabIndex = 44;
-            this.btEditCar.Text = "     Chỉnh sửa";
-            this.btEditCar.UseVisualStyleBackColor = false;
-            this.btEditCar.Click += new System.EventHandler(this.btEditCar_Click);
-            // 
-            // btResetCar
-            // 
-            this.btResetCar.BackColor = System.Drawing.Color.White;
-            this.btResetCar.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btResetCar.Image = global::PBL3.Properties.Resources.reload;
-            this.btResetCar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btResetCar.Location = new System.Drawing.Point(743, 15);
-            this.btResetCar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btResetCar.Name = "btResetCar";
-            this.btResetCar.Size = new System.Drawing.Size(144, 40);
-            this.btResetCar.TabIndex = 50;
-            this.btResetCar.Text = "Hủy";
-            this.btResetCar.UseVisualStyleBackColor = false;
-            this.btResetCar.Click += new System.EventHandler(this.btResetCar_Click);
-            // 
-            // btShowCar
-            // 
-            this.btShowCar.BackColor = System.Drawing.Color.White;
-            this.btShowCar.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btShowCar.Image = global::PBL3.Properties.Resources.list__4_;
-            this.btShowCar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btShowCar.Location = new System.Drawing.Point(509, 15);
-            this.btShowCar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btShowCar.Name = "btShowCar";
-            this.btShowCar.Size = new System.Drawing.Size(144, 40);
-            this.btShowCar.TabIndex = 45;
-            this.btShowCar.Text = "  Hiển thị";
-            this.btShowCar.UseVisualStyleBackColor = false;
-            this.btShowCar.Click += new System.EventHandler(this.btShowCar_Click);
-            // 
-            // btDelCar
-            // 
-            this.btDelCar.BackColor = System.Drawing.Color.White;
-            this.btDelCar.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btDelCar.Image = global::PBL3.Properties.Resources.delete_icon11;
-            this.btDelCar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btDelCar.Location = new System.Drawing.Point(176, 15);
-            this.btDelCar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btDelCar.Name = "btDelCar";
-            this.btDelCar.Size = new System.Drawing.Size(144, 40);
-            this.btDelCar.TabIndex = 43;
-            this.btDelCar.Text = "Xóa";
-            this.btDelCar.UseVisualStyleBackColor = false;
-            this.btDelCar.Click += new System.EventHandler(this.btDelCar_Click);
-            // 
-            // btAddCar
-            // 
-            this.btAddCar.BackColor = System.Drawing.Color.White;
-            this.btAddCar.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAddCar.Image = global::PBL3.Properties.Resources.add_icon1;
-            this.btAddCar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btAddCar.Location = new System.Drawing.Point(11, 15);
-            this.btAddCar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btAddCar.Name = "btAddCar";
-            this.btAddCar.Size = new System.Drawing.Size(144, 40);
-            this.btAddCar.TabIndex = 42;
-            this.btAddCar.Text = "Thêm";
-            this.btAddCar.UseVisualStyleBackColor = false;
-            this.btAddCar.Click += new System.EventHandler(this.btAddCar_Click);
-            // 
-            // btSearchCar
-            // 
-            this.btSearchCar.BackColor = System.Drawing.Color.White;
-            this.btSearchCar.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSearchCar.Image = global::PBL3.Properties.Resources.search_icon1;
-            this.btSearchCar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btSearchCar.Location = new System.Drawing.Point(3, 6);
-            this.btSearchCar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btSearchCar.Name = "btSearchCar";
-            this.btSearchCar.Size = new System.Drawing.Size(144, 40);
-            this.btSearchCar.TabIndex = 46;
-            this.btSearchCar.Text = "Tìm kiếm";
-            this.btSearchCar.UseVisualStyleBackColor = false;
-            this.btSearchCar.Click += new System.EventHandler(this.btSearchCar_Click);
-            // 
-            // btSaveStaff
-            // 
-            this.btSaveStaff.BackColor = System.Drawing.Color.White;
-            this.btSaveStaff.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSaveStaff.Image = global::PBL3.Properties.Resources.diskette__1_;
-            this.btSaveStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btSaveStaff.Location = new System.Drawing.Point(548, 15);
-            this.btSaveStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btSaveStaff.Name = "btSaveStaff";
-            this.btSaveStaff.Size = new System.Drawing.Size(144, 40);
-            this.btSaveStaff.TabIndex = 51;
-            this.btSaveStaff.Text = "Lưu";
-            this.btSaveStaff.UseVisualStyleBackColor = false;
-            this.btSaveStaff.Click += new System.EventHandler(this.btSaveStaff_Click);
-            // 
-            // btResetStaff
-            // 
-            this.btResetStaff.BackColor = System.Drawing.Color.White;
-            this.btResetStaff.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btResetStaff.Image = global::PBL3.Properties.Resources.reload;
-            this.btResetStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btResetStaff.Location = new System.Drawing.Point(732, 15);
-            this.btResetStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btResetStaff.Name = "btResetStaff";
-            this.btResetStaff.Size = new System.Drawing.Size(144, 40);
-            this.btResetStaff.TabIndex = 52;
-            this.btResetStaff.Text = "Hủy";
-            this.btResetStaff.UseVisualStyleBackColor = false;
-            // 
-            // btEditStaff
-            // 
-            this.btEditStaff.BackColor = System.Drawing.Color.White;
-            this.btEditStaff.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btEditStaff.Image = global::PBL3.Properties.Resources.edit_icon;
-            this.btEditStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btEditStaff.Location = new System.Drawing.Point(343, 15);
-            this.btEditStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btEditStaff.Name = "btEditStaff";
-            this.btEditStaff.Size = new System.Drawing.Size(144, 40);
-            this.btEditStaff.TabIndex = 44;
-            this.btEditStaff.Text = "     Chỉnh sửa";
-            this.btEditStaff.UseVisualStyleBackColor = false;
-            this.btEditStaff.Click += new System.EventHandler(this.btEditStaff_Click);
-            // 
-            // btShowStaff
-            // 
-            this.btShowStaff.BackColor = System.Drawing.Color.White;
-            this.btShowStaff.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btShowStaff.Image = global::PBL3.Properties.Resources.list__4_;
-            this.btShowStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btShowStaff.Location = new System.Drawing.Point(510, 15);
-            this.btShowStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btShowStaff.Name = "btShowStaff";
-            this.btShowStaff.Size = new System.Drawing.Size(144, 40);
-            this.btShowStaff.TabIndex = 45;
-            this.btShowStaff.Text = "  Hiển thị";
-            this.btShowStaff.UseVisualStyleBackColor = false;
-            this.btShowStaff.Click += new System.EventHandler(this.btShowStaff_Click);
-            // 
-            // btDelStaff
-            // 
-            this.btDelStaff.BackColor = System.Drawing.Color.White;
-            this.btDelStaff.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btDelStaff.Image = global::PBL3.Properties.Resources.delete_icon1;
-            this.btDelStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btDelStaff.Location = new System.Drawing.Point(176, 15);
-            this.btDelStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btDelStaff.Name = "btDelStaff";
-            this.btDelStaff.Size = new System.Drawing.Size(144, 40);
-            this.btDelStaff.TabIndex = 43;
-            this.btDelStaff.Text = "Xóa";
-            this.btDelStaff.UseVisualStyleBackColor = false;
-            this.btDelStaff.Click += new System.EventHandler(this.btDelStaff_Click);
-            // 
-            // btAddStaff
-            // 
-            this.btAddStaff.BackColor = System.Drawing.Color.White;
-            this.btAddStaff.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAddStaff.Image = global::PBL3.Properties.Resources.add_icon1;
-            this.btAddStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btAddStaff.Location = new System.Drawing.Point(11, 15);
-            this.btAddStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btAddStaff.Name = "btAddStaff";
-            this.btAddStaff.Size = new System.Drawing.Size(144, 40);
-            this.btAddStaff.TabIndex = 42;
-            this.btAddStaff.Text = "Thêm";
-            this.btAddStaff.UseVisualStyleBackColor = false;
-            this.btAddStaff.Click += new System.EventHandler(this.btAddStaff_Click);
-            // 
-            // btSrearchStaff
-            // 
-            this.btSrearchStaff.BackColor = System.Drawing.Color.White;
-            this.btSrearchStaff.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSrearchStaff.Image = global::PBL3.Properties.Resources.search_icon1;
-            this.btSrearchStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btSrearchStaff.Location = new System.Drawing.Point(3, 6);
-            this.btSrearchStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btSrearchStaff.Name = "btSrearchStaff";
-            this.btSrearchStaff.Size = new System.Drawing.Size(144, 40);
-            this.btSrearchStaff.TabIndex = 46;
-            this.btSrearchStaff.Text = "Tìm kiếm";
-            this.btSrearchStaff.UseVisualStyleBackColor = false;
-            this.btSrearchStaff.Click += new System.EventHandler(this.btSrearchStaff_Click);
-            // 
-            // btSaveAccount
-            // 
-            this.btSaveAccount.BackColor = System.Drawing.Color.White;
-            this.btSaveAccount.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSaveAccount.Image = global::PBL3.Properties.Resources.diskette__1_;
-            this.btSaveAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btSaveAccount.Location = new System.Drawing.Point(16, 5);
-            this.btSaveAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btSaveAccount.Name = "btSaveAccount";
-            this.btSaveAccount.Size = new System.Drawing.Size(130, 40);
-            this.btSaveAccount.TabIndex = 53;
-            this.btSaveAccount.Text = "Lưu";
-            this.btSaveAccount.UseVisualStyleBackColor = false;
-            this.btSaveAccount.Click += new System.EventHandler(this.btSaveAccount_Click);
-            // 
-            // btResetAccount
-            // 
-            this.btResetAccount.BackColor = System.Drawing.Color.White;
-            this.btResetAccount.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btResetAccount.Image = global::PBL3.Properties.Resources.reload;
-            this.btResetAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btResetAccount.Location = new System.Drawing.Point(185, 5);
-            this.btResetAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btResetAccount.Name = "btResetAccount";
-            this.btResetAccount.Size = new System.Drawing.Size(130, 40);
-            this.btResetAccount.TabIndex = 54;
-            this.btResetAccount.Text = "Hủy";
-            this.btResetAccount.UseVisualStyleBackColor = false;
-            this.btResetAccount.Click += new System.EventHandler(this.btResetAccount_Click);
-            // 
-            // btShowAccount
-            // 
-            this.btShowAccount.BackColor = System.Drawing.Color.White;
-            this.btShowAccount.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btShowAccount.Image = global::PBL3.Properties.Resources.list__4_;
-            this.btShowAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btShowAccount.Location = new System.Drawing.Point(331, 15);
-            this.btShowAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btShowAccount.Name = "btShowAccount";
-            this.btShowAccount.Size = new System.Drawing.Size(130, 40);
-            this.btShowAccount.TabIndex = 45;
-            this.btShowAccount.Text = "  Hiển thị";
-            this.btShowAccount.UseVisualStyleBackColor = false;
-            this.btShowAccount.Click += new System.EventHandler(this.btShowAccount_Click);
-            // 
-            // btDelAccount
-            // 
-            this.btDelAccount.BackColor = System.Drawing.Color.White;
-            this.btDelAccount.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btDelAccount.Image = global::PBL3.Properties.Resources.delete_icon1;
-            this.btDelAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btDelAccount.Location = new System.Drawing.Point(170, 15);
-            this.btDelAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btDelAccount.Name = "btDelAccount";
-            this.btDelAccount.Size = new System.Drawing.Size(130, 40);
-            this.btDelAccount.TabIndex = 43;
-            this.btDelAccount.Text = "Xóa";
-            this.btDelAccount.UseVisualStyleBackColor = false;
-            this.btDelAccount.Click += new System.EventHandler(this.btDelAccount_Click);
-            // 
-            // btAddAccount
-            // 
-            this.btAddAccount.BackColor = System.Drawing.Color.White;
-            this.btAddAccount.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAddAccount.Image = global::PBL3.Properties.Resources.add_icon1;
-            this.btAddAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btAddAccount.Location = new System.Drawing.Point(11, 15);
-            this.btAddAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btAddAccount.Name = "btAddAccount";
-            this.btAddAccount.Size = new System.Drawing.Size(130, 40);
-            this.btAddAccount.TabIndex = 42;
-            this.btAddAccount.Text = "Thêm";
-            this.btAddAccount.UseVisualStyleBackColor = false;
-            this.btAddAccount.Click += new System.EventHandler(this.btAddAccount_Click);
-            // 
-            // btSearchAccount
-            // 
-            this.btSearchAccount.BackColor = System.Drawing.Color.White;
-            this.btSearchAccount.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSearchAccount.Image = global::PBL3.Properties.Resources.search_icon1;
-            this.btSearchAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btSearchAccount.Location = new System.Drawing.Point(10, 6);
-            this.btSearchAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btSearchAccount.Name = "btSearchAccount";
-            this.btSearchAccount.Size = new System.Drawing.Size(130, 40);
-            this.btSearchAccount.TabIndex = 46;
-            this.btSearchAccount.Text = "Tìm kiếm";
-            this.btSearchAccount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btSearchAccount.UseVisualStyleBackColor = false;
-            this.btSearchAccount.Click += new System.EventHandler(this.btSearchAccount_Click);
-            // 
-            // btResetPassWord
-            // 
-            this.btResetPassWord.Image = global::PBL3.Properties.Resources.recycle;
-            this.btResetPassWord.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btResetPassWord.Location = new System.Drawing.Point(212, 320);
-            this.btResetPassWord.Name = "btResetPassWord";
-            this.btResetPassWord.Size = new System.Drawing.Size(205, 52);
-            this.btResetPassWord.TabIndex = 5;
-            this.btResetPassWord.Text = "Đặt lại mật khẩu";
-            this.btResetPassWord.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btResetPassWord.UseVisualStyleBackColor = true;
-            // 
             // Admin1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2209,6 +2209,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).EndInit();
             this.panel44.ResumeLayout(false);
             this.panel25.ResumeLayout(false);
+            this.panel38.ResumeLayout(false);
+            this.panel38.PerformLayout();
             this.pnSearch_Bill.ResumeLayout(false);
             this.gbSearch_Bill.ResumeLayout(false);
             this.gbSearch_Bill.PerformLayout();
@@ -2288,8 +2290,6 @@
             this.panel22.PerformLayout();
             this.panel23.ResumeLayout(false);
             this.panel23.PerformLayout();
-            this.panel38.ResumeLayout(false);
-            this.panel38.PerformLayout();
             this.ResumeLayout(false);
 
         }
