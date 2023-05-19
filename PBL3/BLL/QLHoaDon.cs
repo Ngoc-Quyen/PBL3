@@ -47,5 +47,9 @@ namespace PBL3.BLL
         {
             return HoaDon.Instance.Tinhtien(loai, distance);
         }    
+        public bool AddBill(Bill bill)
+        {
+            return HoaDon.Instance.Add(bill);
+        }
     }
 }

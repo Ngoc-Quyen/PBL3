@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btTT = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblHeader = new System.Windows.Forms.Label();
             this.panel39 = new System.Windows.Forms.Panel();
@@ -38,15 +39,14 @@
             this.txtMoney = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.panel38 = new System.Windows.Forms.Panel();
+            this.txtIdStaff = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.panel41 = new System.Windows.Forms.Panel();
+            this.txtIdCar = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.panel42 = new System.Windows.Forms.Panel();
             this.txtIdCustomer = new System.Windows.Forms.TextBox();
             this.lbSDTKhach = new System.Windows.Forms.Label();
-            this.txtIdCar = new System.Windows.Forms.TextBox();
-            this.txtNameStaff = new System.Windows.Forms.TextBox();
-            this.btTT = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel39.SuspendLayout();
@@ -63,6 +63,22 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(294, 58);
             this.panel5.TabIndex = 60;
+            // 
+            // btTT
+            // 
+            this.btTT.BackColor = System.Drawing.Color.White;
+            this.btTT.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btTT.Image = global::PBL3.Properties.Resources.bill1;
+            this.btTT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btTT.Location = new System.Drawing.Point(131, 2);
+            this.btTT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btTT.Name = "btTT";
+            this.btTT.Size = new System.Drawing.Size(150, 50);
+            this.btTT.TabIndex = 53;
+            this.btTT.Text = "Thanh toán";
+            this.btTT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btTT.UseVisualStyleBackColor = false;
+            this.btTT.Click += new System.EventHandler(this.btTT_Click);
             // 
             // panel1
             // 
@@ -147,7 +163,7 @@
             // 
             // panel38
             // 
-            this.panel38.Controls.Add(this.txtNameStaff);
+            this.panel38.Controls.Add(this.txtIdStaff);
             this.panel38.Controls.Add(this.label20);
             this.panel38.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel38.Location = new System.Drawing.Point(38, 207);
@@ -155,15 +171,28 @@
             this.panel38.Size = new System.Drawing.Size(437, 46);
             this.panel38.TabIndex = 64;
             // 
+            // txtIdStaff
+            // 
+            this.txtIdStaff.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtIdStaff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdStaff.Location = new System.Drawing.Point(224, 8);
+            this.txtIdStaff.Multiline = true;
+            this.txtIdStaff.Name = "txtIdStaff";
+            this.txtIdStaff.ReadOnly = true;
+            this.txtIdStaff.Size = new System.Drawing.Size(204, 25);
+            this.txtIdStaff.TabIndex = 3;
+            // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(5, 9);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(117, 24);
+            this.label20.Size = new System.Drawing.Size(99, 24);
             this.label20.TabIndex = 0;
-            this.label20.Text = "Tên Tài xế:";
+            this.label20.Text = "ID Tài xế:";
             // 
             // panel41
             // 
@@ -174,6 +203,19 @@
             this.panel41.Name = "panel41";
             this.panel41.Size = new System.Drawing.Size(437, 46);
             this.panel41.TabIndex = 63;
+            // 
+            // txtIdCar
+            // 
+            this.txtIdCar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtIdCar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdCar.Location = new System.Drawing.Point(224, 9);
+            this.txtIdCar.Multiline = true;
+            this.txtIdCar.Name = "txtIdCar";
+            this.txtIdCar.ReadOnly = true;
+            this.txtIdCar.Size = new System.Drawing.Size(204, 25);
+            this.txtIdCar.TabIndex = 3;
             // 
             // label23
             // 
@@ -216,47 +258,6 @@
             this.lbSDTKhach.Size = new System.Drawing.Size(174, 24);
             this.lbSDTKhach.TabIndex = 0;
             this.lbSDTKhach.Text = "SĐT Khách hàng:";
-            // 
-            // txtIdCar
-            // 
-            this.txtIdCar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtIdCar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIdCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdCar.Location = new System.Drawing.Point(224, 9);
-            this.txtIdCar.Multiline = true;
-            this.txtIdCar.Name = "txtIdCar";
-            this.txtIdCar.ReadOnly = true;
-            this.txtIdCar.Size = new System.Drawing.Size(204, 25);
-            this.txtIdCar.TabIndex = 3;
-            // 
-            // txtNameStaff
-            // 
-            this.txtNameStaff.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNameStaff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNameStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNameStaff.Location = new System.Drawing.Point(224, 8);
-            this.txtNameStaff.Multiline = true;
-            this.txtNameStaff.Name = "txtNameStaff";
-            this.txtNameStaff.ReadOnly = true;
-            this.txtNameStaff.Size = new System.Drawing.Size(204, 25);
-            this.txtNameStaff.TabIndex = 3;
-            // 
-            // btTT
-            // 
-            this.btTT.BackColor = System.Drawing.Color.White;
-            this.btTT.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btTT.Image = global::PBL3.Properties.Resources.bill1;
-            this.btTT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btTT.Location = new System.Drawing.Point(131, 2);
-            this.btTT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btTT.Name = "btTT";
-            this.btTT.Size = new System.Drawing.Size(150, 50);
-            this.btTT.TabIndex = 53;
-            this.btTT.Text = "Thanh toán";
-            this.btTT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btTT.UseVisualStyleBackColor = false;
             // 
             // ThanhToan
             // 
@@ -310,7 +311,7 @@
         private System.Windows.Forms.Panel panel42;
         private System.Windows.Forms.TextBox txtIdCustomer;
         private System.Windows.Forms.Label lbSDTKhach;
-        private System.Windows.Forms.TextBox txtNameStaff;
+        private System.Windows.Forms.TextBox txtIdStaff;
         private System.Windows.Forms.TextBox txtIdCar;
     }
 }

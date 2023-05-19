@@ -29,6 +29,7 @@ namespace PBL3.View
             this._sum = Sum;
             InitializeComponent();
             ShowDL();
+            
         }
 
         public string IdCustomer { get => _idCustomer; set => _idCustomer = value; }
@@ -41,8 +42,33 @@ namespace PBL3.View
             txtIdCustomer.Text = _idCustomer;
             txtIdCar.Text = _idCar;
             Staff staff = QLTaiXe.Instance.GetStaffBy(_idStaff);
-            txtNameStaff.Text = staff.NameStaff;
+            txtIdStaff.Text = _idStaff;
             txtMoney.Text = _sum.ToString();
+        }
+
+        private void btTT_Click(object sender, EventArgs e)
+        {
+            Bill bill = new Bill();
+            bill.IdCustomer = _idCustomer;
+            bill.IdCar = _idCar;
+            //Staff staff = QLTaiXe.Instance.GetStaffBy(_idStaff);
+            bill.IdStaff = _idStaff;
+            bill.GiaThanhToan = Convert.ToDecimal(_sum.ToString());
+            bill.TimeThanhToan = dtBill.Value;
+            Schedule _sch = QLLichTrinh.Instance.GetScheduleLast();
+            _sch.IdStatus = 1;
+            if(QLHoaDon.Instance.AddBill(bill))
+            {
+                MessageBox.Show("Bạn đã thanh toán thành công!");
+                QLLichTrinh.Instance.Edit(_sch);
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Bạn chưa thanh toán thành công!");
+            }
+            
+
         }
     }
 }

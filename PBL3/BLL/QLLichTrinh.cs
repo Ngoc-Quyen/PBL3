@@ -222,6 +222,13 @@ namespace PBL3.BLL
         {
             return CTLTrinh.Instance.getAllDetailedBy();
         }
+
+        public Schedule GetScheduleLast()
+        {
+            Schedule _sch = new Schedule();
+            _sch = db.Schedules.OrderByDescending(s => s.IdSchedule).FirstOrDefault();
+            return _sch;
+        }
     }
     
 }

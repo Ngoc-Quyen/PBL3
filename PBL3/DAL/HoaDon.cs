@@ -1,4 +1,5 @@
-﻿using PBL3.BLL;
+﻿using Microsoft.SqlServer.Management.Smo;
+using PBL3.BLL;
 using PBL3.DAO;
 using System;
 using System.Collections.Generic;
@@ -65,6 +66,22 @@ namespace PBL3.DAL
                 sum = Convert.ToDouble(QLXe1.Instance.getPriceDuoi2km(loai));
             }
             return sum;
+        }
+        public bool Add(Bill bill)
+        {
+            bool check = false;
+            try
+            {
+                db.Bills.Add(bill);
+                db.SaveChanges();
+                check = true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Có lỗi xảy ra trong quá trình xử lý dữ liệu: " + ex.Message);
+            }
+            return check;
+
         }
     }
 }

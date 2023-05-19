@@ -15,7 +15,7 @@ namespace PBL3.View
     public partial class QuanLy : Form
     {
         private  Account loginAccount;
-
+        private static QuanLy instance;
         public  Account LoginAccount
         { 
             get => loginAccount; 
@@ -25,6 +25,8 @@ namespace PBL3.View
                 ChangeAccount(Convert.ToInt32(loginAccount.Type.ToString()));
             }
         }
+
+        public static QuanLy Instance { get => instance; set => instance = value; }
 
         public QuanLy(Account acc)
         {
@@ -101,6 +103,7 @@ namespace PBL3.View
             idLoai = Convert.ToInt32(cbIdLoai.SelectedValue.ToString());
             TaoLichTrinh f = new TaoLichTrinh(idStaff, location, destination, Id, distance, idLoai);
             f.ShowDialog();
+            ShowQly();
             this.Show();
         }
 

@@ -62,7 +62,7 @@ namespace PBL3.View
             _sch.Location = txtLocation.Text;
             _sch.DateLocation = dtLocation.Value;
             _sch.Destination = txtDestination.Text;
-            _sch.IdStatus = 1;
+            _sch.IdStatus = 0;
             if(QLLichTrinh.Instance.AddLT(_sch))    
             {
                 MessageBox.Show("Bạn đã thêm lịch trình thành công");
@@ -74,6 +74,7 @@ namespace PBL3.View
                 _detai.Complete = 1;
                 QLLichTrinh.Instance.EditComplete( _detai );
                 this.Hide();
+                
             }
             else
             {
@@ -90,9 +91,32 @@ namespace PBL3.View
             string IdStaff = txtIdStaff.Text.ToString();
             int loai = QLXe1.Instance.getChongoi(IdCar);
             double sum = QLHoaDon.Instance.Tinhtien(loai, Distance);
-            this.Hide();
-            ThanhToan f = new ThanhToan(IdCustomer, IdCar, IdStaff, sum);
-            f.ShowDialog();
+            Schedule _sch = new Schedule();
+            _sch.IdCustomer = txtIdCustomer.Text;
+            _sch.IdCar = cbIdCar.Text;
+            _sch.IdStaff = txtIdStaff.Text;
+            _sch.Location = txtLocation.Text;
+            _sch.DateLocation = dtLocation.Value;
+            _sch.Destination = txtDestination.Text;
+            _sch.IdStatus = 0;
+            if(QLLichTrinh.Instance.AddLT(_sch))    
+            {
+                //MessageBox.Show("Bạn đã thêm lịch trình thành công");
+                Detailed_Schedule _detai = new Detailed_Schedule();
+                _detai.IdDetailed = IdDetailed;
+                _detai.Location = txtLocation.Text;
+                _detai.Destination = txtDestination.Text;
+                _detai.Distance = Distance;
+                _detai.Complete = 1;
+                QLLichTrinh.Instance.EditComplete( _detai );
+                this.Hide();
+                ThanhToan f = new ThanhToan(IdCustomer, IdCar, IdStaff, sum);
+                f.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Chưa có lịch trình để thanh toán");
+            }
         }
     }
 }
