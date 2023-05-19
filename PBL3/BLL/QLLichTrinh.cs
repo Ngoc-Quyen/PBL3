@@ -14,19 +14,7 @@ namespace PBL3.BLL
     {
         TestPbl3Entities db = new TestPbl3Entities();
         private QLLichTrinh() { }
-        private static QLLichTrinh instance;
-
-        public static QLLichTrinh Instance 
-        { 
-            get
-            {
-                if (instance == null)
-                    instance = new QLLichTrinh();
-                return instance;
-            }
-            private set => instance = value; 
-        }
-
+        
         public List<Schedule> GetAllSchedule()
         {
             var l = db.Schedules.Select(p => p);
