@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabAdmin = new System.Windows.Forms.TabControl();
             this.tpBaocao = new System.Windows.Forms.TabPage();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -197,6 +197,8 @@
             this.panel23 = new System.Windows.Forms.Panel();
             this.txtAccountName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.panel43 = new System.Windows.Forms.Panel();
+            this.label24 = new System.Windows.Forms.Label();
             this.tabAdmin.SuspendLayout();
             this.tpBaocao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -262,6 +264,7 @@
             this.panel21.SuspendLayout();
             this.panel22.SuspendLayout();
             this.panel23.SuspendLayout();
+            this.panel43.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabAdmin
@@ -296,16 +299,16 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(414, 129);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(485, 372);
             this.chart1.TabIndex = 23;
             this.chart1.Text = "chart1";
@@ -1912,6 +1915,7 @@
             // 
             // tpTaikhoan
             // 
+            this.tpTaikhoan.Controls.Add(this.panel43);
             this.tpTaikhoan.Controls.Add(this.panel18);
             this.tpTaikhoan.Controls.Add(this.panel17);
             this.tpTaikhoan.Controls.Add(this.panel19);
@@ -2023,9 +2027,9 @@
             // panel17
             // 
             this.panel17.Controls.Add(this.dtgvAccount);
-            this.panel17.Location = new System.Drawing.Point(6, 71);
+            this.panel17.Location = new System.Drawing.Point(6, 143);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(518, 426);
+            this.panel17.Size = new System.Drawing.Size(518, 354);
             this.panel17.TabIndex = 14;
             // 
             // dtgvAccount
@@ -2091,13 +2095,14 @@
             // 
             this.btResetPassWord.Image = global::PBL3.Properties.Resources.recycle;
             this.btResetPassWord.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btResetPassWord.Location = new System.Drawing.Point(212, 320);
+            this.btResetPassWord.Location = new System.Drawing.Point(161, 323);
             this.btResetPassWord.Name = "btResetPassWord";
             this.btResetPassWord.Size = new System.Drawing.Size(205, 52);
             this.btResetPassWord.TabIndex = 5;
             this.btResetPassWord.Text = "Đặt lại mật khẩu";
             this.btResetPassWord.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btResetPassWord.UseVisualStyleBackColor = true;
+            this.btResetPassWord.Click += new System.EventHandler(this.btResetPassWord_Click);
             // 
             // panel21
             // 
@@ -2184,6 +2189,24 @@
             this.label8.Size = new System.Drawing.Size(151, 25);
             this.label8.TabIndex = 0;
             this.label8.Text = "Tên tài khoản:";
+            // 
+            // panel43
+            // 
+            this.panel43.Controls.Add(this.label24);
+            this.panel43.Location = new System.Drawing.Point(5, 77);
+            this.panel43.Name = "panel43";
+            this.panel43.Size = new System.Drawing.Size(519, 60);
+            this.panel43.TabIndex = 16;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(126, 11);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(275, 32);
+            this.label24.TabIndex = 20;
+            this.label24.Text = "Thông Tin Tài Khoản";
             // 
             // Admin1
             // 
@@ -2290,6 +2313,8 @@
             this.panel22.PerformLayout();
             this.panel23.ResumeLayout(false);
             this.panel23.PerformLayout();
+            this.panel43.ResumeLayout(false);
+            this.panel43.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2462,5 +2487,7 @@
         private System.Windows.Forms.ComboBox cbIdStaff_Bill;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ComboBox cbChongoi;
+        private System.Windows.Forms.Panel panel43;
+        private System.Windows.Forms.Label label24;
     }
 }

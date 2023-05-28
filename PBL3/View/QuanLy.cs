@@ -44,13 +44,10 @@ namespace PBL3.View
             else
             {
                 adminToolStripMenuItem.Enabled = true;
+                lịchTrìnhToolStripMenuItem.Enabled = false;
             }
             thôngTinTàiKhoảnToolStripMenuItem.Text += " (" + LoginAccount.DisplayName + ")";
             
-        }
-        private void lbDiembatdau_Click(object sender, EventArgs e)
-        {
-
         }
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -95,10 +92,11 @@ namespace PBL3.View
 
         public void ShowQly()
         {
-            dtgvLichtrinh.DataSource = QLLichTrinh.Instance.GetAllDetailedBy();
+            dtgvDetailed.DataSource = QLLichTrinh.Instance.GetAllDetailedBy();
             cbIdLoai.DataSource = QLXe1.Instance.GetAllPrice();
             cbIdLoai.DisplayMember = "IdLoai";
             cbIdLoai.ValueMember = "IdLoai";
+            btThanhtoan.Visible = false;
         }
         public double Tinhtoan()
         {
@@ -109,6 +107,32 @@ namespace PBL3.View
         private void btShowPrice_Click(object sender, EventArgs e)
         {
             txtPrice.Text = Tinhtoan().ToString();
+        }
+
+        private void chưaThanhToánToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dtgvDetailed.Visible = false;
+            lbLoaixe.Visible = false;
+            cbIdLoai.Visible = false;
+            btShowPrice.Visible = false;
+            btXacnhan.Visible = false;
+            txtPrice.Visible = false;
+            btThanhtoan.Visible = true;
+            dtgvDetailed.DataSource = QLLichTrinh.Instance.GetScheduleByIdStaffAndStatus(loginAccount.UserName);
+        }
+
+        private void dtgvDetailed_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            if (row >= 0)
+            {
+                DataGridViewRow selectedRow = dtgvDetailed.Rows[row];
+                Id = Convert.ToInt32(selectedRow.Cells["IdDetailed"].Value.ToString());
+                location = selectedRow.Cells["Location"].Value.ToString();
+                destination = selectedRow.Cells["Destination"].Value.ToString();
+                distance = Convert.ToDouble(selectedRow.Cells["Distance"].Value.ToString());
+                idLoai = Convert.ToInt32(cbIdLoai.SelectedValue.ToString());
+            }
         }
     }
 }

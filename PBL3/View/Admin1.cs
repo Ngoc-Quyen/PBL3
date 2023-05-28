@@ -391,6 +391,17 @@ namespace PBL3.View
             string IdAccount = cbSearchAccount.SelectedValue.ToString();
             dtgvAccount.DataSource = QLTaiKhoan.Instance.GetAccountBySearch(IdAccount);
         }
+        private void btResetPassWord_Click(object sender, EventArgs e)
+        {
+            Account ac = new Account();
+            ac.UserName = txtAccountName.Text;
+            ac.DisplayName = txtAccountDisplay.Text;
+            ac.PassWord = "1";
+            //ac.Type = cbAccountType.SelectedIndex;
+            QLTaiKhoan.Instance.Edit(ac);
+            MessageBox.Show("Bạn đã đặt lại mật khẩu thành công!");
+            LoadAccount();
+        }
         #endregion
 
         #region EventSchedule
@@ -806,6 +817,7 @@ namespace PBL3.View
                 }
             }
         }
+
 
         #endregion
     }

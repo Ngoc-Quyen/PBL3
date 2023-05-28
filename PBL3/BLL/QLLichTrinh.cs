@@ -14,7 +14,19 @@ namespace PBL3.BLL
     {
         TestPbl3Entities db = new TestPbl3Entities();
         private QLLichTrinh() { }
-        
+        private static QLLichTrinh instance;
+
+        public static QLLichTrinh Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new QLLichTrinh();
+                return instance;
+            }
+            private set => instance = value;
+        }
+
         public List<Schedule> GetAllSchedule()
         {
             var l = db.Schedules.Select(p => p);
@@ -216,6 +228,14 @@ namespace PBL3.BLL
             Schedule _sch = new Schedule();
             _sch = db.Schedules.OrderByDescending(s => s.IdSchedule).FirstOrDefault();
             return _sch;
+        }
+        public List<ScheduleInfo> GetScheduleByIdStaffAndStatus(string IdStaff)
+        {
+            var l = db.Schedules.Where(s =>  s.IdStaff == IdStaff && s.IdStatus == 0).Select(s => 
+                new ScheduleInfo { IdSchedule = s.IdSchedule, IdCar = s.IdCar, IdStaff = s.IdStaff, 
+                IdCustomer = s.IdCustomer, Location = s.Location, DateLocation = s.DateLocation, 
+                Destination = s.Destination, IdStatus = s.IdStatus }).ToList();
+            return l;
         }
     }
     
