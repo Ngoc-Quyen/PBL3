@@ -82,20 +82,6 @@ namespace PBL3.View
         public static string destination = "";
         public static double distance = 0.0;
         public static int idLoai = 0;
-        
-        private void dtgvLichtrinh_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int row = e.RowIndex;
-            if (row >= 0)
-            {
-                DataGridViewRow selectedRow = dtgvLichtrinh.Rows[row];
-                Id = Convert.ToInt32(selectedRow.Cells["IdDetailed"].Value.ToString());
-                location = selectedRow.Cells["Location"].Value.ToString();
-                destination = selectedRow.Cells["Destination"].Value.ToString();
-                distance = Convert.ToDouble(selectedRow.Cells["Distance"].Value.ToString());
-                idLoai = Convert.ToInt32(cbIdLoai.SelectedValue.ToString());
-            }
-        }
         private void btXacnhan_Click(object sender, EventArgs e)
         {
             this.Hide();
