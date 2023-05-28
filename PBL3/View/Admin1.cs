@@ -704,20 +704,20 @@ namespace PBL3.View
 
         void _enableBill()
         {
-            btSave_Bill.Visible = false;
-            btReset_Bill.Visible = false;
-            btAdd_Bill.Visible = true;
-            //btDelete_Bill.Visible = true;
-            btEdit_Bill.Visible = true;
+            //btSave_Bill.Visible = false;
+            //btReset_Bill.Visible = false;
+            //btAdd_Bill.Visible = true;
+            ////btDelete_Bill.Visible = true;
+            //btEdit_Bill.Visible = true;
             btShow_Bill.Visible = true;
             pnSearch_Bill.Visible = true;
         }
         void _disableBill()
         {
-            btSave_Bill.Visible = true;
-            btReset_Bill.Visible = true;
-            btAdd_Bill.Visible = false;
-            btEdit_Bill.Visible = false;
+            //btSave_Bill.Visible = true;
+            //btReset_Bill.Visible = true;
+            //btAdd_Bill.Visible = false;
+            //btEdit_Bill.Visible = false;
             btShow_Bill.Visible = false;
             pnSearch_Bill.Visible = false;
         }
@@ -725,35 +725,20 @@ namespace PBL3.View
         {
             _enableBill();
             dtgvBill.DataSource = QLHoaDon.Instance.getAllBillInfo();
-            ShowcbBill();
         }
 
-        void ShowcbBill()
-        {
-            cbIdCar_Bill.DataSource = QLXe1.Instance.GetAllCar();
-            cbIdCar_Bill.DisplayMember = "IdCar";
-            cbIdCar_Bill.ValueMember = "IdCar";
-
-            cbIdStaff_Bill.DataSource = QLTaiXe.Instance.GetAllStaff();
-            cbIdStaff_Bill.DisplayMember = "IdStaff";
-            cbIdStaff_Bill.ValueMember = "IdStaff";
-        }
+        
        
         void ResetBill()
         {
             txtSDT_Bill.ResetText();
-            cbIdCar_Bill.ResetText();
-            cbIdStaff_Bill.ResetText();
+            txtIdStaff_Bill.ResetText();
+            txtIdCar_Bill.ResetText();
             txtMoney.ResetText();
             dtBill.ResetText();
+            cbSearch_Bill.ResetText();
         }
-        private void btAdd_Bill_Click(object sender, EventArgs e)
-        {
-            if(_them)
-            {
-                _disableBill();
-            }    
-        }
+       
 
         private void btShow_Bill_Click(object sender, EventArgs e)
         {
@@ -806,10 +791,10 @@ namespace PBL3.View
             if (rdbSDT_Bill.Checked)
             {
                 var l = QLHoaDon.Instance.getAllByCustomer();
-                cbSearchSchedule.DataSource = null;
+                cbSearch_Bill.DataSource = null;
                 if (cbSearch_Bill.Items.Count > 0)
                 {
-                    cbSearchSchedule.Items.Clear();
+                    cbSearch_Bill.Items.Clear();
                 }
                 foreach (var i in l)
                 {
@@ -818,6 +803,55 @@ namespace PBL3.View
             }
         }
 
+        private void btSearch_Bill_Click(object sender, EventArgs e)
+        {
+            if (rdbTime_Bill.Checked)
+            {
+                DateTime dateTime = Convert.ToDateTime(cbSearch_Bill.SelectedItem.ToString());
+                dtgvBill.DataSource = QLHoaDon.Instance.GetSearchByTime(dateTime);
+            }
+            if (rdbStaff_Bill.Checked)
+            {
+                string staff = cbSearch_Bill.SelectedValue.ToString();
+                dtgvBill.DataSource = QLHoaDon.Instance.GetSearchByIdStaff(staff);
+            }
+            if (rdbSDT_Bill.Checked)
+            {
+                string sdt = cbSearch_Bill.SelectedItem.ToString();
+                dtgvBill.DataSource = QLHoaDon.Instance.GetSearchByIdCustomer(sdt);
+            }
+            if (rdbCar_Bill.Checked)
+            {
+                string car = cbSearch_Bill.SelectedValue.ToString();
+                dtgvBill.DataSource = QLHoaDon.Instance.GetSearchByIdCar(car);
+            }
+
+        }
+        private static int id = 0;
+        private void dtgvBill_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            if (row >= 0)
+            {
+                DataGridViewRow selectedRow = dtgvBill.Rows[row];
+                id = Convert.ToInt32(selectedRow.Cells["IdBill"].Value.ToString());
+                txtSDT_Bill.Text = selectedRow.Cells["IdCustomer"].Value.ToString();
+                txtIdCar_Bill.Text = selectedRow.Cells["IdCar"].Value.ToString();
+                txtIdStaff_Bill.Text = selectedRow.Cells["IdStaff"].Value.ToString();
+                txtMoney.Text = selectedRow.Cells["GiaThanhToan"].Value.ToString();
+                dtBill.Text = selectedRow.Cells["TimeThanhToan"].Value.ToString();
+            }
+        }
+
+        #endregion
+        #region EventBaocao
+        public static double doanhthu = 0.0;
+        private void btShow_Baocao_Click(object sender, EventArgs e)
+        {
+            DateTime time = dtBaocao.Value.Date;
+            doanhthu = QLBaoCao.Instance.GetDoanhthuByDay(time);
+            txtDoanhthu.Text = doanhthu.ToString();
+        }
 
         #endregion
     }

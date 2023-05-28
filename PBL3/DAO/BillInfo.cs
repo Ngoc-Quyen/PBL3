@@ -14,5 +14,6 @@ namespace PBL3.DAO
         public string IdStaff { get; set; }
         public decimal? GiaThanhToan { get; set; }
         public DateTime? TimeThanhToan { get; set; }
+        public int? IdSchedule { get; set; }
     }
 }

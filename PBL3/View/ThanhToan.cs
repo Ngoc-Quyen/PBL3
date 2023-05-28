@@ -66,6 +66,7 @@ namespace PBL3.View
             bill.IdStaff = _idStaff;
             bill.GiaThanhToan = Convert.ToDecimal(_sum.ToString());
             bill.TimeThanhToan = dtBill.Value;
+            bill.IdSchedule = _idSchedule;
             //Schedule _sch = QLLichTrinh.Instance.GetScheduleLast();
             //_sch.IdStatus = 1;
             Schedule _sch = QLLichTrinh.Instance.GetScheduleById(_idSchedule);

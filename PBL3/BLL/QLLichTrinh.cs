@@ -180,29 +180,89 @@ namespace PBL3.BLL
                         : null;
             return query.ToList();
         }
-        public List<Schedule> GetSearchByTime(DateTime start)
+        public List<ScheduleInfo> GetSearchByTime(DateTime start)
         {
-            var l = db.Schedules.Where(p => p.DateLocation == start).ToList();
+            var l = db.Schedules.Where(p => p.DateLocation == start).Select(s =>
+                new ScheduleInfo
+                {
+                    IdSchedule = s.IdSchedule,
+                    IdCar = s.IdCar,
+                    IdStaff = s.IdStaff,
+                    IdCustomer = s.IdCustomer,
+                    Location = s.Location,
+                    DateLocation = s.DateLocation,
+                    Destination = s.Destination,
+                    IdStatus = s.IdStatus,
+                    IdDetailed = s.IdDetailed
+                }).ToList();
             return l; 
         }    
-        public List<Schedule> GetSearchByIdStaff(string id)
+        public List<ScheduleInfo> GetSearchByIdStaff(string id)
         {
-            var l = db.Schedules.Where(p => p.IdStaff == id).ToList();
+            var l = db.Schedules.Where(p => p.IdStaff == id).Select(s =>
+                new ScheduleInfo
+                {
+                    IdSchedule = s.IdSchedule,
+                    IdCar = s.IdCar,
+                    IdStaff = s.IdStaff,
+                    IdCustomer = s.IdCustomer,
+                    Location = s.Location,
+                    DateLocation = s.DateLocation,
+                    Destination = s.Destination,
+                    IdStatus = s.IdStatus,
+                    IdDetailed = s.IdDetailed
+                }).ToList();
             return l;
         }
-        public List<Schedule> GetSearchByIdCar(string id)
+        public List<ScheduleInfo> GetSearchByIdCar(string id)
         {
-            var l = db.Schedules.Where(p => p.IdCar == id).ToList();
+            var l = db.Schedules.Where(p => p.IdCar == id).Select(s =>
+                new ScheduleInfo
+                {
+                    IdSchedule = s.IdSchedule,
+                    IdCar = s.IdCar,
+                    IdStaff = s.IdStaff,
+                    IdCustomer = s.IdCustomer,
+                    Location = s.Location,
+                    DateLocation = s.DateLocation,
+                    Destination = s.Destination,
+                    IdStatus = s.IdStatus,
+                    IdDetailed = s.IdDetailed
+                }).ToList();
             return l;
         }
-        public List<Schedule> GetSearchByIdCustomer(string id)
+        public List<ScheduleInfo> GetSearchByIdCustomer(string id)
         {
-            var l = db.Schedules.Where(p => p.IdCustomer == id).ToList();
+            var l = db.Schedules.Where(p => p.IdCustomer == id).Select(s =>
+                new ScheduleInfo
+                {
+                    IdSchedule = s.IdSchedule,
+                    IdCar = s.IdCar,
+                    IdStaff = s.IdStaff,
+                    IdCustomer = s.IdCustomer,
+                    Location = s.Location,
+                    DateLocation = s.DateLocation,
+                    Destination = s.Destination,
+                    IdStatus = s.IdStatus,
+                    IdDetailed = s.IdDetailed
+                }).ToList();
             return l;
         }
-        public List<Schedule> GetSearchByStatus(int id)
+        public List<ScheduleInfo> GetSearchByStatus(int id)
         {
-            var l = db.Schedules.Where(p => p.IdStatus == id).ToList();
+            var l = db.Schedules.Where(p => p.IdStatus == id).Select(s =>
+                new ScheduleInfo
+                {
+                    IdSchedule = s.IdSchedule,
+                    IdCar = s.IdCar,
+                    IdStaff = s.IdStaff,
+                    IdCustomer = s.IdCustomer,
+                    Location = s.Location,
+                    DateLocation = s.DateLocation,
+                    Destination = s.Destination,
+                    IdStatus = s.IdStatus,
+                    IdDetailed = s.IdDetailed
+                }).ToList();
             return l;
         }
         public List<DateTime?> GetAllByDateLocation()

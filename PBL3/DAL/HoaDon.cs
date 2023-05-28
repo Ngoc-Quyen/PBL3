@@ -36,7 +36,7 @@ namespace PBL3.DAL
         public List<BillInfo> getAllBillInfos()
         {
             var l = db.Bills.Select(s => new BillInfo { IdBill = s.IdBill, IdCar = s.IdCar, 
-                IdCustomer = s.IdCustomer, IdStaff = s.IdStaff, GiaThanhToan = s.GiaThanhToan,  TimeThanhToan = s.TimeThanhToan}).ToList();
+                IdCustomer = s.IdCustomer, IdStaff = s.IdStaff, GiaThanhToan = s.GiaThanhToan,  TimeThanhToan = s.TimeThanhToan, IdSchedule = s.IdSchedule}).ToList();
             return l;
         }
         public List<Bill> GetSearchByTime(DateTime start)
@@ -83,5 +83,62 @@ namespace PBL3.DAL
             return check;
 
         }
+        public List<BillInfo> GetSearchTime(DateTime time)
+        {
+            var l = db.Bills.Where(s => s.TimeThanhToan == time).Select(s => new BillInfo
+            {
+                IdBill = s.IdBill,
+                IdCar = s.IdCar,
+                IdCustomer = s.IdCustomer,
+                IdStaff = s.IdStaff,
+                GiaThanhToan = s.GiaThanhToan,
+                TimeThanhToan = s.TimeThanhToan,
+                IdSchedule = s.IdSchedule
+            }).ToList();
+            return l;
+        }
+        public List<BillInfo> GetSearchIdCustomer(string idCustomer)
+        {
+            var l = db.Bills.Where(s => s.IdCustomer == idCustomer).Select(s => new BillInfo
+            {
+                IdBill = s.IdBill,
+                IdCar = s.IdCar,
+                IdCustomer = s.IdCustomer,
+                IdStaff = s.IdStaff,
+                GiaThanhToan = s.GiaThanhToan,
+                TimeThanhToan = s.TimeThanhToan,
+                IdSchedule = s.IdSchedule
+            }).ToList();
+            return l;
+        }
+        public List<BillInfo> GetSearchIdStaff(string idStaff)
+        {
+            var l = db.Bills.Where(s => s.IdStaff == idStaff).Select(s => new BillInfo
+            {
+                IdBill = s.IdBill,
+                IdCar = s.IdCar,
+                IdCustomer = s.IdCustomer,
+                IdStaff = s.IdStaff,
+                GiaThanhToan = s.GiaThanhToan,
+                TimeThanhToan = s.TimeThanhToan,
+                IdSchedule = s.IdSchedule
+            }).ToList();
+            return l;
+        }
+        public List<BillInfo> GetSearchIdCar(string idCar)
+        {
+            var l = db.Bills.Where(s => s.IdCar == idCar).Select(s => new BillInfo
+            {
+                IdBill = s.IdBill,
+                IdCar = s.IdCar,
+                IdCustomer = s.IdCustomer,
+                IdStaff = s.IdStaff,
+                GiaThanhToan = s.GiaThanhToan,
+                TimeThanhToan = s.TimeThanhToan,
+                IdSchedule = s.IdSchedule
+            }).ToList();
+            return l;
+        }
+
     }
 }

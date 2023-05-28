@@ -44,7 +44,7 @@ namespace PBL3.View
             else
             {
                 adminToolStripMenuItem.Enabled = true;
-                lịchTrìnhToolStripMenuItem.Enabled = false;
+                lịchTrìnhToolStripMenuItem.Enabled = true;
             }
             thôngTinTàiKhoảnToolStripMenuItem.Text += " (" + LoginAccount.DisplayName + ")";
             

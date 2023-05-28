@@ -51,5 +51,21 @@ namespace PBL3.BLL
         {
             return HoaDon.Instance.Add(bill);
         }
+        public List<BillInfo> GetSearchByTime(DateTime time)
+        {
+            return HoaDon.Instance.GetSearchTime(time);
+        }
+        public List<BillInfo> GetSearchByIdCustomer(string idCustomer)
+        {
+            return HoaDon.Instance.GetSearchIdCustomer(idCustomer);
+        }
+        public List<BillInfo> GetSearchByIdStaff(string idStaff)
+        {
+            return HoaDon.Instance.GetSearchIdStaff(idStaff);
+        }
+        public List<BillInfo> GetSearchByIdCar(string idCar)
+        {
+            return HoaDon.Instance.GetSearchIdCar(idCar);
+        }
     }
 }
