@@ -24,6 +24,7 @@
           <Property Name="IdStaff" Type="nvarchar" MaxLength="100" />
           <Property Name="GiaThanhToan" Type="money" />
           <Property Name="TimeThanhToan" Type="date" />
+          <Property Name="IdSchedule" Type="int" />
         </EntityType>
         <EntityType Name="Car">
           <Key>
@@ -64,6 +65,7 @@
           <Property Name="Destination" Type="nvarchar" MaxLength="100" />
           <Property Name="DateLocation" Type="date" />
           <Property Name="IdStatus" Type="int" />
+          <Property Name="IdDetailed" Type="int" />
         </EntityType>
         <EntityType Name="Staff">
           <Key>
@@ -107,6 +109,18 @@
             </Principal>
             <Dependent Role="Account">
               <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bill_Schedule">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="0..1" />
+          <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="IdSchedule" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="IdSchedule" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -158,6 +172,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Schedule_Detailed_Schedule">
+          <End Role="Detailed_Schedule" Type="Self.Detailed_Schedule" Multiplicity="0..1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detailed_Schedule">
+              <PropertyRef Name="IdDetailed" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="IdDetailed" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Schedule_Staff">
           <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
           <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
@@ -197,6 +223,10 @@
             <End Role="TypeAccount" EntitySet="TypeAccount" />
             <End Role="Account" EntitySet="Account" />
           </AssociationSet>
+          <AssociationSet Name="FK_Bill_Schedule" Association="Self.FK_Bill_Schedule">
+            <End Role="Schedule" EntitySet="Schedule" />
+            <End Role="Bill" EntitySet="Bill" />
+          </AssociationSet>
           <AssociationSet Name="FK_Bills_Car" Association="Self.FK_Bills_Car">
             <End Role="Car" EntitySet="Car" />
             <End Role="Bill" EntitySet="Bill" />
@@ -211,6 +241,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Schedule_Car" Association="Self.FK_Schedule_Car">
             <End Role="Car" EntitySet="Car" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Detailed_Schedule" Association="Self.FK_Schedule_Detailed_Schedule">
+            <End Role="Detailed_Schedule" EntitySet="Detailed_Schedule" />
             <End Role="Schedule" EntitySet="Schedule" />
           </AssociationSet>
           <AssociationSet Name="FK_Schedule_Staff" Association="Self.FK_Schedule_Staff">
@@ -263,6 +297,9 @@
           <NavigationProperty Name="Car" Relationship="Self.FK_Schedule_Car" FromRole="Schedule" ToRole="Car" />
           <NavigationProperty Name="Staff" Relationship="Self.FK_Schedule_Staff" FromRole="Schedule" ToRole="Staff" />
           <NavigationProperty Name="Status" Relationship="Self.FK_Schedule_Status" FromRole="Schedule" ToRole="Status" />
+          <Property Name="IdDetailed" Type="Int32" />
+          <NavigationProperty Name="Detailed_Schedule" Relationship="TestPbl3Model.FK_Schedule_Detailed_Schedule" FromRole="Schedule" ToRole="Detailed_Schedule" />
+          <NavigationProperty Name="Bills" Relationship="TestPbl3Model.FK_Bill_Schedule" FromRole="Schedule" ToRole="Bill" />
         </EntityType>
         <EntityType Name="Staff">
           <Key>
@@ -388,6 +425,14 @@
             <End Role="Staff" EntitySet="Staffs" />
             <End Role="Bill" EntitySet="Bills" />
           </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Detailed_Schedule" Association="TestPbl3Model.FK_Schedule_Detailed_Schedule">
+            <End Role="Detailed_Schedule" EntitySet="Detailed_Schedule" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bill_Schedule" Association="TestPbl3Model.FK_Bill_Schedule">
+            <End Role="Schedule" EntitySet="Schedules" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="Price">
           <Key>
@@ -419,6 +464,7 @@
           <Property Name="Destination" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Distance" Type="Double" />
           <Property Name="Complete" Type="Int32" />
+          <NavigationProperty Name="Schedules" Relationship="TestPbl3Model.FK_Schedule_Detailed_Schedule" FromRole="Detailed_Schedule" ToRole="Schedule" />
         </EntityType>
         <EntityType Name="Bill">
           <Key>
@@ -432,6 +478,8 @@
           <Property Name="TimeThanhToan" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Car" Relationship="TestPbl3Model.FK_Bills_Car" FromRole="Bill" ToRole="Car" />
           <NavigationProperty Name="Staff" Relationship="TestPbl3Model.FK_Bills_Staff" FromRole="Bill" ToRole="Staff" />
+          <Property Name="IdSchedule" Type="Int32" />
+          <NavigationProperty Name="Schedule" Relationship="TestPbl3Model.FK_Bill_Schedule" FromRole="Bill" ToRole="Schedule" />
         </EntityType>
         <Association Name="FK_Bills_Car">
           <End Type="TestPbl3Model.Car" Role="Car" Multiplicity="0..1" />
@@ -454,6 +502,30 @@
             </Principal>
             <Dependent Role="Bill">
               <PropertyRef Name="IdStaff" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Detailed_Schedule">
+          <End Type="TestPbl3Model.Detailed_Schedule" Role="Detailed_Schedule" Multiplicity="0..1" />
+          <End Type="TestPbl3Model.Schedule" Role="Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Detailed_Schedule">
+              <PropertyRef Name="IdDetailed" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="IdDetailed" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bill_Schedule">
+          <End Type="TestPbl3Model.Schedule" Role="Schedule" Multiplicity="0..1" />
+          <End Type="TestPbl3Model.Bill" Role="Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="IdSchedule" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="IdSchedule" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -486,6 +558,7 @@
           <EntitySetMapping Name="Schedules">
             <EntityTypeMapping TypeName="TestPbl3Model.Schedule">
               <MappingFragment StoreEntitySet="Schedule">
+                <ScalarProperty Name="IdDetailed" ColumnName="IdDetailed" />
                 <ScalarProperty Name="IdSchedule" ColumnName="IdSchedule" />
                 <ScalarProperty Name="IdCar" ColumnName="IdCar" />
                 <ScalarProperty Name="IdCustomer" ColumnName="IdCustomer" />
@@ -557,6 +630,7 @@
           <EntitySetMapping Name="Bills">
             <EntityTypeMapping TypeName="TestPbl3Model.Bill">
               <MappingFragment StoreEntitySet="Bill">
+                <ScalarProperty Name="IdSchedule" ColumnName="IdSchedule" />
                 <ScalarProperty Name="TimeThanhToan" ColumnName="TimeThanhToan" />
                 <ScalarProperty Name="GiaThanhToan" ColumnName="GiaThanhToan" />
                 <ScalarProperty Name="IdStaff" ColumnName="IdStaff" />

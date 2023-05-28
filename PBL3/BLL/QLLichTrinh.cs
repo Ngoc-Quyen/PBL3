@@ -39,7 +39,9 @@ namespace PBL3.BLL
         public List<ScheduleInfo> GetAllScheduleInfo()
         {
 
-            var schedules = db.Schedules.Select(s => new ScheduleInfo { IdSchedule = s.IdSchedule, IdCar = s.IdCar, IdStaff = s.IdStaff, IdCustomer = s.IdCustomer, Location = s.Location, DateLocation = s.DateLocation, Destination = s.Destination, IdStatus = s.IdStatus }).ToList();
+            var schedules = db.Schedules.Select(s => new ScheduleInfo { IdSchedule = s.IdSchedule, IdCar = s.IdCar, 
+                IdStaff = s.IdStaff, IdCustomer = s.IdCustomer, Location = s.Location, DateLocation = s.DateLocation, 
+                Destination = s.Destination, IdStatus = s.IdStatus,  IdDetailed = s.IdDetailed}).ToList();
             return schedules;
         }
         public List<Status> GetAllStatus()
@@ -218,6 +220,10 @@ namespace PBL3.BLL
         {
             return CTLTrinh.Instance.getAllDetailed();
         }
+        public List<DetailedInfo> GetAllDetailedInfosBy()
+        {
+            return CTLTrinh.Instance.getAllDetailedInfoBy();
+        }    
         public List<Detailed_Schedule> GetAllDetailedBy()
         {
             return CTLTrinh.Instance.getAllDetailedBy();
@@ -234,9 +240,17 @@ namespace PBL3.BLL
             var l = db.Schedules.Where(s =>  s.IdStaff == IdStaff && s.IdStatus == 0).Select(s => 
                 new ScheduleInfo { IdSchedule = s.IdSchedule, IdCar = s.IdCar, IdStaff = s.IdStaff, 
                 IdCustomer = s.IdCustomer, Location = s.Location, DateLocation = s.DateLocation, 
-                Destination = s.Destination, IdStatus = s.IdStatus }).ToList();
+                Destination = s.Destination, IdStatus = s.IdStatus, IdDetailed = s.IdDetailed }).ToList();
             return l;
         }
+        public Detailed_Schedule GetDetailed_ScheduleById(int id)
+        {
+            return CTLTrinh.Instance.getDetailed_ScheduleBy(id);
+        }
+        public double GetDistanceById(int id)
+        {
+            return CTLTrinh.Instance.DistanceById(id);
+        }    
     }
     
 }

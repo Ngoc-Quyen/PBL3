@@ -14,6 +14,12 @@ namespace PBL3
     
     public partial class Schedule
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Schedule()
+        {
+            this.Bills = new HashSet<Bill>();
+        }
+    
         public int IdSchedule { get; set; }
         public string IdCar { get; set; }
         public string IdCustomer { get; set; }
@@ -22,9 +28,13 @@ namespace PBL3
         public string Destination { get; set; }
         public Nullable<System.DateTime> DateLocation { get; set; }
         public Nullable<int> IdStatus { get; set; }
+        public Nullable<int> IdDetailed { get; set; }
     
         public virtual Car Car { get; set; }
         public virtual Staff Staff { get; set; }
         public virtual Status Status { get; set; }
+        public virtual Detailed_Schedule Detailed_Schedule { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Bill> Bills { get; set; }
     }
 }

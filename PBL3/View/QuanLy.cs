@@ -89,14 +89,37 @@ namespace PBL3.View
             ShowQly();
             this.Show();
         }
-
+        void _enable()
+        {
+            dtgvDetailed.Visible = true;
+            lbLoaixe.Visible = true;
+            cbIdLoai.Visible = true;
+            btShowPrice.Visible = true;
+            btXacnhan.Visible = true;
+            txtPrice.Visible = true;
+            btThanhtoan.Visible = false;
+            dtgvSchedule.Visible = false ;
+        }
+        void _disable()
+        {
+            dtgvDetailed.Visible = false;
+            lbLoaixe.Visible = false;
+            cbIdLoai.Visible = false;
+            btShowPrice.Visible = false;
+            btXacnhan.Visible = false;
+            txtPrice.Visible = false;
+            btThanhtoan.Visible = true;
+            dtgvSchedule.Visible = true;
+        }
         public void ShowQly()
         {
-            dtgvDetailed.DataSource = QLLichTrinh.Instance.GetAllDetailedBy();
+            _enable();
+            dtgvDetailed.DataSource = QLLichTrinh.Instance.GetAllDetailedInfosBy();
             cbIdLoai.DataSource = QLXe1.Instance.GetAllPrice();
             cbIdLoai.DisplayMember = "IdLoai";
             cbIdLoai.ValueMember = "IdLoai";
             btThanhtoan.Visible = false;
+            dtgvSchedule.Visible = false;
         }
         public double Tinhtoan()
         {
@@ -111,14 +134,8 @@ namespace PBL3.View
 
         private void chưaThanhToánToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dtgvDetailed.Visible = false;
-            lbLoaixe.Visible = false;
-            cbIdLoai.Visible = false;
-            btShowPrice.Visible = false;
-            btXacnhan.Visible = false;
-            txtPrice.Visible = false;
-            btThanhtoan.Visible = true;
-            dtgvDetailed.DataSource = QLLichTrinh.Instance.GetScheduleByIdStaffAndStatus(loginAccount.UserName);
+            _disable();
+            dtgvSchedule.DataSource = QLLichTrinh.Instance.GetScheduleByIdStaffAndStatus(loginAccount.UserName);
         }
 
         private void dtgvDetailed_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -133,6 +150,45 @@ namespace PBL3.View
                 distance = Convert.ToDouble(selectedRow.Cells["Distance"].Value.ToString());
                 idLoai = Convert.ToInt32(cbIdLoai.SelectedValue.ToString());
             }
+        }
+
+        public static string idCustomer = "";
+        public static string idStaff = "";
+        public static string idCar = "";
+        public static int idDetailed = 0;
+        public static int idSchedule = 0;
+        private void dtgvSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            if(row >= 0)
+            {
+                DataGridViewRow selectedRow = dtgvSchedule.Rows[row];
+                idCustomer = selectedRow.Cells["IdCustomer"].Value.ToString();
+                idStaff = selectedRow.Cells["IdStaff"].Value.ToString();
+                idCar = selectedRow.Cells["IdCar"].Value.ToString();
+                idDetailed = Convert.ToInt32(selectedRow.Cells["IdDetailed"].Value.ToString());
+                idSchedule = Convert.ToInt32(selectedRow.Cells["IdSchedule"].Value.ToString());
+            }    
+        }
+
+        private void btThanhtoan_Click(object sender, EventArgs e)
+        {
+            string IdCustomer = idCustomer;
+            string IdCar = idCar;
+            string IdStaff = idStaff;
+            int IdSchedule = idSchedule;
+            int loai = QLXe1.Instance.getChongoi(IdCar);
+            double Distance = QLLichTrinh.Instance.GetDistanceById(idDetailed);
+            double sum = QLHoaDon.Instance.Tinhtien(loai, Distance);
+            //this.Hide();
+            ThanhToan f = new ThanhToan(IdCustomer, IdCar, IdStaff, sum, IdSchedule);
+            f.ShowDialog();
+            ShowQly();
+        }
+
+        private void tấtCảToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowQly();
         }
     }
 }

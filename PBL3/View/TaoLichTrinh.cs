@@ -99,6 +99,7 @@ namespace PBL3.View
             _sch.DateLocation = dtLocation.Value;
             _sch.Destination = txtDestination.Text;
             _sch.IdStatus = 0;
+            _sch.IdDetailed = IdDetailed;
             if(QLLichTrinh.Instance.AddLT(_sch))    
             {
                 //MessageBox.Show("Bạn đã thêm lịch trình thành công");
@@ -109,8 +110,10 @@ namespace PBL3.View
                 _detai.Distance = Distance;
                 _detai.Complete = 1;
                 QLLichTrinh.Instance.EditComplete( _detai );
+                Schedule sch = QLLichTrinh.Instance.GetScheduleLast();
+                int idSch = sch.IdSchedule;
                 this.Hide();
-                ThanhToan f = new ThanhToan(IdCustomer, IdCar, IdStaff, sum);
+                ThanhToan f = new ThanhToan(IdCustomer, IdCar, IdStaff, sum, idSch);
                 f.ShowDialog();
             }
             else

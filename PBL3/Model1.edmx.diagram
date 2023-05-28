@@ -22,6 +22,8 @@
         <EntityTypeShape EntityType="TestPbl3Model.Bill" Width="1.5" PointX="5" PointY="5.125" />
         <AssociationConnector Association="TestPbl3Model.FK_Bills_Car" />
         <AssociationConnector Association="TestPbl3Model.FK_Bills_Staff" />
+        <AssociationConnector Association="TestPbl3Model.FK_Schedule_Detailed_Schedule" />
+        <AssociationConnector Association="TestPbl3Model.FK_Bill_Schedule" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

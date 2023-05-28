@@ -20,8 +20,10 @@ namespace PBL3
         public string IdStaff { get; set; }
         public Nullable<decimal> GiaThanhToan { get; set; }
         public Nullable<System.DateTime> TimeThanhToan { get; set; }
+        public Nullable<int> IdSchedule { get; set; }
     
         public virtual Car Car { get; set; }
         public virtual Staff Staff { get; set; }
+        public virtual Schedule Schedule { get; set; }
     }
 }

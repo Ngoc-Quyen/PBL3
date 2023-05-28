@@ -17,6 +17,7 @@ namespace PBL3.View
         private string _idCar;
         private string _idStaff;
         private double _sum;
+        private int _idSchedule;
         public ThanhToan()
         {
             InitializeComponent();
@@ -31,11 +32,21 @@ namespace PBL3.View
             ShowDL();
             
         }
-
+        public ThanhToan(string IdCustomer, string IdCar, string IdStaff, double Sum, int IdSchedule)
+        {
+            this._idCustomer = IdCustomer;
+            this._idCar = IdCar;
+            this._idStaff = IdStaff;
+            this._sum = Sum;
+            this.IdSchedule = IdSchedule;
+            InitializeComponent();
+            ShowDL();
+        }
         public string IdCustomer { get => _idCustomer; set => _idCustomer = value; }
         public string IdCar { get => _idCar; set => _idCar = value; }
         public string IdStaff { get => _idStaff; set => _idStaff = value; }
         public double Sum { get => _sum; set => _sum = value; }
+        public int IdSchedule { get => _idSchedule; set => _idSchedule = value; }
 
         public void ShowDL()
         {
@@ -55,7 +66,9 @@ namespace PBL3.View
             bill.IdStaff = _idStaff;
             bill.GiaThanhToan = Convert.ToDecimal(_sum.ToString());
             bill.TimeThanhToan = dtBill.Value;
-            Schedule _sch = QLLichTrinh.Instance.GetScheduleLast();
+            //Schedule _sch = QLLichTrinh.Instance.GetScheduleLast();
+            //_sch.IdStatus = 1;
+            Schedule _sch = QLLichTrinh.Instance.GetScheduleById(_idSchedule);
             _sch.IdStatus = 1;
             if(QLHoaDon.Instance.AddBill(bill))
             {

@@ -16,5 +16,6 @@ namespace PBL3.DAO
         public DateTime? DateLocation { get; set; }
         public string Destination { get; set; }
         public int? IdStatus { get; set; }
+        public int? IdDetailed { get; set; }
     }
 }

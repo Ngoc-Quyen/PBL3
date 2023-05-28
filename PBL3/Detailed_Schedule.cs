@@ -14,10 +14,19 @@ namespace PBL3
     
     public partial class Detailed_Schedule
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Detailed_Schedule()
+        {
+            this.Schedules = new HashSet<Schedule>();
+        }
+    
         public int IdDetailed { get; set; }
         public string Location { get; set; }
         public string Destination { get; set; }
         public Nullable<double> Distance { get; set; }
         public Nullable<int> Complete { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Schedule> Schedules { get; set; }
     }
 }

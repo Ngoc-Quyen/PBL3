@@ -53,15 +53,19 @@
             this.lịchTrìnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chưaThanhToánToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btThanhtoan = new System.Windows.Forms.Button();
+            this.dtgvSchedule = new System.Windows.Forms.DataGridView();
+            this.tấtCảToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDetailed)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvSchedule)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackgroundImage = global::PBL3.Properties.Resources.Nền__2_;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.dtgvSchedule);
             this.panel1.Controls.Add(this.btThanhtoan);
             this.panel1.Controls.Add(this.btShowPrice);
             this.panel1.Controls.Add(this.btXacnhan);
@@ -146,7 +150,7 @@
             this.lbLichtrinh.AutoSize = true;
             this.lbLichtrinh.BackColor = System.Drawing.Color.Transparent;
             this.lbLichtrinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbLichtrinh.Location = new System.Drawing.Point(653, 50);
+            this.lbLichtrinh.Location = new System.Drawing.Point(619, 50);
             this.lbLichtrinh.Name = "lbLichtrinh";
             this.lbLichtrinh.Size = new System.Drawing.Size(155, 39);
             this.lbLichtrinh.TabIndex = 14;
@@ -307,7 +311,8 @@
             // lịchTrìnhToolStripMenuItem
             // 
             this.lịchTrìnhToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.chưaThanhToánToolStripMenuItem});
+            this.chưaThanhToánToolStripMenuItem,
+            this.tấtCảToolStripMenuItem});
             this.lịchTrìnhToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lịchTrìnhToolStripMenuItem.Name = "lịchTrìnhToolStripMenuItem";
             this.lịchTrìnhToolStripMenuItem.Size = new System.Drawing.Size(95, 27);
@@ -324,12 +329,32 @@
             // 
             this.btThanhtoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btThanhtoan.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btThanhtoan.Location = new System.Drawing.Point(776, 393);
+            this.btThanhtoan.Location = new System.Drawing.Point(776, 383);
             this.btThanhtoan.Name = "btThanhtoan";
             this.btThanhtoan.Size = new System.Drawing.Size(134, 36);
             this.btThanhtoan.TabIndex = 29;
             this.btThanhtoan.Text = "Thanh toán";
             this.btThanhtoan.UseVisualStyleBackColor = true;
+            this.btThanhtoan.Click += new System.EventHandler(this.btThanhtoan_Click);
+            // 
+            // dtgvSchedule
+            // 
+            this.dtgvSchedule.BackgroundColor = System.Drawing.Color.White;
+            this.dtgvSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvSchedule.Location = new System.Drawing.Point(445, 113);
+            this.dtgvSchedule.Name = "dtgvSchedule";
+            this.dtgvSchedule.RowHeadersWidth = 51;
+            this.dtgvSchedule.RowTemplate.Height = 24;
+            this.dtgvSchedule.Size = new System.Drawing.Size(465, 249);
+            this.dtgvSchedule.TabIndex = 30;
+            this.dtgvSchedule.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvSchedule_CellClick);
+            // 
+            // tấtCảToolStripMenuItem
+            // 
+            this.tấtCảToolStripMenuItem.Name = "tấtCảToolStripMenuItem";
+            this.tấtCảToolStripMenuItem.Size = new System.Drawing.Size(227, 28);
+            this.tấtCảToolStripMenuItem.Text = "Tất cả";
+            this.tấtCảToolStripMenuItem.Click += new System.EventHandler(this.tấtCảToolStripMenuItem_Click);
             // 
             // QuanLy
             // 
@@ -346,6 +371,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDetailed)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvSchedule)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -377,5 +403,7 @@
         private System.Windows.Forms.ToolStripMenuItem lịchTrìnhToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem chưaThanhToánToolStripMenuItem;
         private System.Windows.Forms.Button btThanhtoan;
+        private System.Windows.Forms.DataGridView dtgvSchedule;
+        private System.Windows.Forms.ToolStripMenuItem tấtCảToolStripMenuItem;
     }
 }
