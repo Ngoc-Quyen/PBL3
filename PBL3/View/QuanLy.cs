@@ -56,10 +56,10 @@ namespace PBL3.View
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Admin1 f = new Admin1();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
+            //Admin1 f = new Admin1();
+            //this.Hide();
+            //f.ShowDialog();
+            //this.Show();
         }
 
         private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
@@ -189,6 +189,22 @@ namespace PBL3.View
         private void tấtCảToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowQly();
+        }
+
+        private void BaocaoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Admin1 f = new Admin1();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void thongKeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Thongke f = new Thongke();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
         }
     }
 }

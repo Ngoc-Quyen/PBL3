@@ -844,15 +844,6 @@ namespace PBL3.View
         }
 
         #endregion
-        #region EventBaocao
-        public static double doanhthu = 0.0;
-        private void btShow_Baocao_Click(object sender, EventArgs e)
-        {
-            DateTime time = dtBaocao.Value.Date;
-            doanhthu = QLBaoCao.Instance.GetDoanhthuByDay(time);
-            txtDoanhthu.Text = doanhthu.ToString();
-        }
-
-        #endregion
+       
     }
 }

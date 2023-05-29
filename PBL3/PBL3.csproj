@@ -319,6 +319,7 @@
     <Compile Include="BLL\QLLichTrinh.cs" />
     <Compile Include="BLL\QLTaiKhoan.cs" />
     <Compile Include="BLL\QLTaiXe.cs" />
+    <Compile Include="BLL\QLThongKe.cs" />
     <Compile Include="BLL\QLXe1.cs" />
     <Compile Include="Car.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -327,6 +328,7 @@
     <Compile Include="DAL\CTLTrinh.cs" />
     <Compile Include="DAL\Gia.cs" />
     <Compile Include="DAL\HoaDon.cs" />
+    <Compile Include="DAL\ThongKe.cs" />
     <Compile Include="DAL\Xe.cs" />
     <Compile Include="DAO\BillInfo.cs" />
     <Compile Include="DAO\CarInfo.cs" />
@@ -415,6 +417,12 @@
     <Compile Include="View\ThanhToan.Designer.cs">
       <DependentUpon>ThanhToan.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Thongke.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Thongke.Designer.cs">
+      <DependentUpon>Thongke.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ThongTinCaNhan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -451,6 +459,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\ThanhToan.resx">
       <DependentUpon>ThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Thongke.resx">
+      <DependentUpon>Thongke.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ThongTinCaNhan.resx">
       <DependentUpon>ThongTinCaNhan.cs</DependentUpon>
