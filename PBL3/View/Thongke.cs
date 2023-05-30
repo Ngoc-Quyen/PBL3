@@ -1,4 +1,5 @@
 ﻿using PBL3.BLL;
+using PBL3.DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,6 +32,18 @@ namespace PBL3.View
             price = QLThongKe.Instance.GetTotalPrice(start, end);
             lbSoluongKhach.Text = countId.ToString();
             lbTongDoanhthu.Text =  price.ToString() + " VND" ;
+            if (QLThongKe.Instance.GetLoadData(start, end))
+            {
+                chartTongDoanhthu.DataSource = ThongKe.Instance.GrossRevenueList;
+                chartTongDoanhthu.Series[0].XValueMember = "Date";
+                chartTongDoanhthu.Series[0].YValueMembers = "TotalAmount";
+                chartTongDoanhthu.DataBind();
+
+                //chartLoaixe.DataSource = ThongKe.Instance.carByDateList;
+                //chartLoaixe.Series[0].XValueMember = "Key";
+                //chartLoaixe.Series[0].YValueMembers = "Value";
+                //chartLoaixe.DataBind();
+            }    
         }
         public void _enable()
         {

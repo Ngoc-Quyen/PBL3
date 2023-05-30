@@ -33,5 +33,9 @@ namespace PBL3.BLL
         {
             return ThongKe.Instance.getSumPrice(start, end);
         }
+        public bool GetLoadData(DateTime start, DateTime end)
+        {
+            return ThongKe.Instance.LoadData(start, end);
+        }
     }
 }
