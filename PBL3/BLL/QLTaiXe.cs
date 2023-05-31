@@ -31,7 +31,7 @@ namespace PBL3.BLL
         } 
         public List<StaffInfo> getAllStaffInfo()
         {
-            var l = db.Staffs.Select(s => new StaffInfo { IdStaff = s.IdStaff, NameStaff = s.NameStaff, AddressStaff = s.AddressStaff, PhoneStaff = s.PhoneStaff }).ToList();
+            var l = db.Staffs.Select(s => new StaffInfo { IdStaff = s.IdStaff, NameStaff = s.NameStaff, AddressStaff = s.AddressStaff, PhoneStaff = s.PhoneStaff, IdStatus = s.IdStatus }).ToList();
             return l;
         }    
         public Staff GetStaffBy(string id)
@@ -68,6 +68,7 @@ namespace PBL3.BLL
                 _staff.NameStaff = st.NameStaff;
                 _staff.AddressStaff = st.AddressStaff;
                 _staff.PhoneStaff = st.PhoneStaff;
+                _staff.IdStatus = st.IdStatus;
                 db.SaveChanges();
             }
 
@@ -113,6 +114,12 @@ namespace PBL3.BLL
                 }
             }
             return c;
+        }
+        public List<Staff> GetStaffByIdStatus()
+        {
+            var l = db.Staffs.Where(s => s.IdStatus == 0).Select(s => s).ToList();
+            return l;
+
         }
     }
 }

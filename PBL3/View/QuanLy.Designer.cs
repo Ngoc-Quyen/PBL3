@@ -49,14 +49,15 @@
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BaocaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thongKeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinTàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinCáNhânToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lịchTrìnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chưaThanhToánToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tấtCảToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.BaocaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thongKeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btDexuat = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvSchedule)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDetailed)).BeginInit();
@@ -67,6 +68,7 @@
             // 
             this.panel1.BackgroundImage = global::PBL3.Properties.Resources.Nền__2_;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.btDexuat);
             this.panel1.Controls.Add(this.dtgvSchedule);
             this.panel1.Controls.Add(this.btThanhtoan);
             this.panel1.Controls.Add(this.btShowPrice);
@@ -219,7 +221,7 @@
             this.lbThemdiem.BackColor = System.Drawing.Color.Transparent;
             this.lbThemdiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbThemdiem.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lbThemdiem.Location = new System.Drawing.Point(296, 221);
+            this.lbThemdiem.Location = new System.Drawing.Point(282, 223);
             this.lbThemdiem.Name = "lbThemdiem";
             this.lbThemdiem.Size = new System.Drawing.Size(132, 20);
             this.lbThemdiem.TabIndex = 20;
@@ -313,6 +315,20 @@
             this.adminToolStripMenuItem.Text = "Admin";
             this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
             // 
+            // BaocaoToolStripMenuItem
+            // 
+            this.BaocaoToolStripMenuItem.Name = "BaocaoToolStripMenuItem";
+            this.BaocaoToolStripMenuItem.Size = new System.Drawing.Size(165, 28);
+            this.BaocaoToolStripMenuItem.Text = "Quản lý";
+            this.BaocaoToolStripMenuItem.Click += new System.EventHandler(this.BaocaoToolStripMenuItem_Click);
+            // 
+            // thongKeToolStripMenuItem
+            // 
+            this.thongKeToolStripMenuItem.Name = "thongKeToolStripMenuItem";
+            this.thongKeToolStripMenuItem.Size = new System.Drawing.Size(165, 28);
+            this.thongKeToolStripMenuItem.Text = "Thống kê";
+            this.thongKeToolStripMenuItem.Click += new System.EventHandler(this.thongKeToolStripMenuItem_Click);
+            // 
             // thôngTinTàiKhoảnToolStripMenuItem
             // 
             this.thôngTinTàiKhoảnToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -361,19 +377,16 @@
             this.tấtCảToolStripMenuItem.Text = "Tất cả";
             this.tấtCảToolStripMenuItem.Click += new System.EventHandler(this.tấtCảToolStripMenuItem_Click);
             // 
-            // BaocaoToolStripMenuItem
+            // btDexuat
             // 
-            this.BaocaoToolStripMenuItem.Name = "BaocaoToolStripMenuItem";
-            this.BaocaoToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
-            this.BaocaoToolStripMenuItem.Text = "Quản lý";
-            this.BaocaoToolStripMenuItem.Click += new System.EventHandler(this.BaocaoToolStripMenuItem_Click);
-            // 
-            // thongKeToolStripMenuItem
-            // 
-            this.thongKeToolStripMenuItem.Name = "thongKeToolStripMenuItem";
-            this.thongKeToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
-            this.thongKeToolStripMenuItem.Text = "Thống kê";
-            this.thongKeToolStripMenuItem.Click += new System.EventHandler(this.thongKeToolStripMenuItem_Click);
+            this.btDexuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btDexuat.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btDexuat.Location = new System.Drawing.Point(190, 326);
+            this.btDexuat.Name = "btDexuat";
+            this.btDexuat.Size = new System.Drawing.Size(111, 36);
+            this.btDexuat.TabIndex = 31;
+            this.btDexuat.Text = "Đề xuất";
+            this.btDexuat.UseVisualStyleBackColor = true;
             // 
             // QuanLy
             // 
@@ -426,5 +439,6 @@
         private System.Windows.Forms.ToolStripMenuItem tấtCảToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem BaocaoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thongKeToolStripMenuItem;
+        private System.Windows.Forms.Button btDexuat;
     }
 }

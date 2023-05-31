@@ -12,5 +12,6 @@ namespace PBL3.DAO
         public string NameCar { get; set; }
         public string ColorCar { get; set; }
         public int? ChoNgoi { get; set; }
+        public int? IdStatus { get; set; }
     }
 }

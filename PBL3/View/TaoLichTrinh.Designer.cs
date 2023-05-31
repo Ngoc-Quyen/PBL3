@@ -42,7 +42,6 @@
             this.cbIdCar = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.panel29 = new System.Windows.Forms.Panel();
-            this.txtIdStaff = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel28 = new System.Windows.Forms.Panel();
             this.txtIdCustomer = new System.Windows.Forms.TextBox();
@@ -52,6 +51,7 @@
             this.btThanhtoan = new System.Windows.Forms.Button();
             this.btSaveSchedule = new System.Windows.Forms.Button();
             this.btResetSchedule = new System.Windows.Forms.Button();
+            this.cbIdStaff = new System.Windows.Forms.ComboBox();
             this.panel26.SuspendLayout();
             this.panel34.SuspendLayout();
             this.panel32.SuspendLayout();
@@ -124,7 +124,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtLocation.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtLocation.Location = new System.Drawing.Point(240, 6);
+            this.dtLocation.Location = new System.Drawing.Point(240, 10);
             this.dtLocation.Name = "dtLocation";
             this.dtLocation.Size = new System.Drawing.Size(202, 26);
             this.dtLocation.TabIndex = 1;
@@ -186,7 +186,7 @@
             this.cbIdCar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbIdCar.FormattingEnabled = true;
-            this.cbIdCar.Location = new System.Drawing.Point(240, 8);
+            this.cbIdCar.Location = new System.Drawing.Point(240, 9);
             this.cbIdCar.Name = "cbIdCar";
             this.cbIdCar.Size = new System.Drawing.Size(202, 28);
             this.cbIdCar.TabIndex = 1;
@@ -203,25 +203,12 @@
             // 
             // panel29
             // 
-            this.panel29.Controls.Add(this.txtIdStaff);
+            this.panel29.Controls.Add(this.cbIdStaff);
             this.panel29.Controls.Add(this.label11);
             this.panel29.Location = new System.Drawing.Point(7, 58);
             this.panel29.Name = "panel29";
             this.panel29.Size = new System.Drawing.Size(451, 46);
             this.panel29.TabIndex = 2;
-            // 
-            // txtIdStaff
-            // 
-            this.txtIdStaff.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtIdStaff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIdStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdStaff.Location = new System.Drawing.Point(240, 9);
-            this.txtIdStaff.Multiline = true;
-            this.txtIdStaff.Name = "txtIdStaff";
-            this.txtIdStaff.ReadOnly = true;
-            this.txtIdStaff.Size = new System.Drawing.Size(202, 25);
-            this.txtIdStaff.TabIndex = 2;
             // 
             // label11
             // 
@@ -332,6 +319,17 @@
             this.btResetSchedule.Text = "Hủy";
             this.btResetSchedule.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btResetSchedule.UseVisualStyleBackColor = false;
+            this.btResetSchedule.Click += new System.EventHandler(this.btResetSchedule_Click);
+            // 
+            // cbIdStaff
+            // 
+            this.cbIdStaff.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbIdStaff.FormattingEnabled = true;
+            this.cbIdStaff.Location = new System.Drawing.Point(240, 11);
+            this.cbIdStaff.Name = "cbIdStaff";
+            this.cbIdStaff.Size = new System.Drawing.Size(202, 24);
+            this.cbIdStaff.TabIndex = 2;
             // 
             // TaoLichTrinh
             // 
@@ -391,6 +389,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Button btThanhtoan;
-        private System.Windows.Forms.TextBox txtIdStaff;
+        private System.Windows.Forms.ComboBox cbIdStaff;
     }
 }

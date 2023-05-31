@@ -12,5 +12,6 @@ namespace PBL3.DAO
         public string NameStaff { get; set; }
         public string AddressStaff { get; set; }
         public string PhoneStaff { get; set; }
+        public int? IdStatus { get; set; }
     }
 }

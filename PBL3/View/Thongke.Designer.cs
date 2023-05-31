@@ -28,20 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbSoluongKhach = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lbTongDoanhthu = new System.Windows.Forms.Label();
             this.chartTongDoanhthu = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chartLoaixe = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btToday = new System.Windows.Forms.Button();
             this.btThisMonth = new System.Windows.Forms.Button();
@@ -55,7 +50,6 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartTongDoanhthu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartLoaixe)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,9 +57,9 @@
             // 
             this.groupBox1.Controls.Add(this.lbSoluongKhach);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(13, 103);
+            this.groupBox1.Location = new System.Drawing.Point(34, 103);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(206, 76);
+            this.groupBox1.Size = new System.Drawing.Size(248, 76);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Số lượng khách";
@@ -84,9 +78,9 @@
             // 
             this.groupBox2.Controls.Add(this.lbTongDoanhthu);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(226, 103);
+            this.groupBox2.Location = new System.Drawing.Point(288, 103);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(386, 76);
+            this.groupBox2.Size = new System.Drawing.Size(596, 76);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tổng doanh thu";
@@ -103,55 +97,29 @@
             // 
             // chartTongDoanhthu
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartTongDoanhthu.ChartAreas.Add(chartArea1);
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend1.Name = "Legend1";
-            this.chartTongDoanhthu.Legends.Add(legend1);
-            this.chartTongDoanhthu.Location = new System.Drawing.Point(13, 185);
+            chartArea5.Name = "ChartArea1";
+            this.chartTongDoanhthu.ChartAreas.Add(chartArea5);
+            legend5.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend5.Name = "Legend1";
+            this.chartTongDoanhthu.Legends.Add(legend5);
+            this.chartTongDoanhthu.Location = new System.Drawing.Point(34, 185);
             this.chartTongDoanhthu.Name = "chartTongDoanhthu";
-            series1.ChartArea = "ChartArea1";
-            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series1.IsValueShownAsLabel = true;
-            series1.IsXValueIndexed = true;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-            this.chartTongDoanhthu.Series.Add(series1);
-            this.chartTongDoanhthu.Size = new System.Drawing.Size(599, 263);
+            series5.ChartArea = "ChartArea1";
+            series5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series5.IsValueShownAsLabel = true;
+            series5.IsXValueIndexed = true;
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            this.chartTongDoanhthu.Series.Add(series5);
+            this.chartTongDoanhthu.Size = new System.Drawing.Size(850, 263);
             this.chartTongDoanhthu.TabIndex = 3;
             this.chartTongDoanhthu.Text = "chart1";
-            title1.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            title1.Name = "Title1";
-            title1.Text = "Tổng doanh thu";
-            this.chartTongDoanhthu.Titles.Add(title1);
-            // 
-            // chartLoaixe
-            // 
-            chartArea2.Name = "ChartArea1";
-            this.chartLoaixe.ChartAreas.Add(chartArea2);
-            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend2.Name = "Legend1";
-            this.chartLoaixe.Legends.Add(legend2);
-            this.chartLoaixe.Location = new System.Drawing.Point(618, 113);
-            this.chartLoaixe.Name = "chartLoaixe";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            series2.IsXValueIndexed = true;
-            series2.LabelForeColor = System.Drawing.Color.White;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartLoaixe.Series.Add(series2);
-            this.chartLoaixe.Size = new System.Drawing.Size(287, 335);
-            this.chartLoaixe.TabIndex = 4;
-            this.chartLoaixe.Text = "chart2";
-            title2.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            title2.Name = "Title1";
-            title2.Text = "Loại xe";
-            this.chartLoaixe.Titles.Add(title2);
+            title5.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            title5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            title5.Name = "Title1";
+            title5.Text = "Tổng doanh thu";
+            this.chartTongDoanhthu.Titles.Add(title5);
             // 
             // panel1
             // 
@@ -173,9 +141,9 @@
             // 
             this.btToday.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btToday.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btToday.Location = new System.Drawing.Point(758, 8);
+            this.btToday.Location = new System.Drawing.Point(769, 8);
             this.btToday.Name = "btToday";
-            this.btToday.Size = new System.Drawing.Size(136, 30);
+            this.btToday.Size = new System.Drawing.Size(136, 31);
             this.btToday.TabIndex = 31;
             this.btToday.Text = "Hôm nay";
             this.btToday.UseVisualStyleBackColor = true;
@@ -185,9 +153,9 @@
             // 
             this.btThisMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btThisMonth.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btThisMonth.Location = new System.Drawing.Point(758, 53);
+            this.btThisMonth.Location = new System.Drawing.Point(769, 53);
             this.btThisMonth.Name = "btThisMonth";
-            this.btThisMonth.Size = new System.Drawing.Size(136, 30);
+            this.btThisMonth.Size = new System.Drawing.Size(136, 31);
             this.btThisMonth.TabIndex = 30;
             this.btThisMonth.Text = "Tháng này";
             this.btThisMonth.UseVisualStyleBackColor = true;
@@ -197,11 +165,12 @@
             // 
             this.btLast30day.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLast30day.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btLast30day.Location = new System.Drawing.Point(616, 53);
+            this.btLast30day.Location = new System.Drawing.Point(607, 53);
             this.btLast30day.Name = "btLast30day";
-            this.btLast30day.Size = new System.Drawing.Size(136, 30);
+            this.btLast30day.Size = new System.Drawing.Size(155, 31);
             this.btLast30day.TabIndex = 29;
             this.btLast30day.Text = "30 ngày trước";
+            this.btLast30day.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btLast30day.UseVisualStyleBackColor = true;
             this.btLast30day.Click += new System.EventHandler(this.btLast30day_Click);
             // 
@@ -209,11 +178,12 @@
             // 
             this.btLast7day.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLast7day.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btLast7day.Location = new System.Drawing.Point(475, 53);
+            this.btLast7day.Location = new System.Drawing.Point(451, 53);
             this.btLast7day.Name = "btLast7day";
-            this.btLast7day.Size = new System.Drawing.Size(136, 30);
+            this.btLast7day.Size = new System.Drawing.Size(150, 31);
             this.btLast7day.TabIndex = 28;
             this.btLast7day.Text = "7 ngày trước";
+            this.btLast7day.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btLast7day.UseVisualStyleBackColor = true;
             this.btLast7day.Click += new System.EventHandler(this.btLast7day_Click);
             // 
@@ -221,9 +191,9 @@
             // 
             this.btCustom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCustom.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btCustom.Location = new System.Drawing.Point(616, 8);
+            this.btCustom.Location = new System.Drawing.Point(622, 8);
             this.btCustom.Name = "btCustom";
-            this.btCustom.Size = new System.Drawing.Size(136, 30);
+            this.btCustom.Size = new System.Drawing.Size(140, 31);
             this.btCustom.TabIndex = 27;
             this.btCustom.Text = "Tùy chỉnh";
             this.btCustom.UseVisualStyleBackColor = true;
@@ -236,7 +206,7 @@
             this.btShow.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btShow.Location = new System.Drawing.Point(541, 8);
             this.btShow.Name = "btShow";
-            this.btShow.Size = new System.Drawing.Size(70, 30);
+            this.btShow.Size = new System.Drawing.Size(70, 31);
             this.btShow.TabIndex = 26;
             this.btShow.Text = "Xem";
             this.btShow.UseVisualStyleBackColor = true;
@@ -278,7 +248,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(917, 482);
-            this.Controls.Add(this.chartLoaixe);
             this.Controls.Add(this.chartTongDoanhthu);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -286,12 +255,12 @@
             this.Name = "Thongke";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thongke";
+            this.Load += new System.EventHandler(this.Thongke_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartTongDoanhthu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartLoaixe)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -304,7 +273,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lbTongDoanhthu;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartTongDoanhthu;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartLoaixe;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btThisMonth;
         private System.Windows.Forms.Button btLast30day;

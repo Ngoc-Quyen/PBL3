@@ -36,12 +36,25 @@ namespace PBL3.View
             Show();
             
         }
+        public TaoLichTrinh(string Location, string Destination, int IdDetailed, double Distance, int IdLoai)
+        {
+            this.Location1 = Location;
+            this.Destination = Destination;
+            this.IdDetailed = IdDetailed;
+            this.Distance = Distance;
+            this.IdLoai = IdLoai;
+            InitializeComponent();
+            Show();
+        }
         public void Show()
         {
-            txtIdStaff.Text = IdStaff;
+            //txtIdStaff.Text = IdStaff;
+            cbIdStaff.DataSource = QLTaiXe.Instance.GetStaffByIdStatus();
+            cbIdStaff.DisplayMember = "IdStaff";
+            cbIdStaff.ValueMember = "IdStaff";
             txtLocation.Text = Location1;
             txtDestination.Text = Destination;
-            cbIdCar.DataSource = QLXe1.Instance.GetAllCarByLoai(IdLoai);
+            cbIdCar.DataSource = QLXe1.Instance.GetCarByLoaiAndStatus(IdLoai);
             cbIdCar.DisplayMember = "IdCar";
             cbIdCar.ValueMember = "IdCar";
         }
@@ -58,7 +71,7 @@ namespace PBL3.View
             Schedule _sch = new Schedule();
             _sch.IdCustomer = txtIdCustomer.Text;
             _sch.IdCar = cbIdCar.Text;
-            _sch.IdStaff = txtIdStaff.Text;
+            _sch.IdStaff = cbIdStaff.Text;
             _sch.Location = txtLocation.Text;
             _sch.DateLocation = dtLocation.Value;
             _sch.Destination = txtDestination.Text;
@@ -88,13 +101,13 @@ namespace PBL3.View
         {
             string IdCustomer = txtIdCustomer.Text;
             string IdCar = cbIdCar.SelectedValue.ToString();
-            string IdStaff = txtIdStaff.Text.ToString();
+            string IdStaff = cbIdStaff.SelectedValue.ToString();
             int loai = QLXe1.Instance.getChongoi(IdCar);
             double sum = QLHoaDon.Instance.Tinhtien(loai, Distance);
             Schedule _sch = new Schedule();
             _sch.IdCustomer = txtIdCustomer.Text;
             _sch.IdCar = cbIdCar.Text;
-            _sch.IdStaff = txtIdStaff.Text;
+            _sch.IdStaff = cbIdStaff.Text;
             _sch.Location = txtLocation.Text;
             _sch.DateLocation = dtLocation.Value;
             _sch.Destination = txtDestination.Text;
@@ -110,6 +123,12 @@ namespace PBL3.View
                 _detai.Distance = Distance;
                 _detai.Complete = 1;
                 QLLichTrinh.Instance.EditComplete( _detai );
+                Car _car = QLXe1.Instance.GetCarBy(IdCar);
+                _car.IdStatus = 1;
+                QLXe1.Instance.EditStatus(_car);
+                Staff _staff = QLTaiXe.Instance.GetStaffBy(IdStaff);
+                _staff.IdStatus = 1;
+                QLTaiXe.Instance.Edit(_staff);
                 Schedule sch = QLLichTrinh.Instance.GetScheduleLast();
                 int idSch = sch.IdSchedule;
                 this.Hide();
@@ -120,6 +139,14 @@ namespace PBL3.View
             {
                 MessageBox.Show("Chưa có lịch trình để thanh toán");
             }
+        }
+
+        private void btResetSchedule_Click(object sender, EventArgs e)
+        {
+            txtIdCustomer.ResetText();
+            cbIdCar.ResetText();
+            cbIdStaff.ResetText();
+            dtLocation.ResetText();
         }
     }
 }

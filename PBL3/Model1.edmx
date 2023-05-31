@@ -34,6 +34,7 @@
           <Property Name="NameCar" Type="nvarchar" MaxLength="100" />
           <Property Name="ColorCar" Type="nvarchar" MaxLength="100" />
           <Property Name="ChoNgoi" Type="int" />
+          <Property Name="IdStatus" Type="int" />
         </EntityType>
         <EntityType Name="Detailed_Schedule">
           <Key>
@@ -75,6 +76,7 @@
           <Property Name="NameStaff" Type="nvarchar" MaxLength="100" />
           <Property Name="AddressStaff" Type="nvarchar" MaxLength="100" />
           <Property Name="PhoneStaff" Type="nvarchar" MaxLength="100" />
+          <Property Name="IdStatus" Type="int" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -281,6 +283,7 @@
           <NavigationProperty Name="Schedules" Relationship="Self.FK_Schedule_Car" FromRole="Car" ToRole="Schedule" />
           <NavigationProperty Name="Price" Relationship="TestPbl3Model.FK_Car_Price" FromRole="Car" ToRole="Price" />
           <NavigationProperty Name="Bills" Relationship="TestPbl3Model.FK_Bills_Car" FromRole="Car" ToRole="Bill" />
+          <Property Name="IdStatus" Type="Int32" />
         </EntityType>
         <EntityType Name="Schedule">
           <Key>
@@ -311,6 +314,7 @@
           <Property Name="PhoneStaff" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Schedules" Relationship="Self.FK_Schedule_Staff" FromRole="Staff" ToRole="Schedule" />
           <NavigationProperty Name="Bills" Relationship="TestPbl3Model.FK_Bills_Staff" FromRole="Staff" ToRole="Bill" />
+          <Property Name="IdStatus" Type="Int32" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -548,6 +552,7 @@
           <EntitySetMapping Name="Cars">
             <EntityTypeMapping TypeName="TestPbl3Model.Car">
               <MappingFragment StoreEntitySet="Car">
+                <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
                 <ScalarProperty Name="IdCar" ColumnName="IdCar" />
                 <ScalarProperty Name="NameCar" ColumnName="NameCar" />
                 <ScalarProperty Name="ColorCar" ColumnName="ColorCar" />
@@ -573,6 +578,7 @@
           <EntitySetMapping Name="Staffs">
             <EntityTypeMapping TypeName="TestPbl3Model.Staff">
               <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
                 <ScalarProperty Name="IdStaff" ColumnName="IdStaff" />
                 <ScalarProperty Name="NameStaff" ColumnName="NameStaff" />
                 <ScalarProperty Name="AddressStaff" ColumnName="AddressStaff" />

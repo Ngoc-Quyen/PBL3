@@ -40,6 +40,8 @@ namespace PBL3.View
             if (type != 1)
             {
                 adminToolStripMenuItem.Enabled = false;
+                btShowPrice.Enabled = false;
+                btXacnhan.Enabled = false;
             }
             else
             {
@@ -84,7 +86,7 @@ namespace PBL3.View
             this.Hide();
             string idStaff = LoginAccount.UserName;
             idLoai = Convert.ToInt32(cbIdLoai.SelectedValue.ToString());
-            TaoLichTrinh f = new TaoLichTrinh(idStaff, location, destination, Id, distance, idLoai);
+            TaoLichTrinh f = new TaoLichTrinh(location, destination, Id, distance, idLoai);
             f.ShowDialog();
             ShowQly();
             this.Show();

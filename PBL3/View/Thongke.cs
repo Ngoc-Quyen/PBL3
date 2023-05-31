@@ -110,5 +110,10 @@ namespace PBL3.View
             DateTime end = dtEnd.Value;
             LoadData(start, end);
         }
+
+        private void Thongke_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

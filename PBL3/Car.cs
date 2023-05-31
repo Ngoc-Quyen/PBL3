@@ -25,6 +25,7 @@ namespace PBL3
         public string NameCar { get; set; }
         public string ColorCar { get; set; }
         public Nullable<int> ChoNgoi { get; set; }
+        public Nullable<int> IdStatus { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Schedule> Schedules { get; set; }

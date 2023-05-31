@@ -44,6 +44,16 @@ namespace PBL3.View
             cbChongoi.DataSource = QLXe1.Instance.GetAllPrice();
             cbChongoi.DisplayMember = "IdLoai";
             cbChongoi.ValueMember = "IdLoai";
+            KeyValuePair<int, string>[] items = new KeyValuePair<int, string>[] 
+            {
+                new KeyValuePair<int, string>(0, "Chưa có đơn"),
+                new KeyValuePair<int, string>(1, "Đang có đơn")
+            };
+            cbIdStatus_car.DataSource = items;
+            cbIdStatus_car.DisplayMember = "Value";
+            cbIdStatus_car.ValueMember = "Key";
+
+
             Reset();
         }
         private void btAddCar_Click(object sender, EventArgs e)
@@ -55,9 +65,17 @@ namespace PBL3.View
 
         private void btDelCar_Click(object sender, EventArgs e)
         {
-            string id = txtCarId.Text;
-            QLXe1.Instance.Delete(id);
-            LoadCar();
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn xóa dữ liệu!", "Xác nhận xóa", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
+                string id = txtCarId.Text;
+                QLXe1.Instance.Delete(id);
+                LoadCar();
+            }
+            //string id = txtCarId.Text;
+            //MessageBox.Show("Bạn có chắc xóa xe!");
+            //QLXe1.Instance.Delete(id);
+            //LoadCar();
         }
 
         private void btEditCar_Click(object sender, EventArgs e)
@@ -80,6 +98,7 @@ namespace PBL3.View
             txtCarColor.Text = "";
             cbChongoi.ResetText();
             txtCarId.ReadOnly = false;
+            cbIdStatus_car.ResetText();
         }
         private void btSearchCar_Click(object sender, EventArgs e)
         {
@@ -97,6 +116,7 @@ namespace PBL3.View
                 txtCarName.Text = selectedRow.Cells["NameCar"].Value.ToString();
                 txtCarColor.Text = selectedRow.Cells["ColorCar"].Value.ToString();
                 cbChongoi.SelectedValue = Convert.ToInt32(selectedRow.Cells["ChoNgoi"].Value.ToString());
+                cbIdStatus_car.SelectedValue = Convert.ToInt32(selectedRow.Cells["IdStatus"].Value.ToString());
             }
         }
 
@@ -132,7 +152,7 @@ namespace PBL3.View
                 car.NameCar = txtCarName.Text;
                 car.ColorCar = txtCarColor.Text;
                 car.ChoNgoi = Convert.ToInt32(cbChongoi.SelectedValue.ToString());
-
+                car.IdStatus = 0;
                 QLXe1.Instance.Add(car);
                 LoadCar();
             }
@@ -143,6 +163,7 @@ namespace PBL3.View
                 car.NameCar = txtCarName.Text;
                 car.ColorCar = txtCarColor.Text;
                 car.ChoNgoi = Convert.ToInt32(cbChongoi.SelectedValue.ToString());
+                car.IdStatus = Convert.ToInt32(cbIdStatus_car.SelectedValue.ToString());
                 QLXe1.Instance.Edit(car);
                 LoadCar();
             }
@@ -167,6 +188,14 @@ namespace PBL3.View
             cbSearchStaff.DataSource = QLTaiXe.Instance.GetAllStaff();
             cbSearchStaff.DisplayMember = "NameStaff";
             cbSearchStaff.ValueMember = "IdStaff";
+            KeyValuePair<int, string>[] items = new KeyValuePair<int, string>[]
+            {
+                new KeyValuePair<int, string>(0, "Chưa có đơn"),
+                new KeyValuePair<int, string>(1, "Đang có đơn")
+            };
+            cbIdStatus_Staff.DataSource = items;
+            cbIdStatus_Staff.DisplayMember = "Value";
+            cbIdStatus_Staff.ValueMember = "Key";
             ResetStaff();
         }
 
@@ -178,9 +207,14 @@ namespace PBL3.View
 
         private void btDelStaff_Click(object sender, EventArgs e)
         {
-            string id = txtStaffID.Text;
-            QLTaiXe.Instance.Delete(id);
-            LoadStaff();
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn xóa dữ liệu!", "Xác nhận xóa", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
+                string id = txtStaffID.Text;
+                QLTaiXe.Instance.Delete(id);
+                LoadStaff();
+            }
+            
         }
 
         private void btEditStaff_Click(object sender, EventArgs e)
@@ -212,6 +246,7 @@ namespace PBL3.View
                 txtStaffName.Text = selectedRow.Cells["NameStaff"].Value.ToString();
                 txtStaffAddress.Text = selectedRow.Cells["AddressStaff"].Value.ToString();
                 txtStaffPhone.Text = selectedRow.Cells["PhoneStaff"].Value.ToString();
+                cbIdStatus_Staff.SelectedValue = Convert.ToInt32(selectedRow.Cells["IdStatus"].Value.ToString());
             }
         }
         void _enableStaff()
@@ -245,6 +280,7 @@ namespace PBL3.View
                 st.NameStaff = txtStaffName.Text;
                 st.AddressStaff = txtStaffAddress.Text;
                 st.PhoneStaff = txtStaffPhone.Text;
+                st.IdStatus = Convert.ToInt32(cbIdStatus_Staff.SelectedValue.ToString());
                 QLTaiXe.Instance.Add(st);
                 LoadStaff();
             }
@@ -255,6 +291,7 @@ namespace PBL3.View
                 st.NameStaff = txtStaffName.Text;
                 st.AddressStaff = txtStaffAddress.Text;
                 st.PhoneStaff = txtStaffPhone.Text;
+                st.IdStatus = Convert.ToInt32(cbIdStatus_Staff.SelectedValue.ToString());
                 QLTaiXe.Instance.Edit(st);
                 LoadStaff();
             }
@@ -275,6 +312,7 @@ namespace PBL3.View
             txtStaffAddress.Text = "";
             txtStaffPhone.Text = "";
             txtStaffID.ReadOnly = false;
+            cbIdStatus_Staff.ResetText();
         }
 
         #endregion
@@ -333,9 +371,14 @@ namespace PBL3.View
 
         private void btDelAccount_Click(object sender, EventArgs e)
         {
-            string id = txtAccountName.Text;
-            QLTaiKhoan.Instance.Delete(id);
-            LoadAccount();
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn xóa dữ liệu!", "Xác nhận xóa", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
+                string id = txtAccountName.Text;
+                QLTaiKhoan.Instance.Delete(id);
+                LoadAccount();
+            }
+            
         }
 
         private void btShowAccount_Click(object sender, EventArgs e)
@@ -428,7 +471,7 @@ namespace PBL3.View
         {
             btSaveSchedule.Visible = false;
             btResetSchedule.Visible = false;
-            btAddSchedule.Visible = true;
+            btAddSchedule.Visible = false;
             btDeleteSchedule.Visible = true;
             btEditSchedule.Visible = true;
             btShowSchedule.Visible = true;
@@ -444,7 +487,7 @@ namespace PBL3.View
             btShowSchedule.Visible = false;
             panelSearchSchedule.Visible = false;
         }
-
+        public static int idDetailed = 0;
         private void dtgvSchedule_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int row = e.RowIndex;
@@ -460,6 +503,7 @@ namespace PBL3.View
                 txtDestination.Text = selectedRow.Cells["Destination"].Value.ToString();
                 int numberValue = Convert.ToInt32(selectedRow.Cells["IdStatus"].Value.ToString());
                 cbStatus.SelectedValue = numberValue;
+                idDetailed = Convert.ToInt32(selectedRow.Cells["IdDetailed"].Value.ToString());
             }
         }
         public void show_combobox()
@@ -551,6 +595,7 @@ namespace PBL3.View
                 _sch.DateLocation = dtLocation.Value;
                 _sch.Destination = txtDestination.Text;
                 _sch.IdStatus = Convert.ToInt32(cbStatus.SelectedValue.ToString());
+                _sch.IdDetailed = idDetailed;
                 QLLichTrinh.Instance.Edit(_sch);
                 LoadSchedule();
             }
@@ -844,6 +889,5 @@ namespace PBL3.View
         }
 
         #endregion
-       
     }
 }

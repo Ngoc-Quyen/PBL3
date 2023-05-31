@@ -71,10 +71,16 @@ namespace PBL3.View
             //_sch.IdStatus = 1;
             Schedule _sch = QLLichTrinh.Instance.GetScheduleById(_idSchedule);
             _sch.IdStatus = 1;
+            Car _car = QLXe1.Instance.GetCarBy(_idCar);
+            _car.IdStatus = 0;
+            Staff _staff = QLTaiXe.Instance.GetStaffBy(_idStaff);
+            _staff.IdStatus = 0;
             if(QLHoaDon.Instance.AddBill(bill))
             {
                 MessageBox.Show("Bạn đã thanh toán thành công!");
                 QLLichTrinh.Instance.Edit(_sch);
+                QLTaiXe.Instance.Edit(_staff);
+                QLXe1.Instance.EditStatus(_car);
                 this.Hide();
             }
             else

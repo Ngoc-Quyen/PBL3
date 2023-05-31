@@ -40,7 +40,7 @@ namespace PBL3.BLL
         }
         public List<CarInfo> getAllCarInfo()
         {
-            var l = db.Cars.Select(s => new CarInfo { IdCar = s.IdCar, NameCar = s.NameCar, ColorCar = s.ColorCar, ChoNgoi = s.ChoNgoi }).ToList();
+            var l = db.Cars.Select(s => new CarInfo { IdCar = s.IdCar, NameCar = s.NameCar, ColorCar = s.ColorCar, ChoNgoi = s.ChoNgoi, IdStatus = s.IdStatus }).ToList();
             return l;
         }    
         public Car GetCarBy(string id)
@@ -51,6 +51,7 @@ namespace PBL3.BLL
         }
         public void Add(Car car)
         {
+           
             try
             {
                 if (Check(car.IdCar))
@@ -74,12 +75,40 @@ namespace PBL3.BLL
         {
             try
             {
-                var _car = db.Cars.Find(car.IdCar);
-                _car.IdCar = car.IdCar;
-                _car.NameCar = car.NameCar;
-                _car.ColorCar = car.ColorCar;
-                _car.ChoNgoi = car.ChoNgoi;
-                db.SaveChanges();
+                if (car.IdStatus == 0)
+                {
+                    var _car = db.Cars.Find(car.IdCar);
+                    _car.IdCar = car.IdCar;
+                    _car.NameCar = car.NameCar;
+                    _car.ColorCar = car.ColorCar;
+                    _car.ChoNgoi = car.ChoNgoi;
+                    _car.IdStatus = car.IdStatus;
+                    db.SaveChanges();
+                }
+                else
+                {
+                    MessageBox.Show("Xe đang có đơn không thể chỉnh sửa!");
+                }   
+                
+            }
+
+            catch (Exception ex)
+            {
+                throw new Exception("Có lỗi xảy ra trong quá trình xử lý dữ liệu: " + ex.Message);
+            }
+        }
+        public void EditStatus(Car car)
+        {
+            try
+            {
+                    var _car = db.Cars.Find(car.IdCar);
+                    _car.IdCar = car.IdCar;
+                    _car.NameCar = car.NameCar;
+                    _car.ColorCar = car.ColorCar;
+                    _car.ChoNgoi = car.ChoNgoi;
+                    _car.IdStatus = car.IdStatus;
+                    db.SaveChanges();
+
             }
 
             catch (Exception ex)
@@ -168,6 +197,11 @@ namespace PBL3.BLL
         public List<Car> GetAllCarByLoai(int id)
         {
             var l = db.Cars.Where(s => s.ChoNgoi == id).Select(s => s).ToList();
+            return l;
+        }
+        public List<Car> GetCarByLoaiAndStatus(int id)
+        {
+            var l = db.Cars.Where(s => s.ChoNgoi == id && s.IdStatus == 0).Select(s => s).ToList();
             return l;
         }
     }
