@@ -178,6 +178,7 @@
             this.txtPassWordOld.Name = "txtPassWordOld";
             this.txtPassWordOld.Size = new System.Drawing.Size(260, 30);
             this.txtPassWordOld.TabIndex = 1;
+            this.txtPassWordOld.UseSystemPasswordChar = true;
             // 
             // label2
             // 
@@ -207,6 +208,7 @@
             this.txtPassWordNew.Name = "txtPassWordNew";
             this.txtPassWordNew.Size = new System.Drawing.Size(260, 30);
             this.txtPassWordNew.TabIndex = 1;
+            this.txtPassWordNew.UseSystemPasswordChar = true;
             // 
             // label3
             // 
